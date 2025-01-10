@@ -15,7 +15,8 @@
           "MySql.Data": "9.1.0",
           "MySql.Data.EntityFrameworkCore": "8.0.22",
           "MySql.EntityFrameworkCore": "8.0.8",
-          "Pomelo.EntityFrameworkCore.MySql": "9.0.0-preview.2.efcore.9.0.0"
+          "Pomelo.EntityFrameworkCore.MySql": "9.0.0-preview.2.efcore.9.0.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "7.2.0"
         },
         "runtime": {
           "Portaria.dll": {}
@@ -618,6 +619,14 @@
           }
         }
       },
+      "Swashbuckle.AspNetCore.SwaggerUI/7.2.0": {
+        "runtime": {
+          "lib/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
+            "assemblyVersion": "7.2.0.0",
+            "fileVersion": "7.2.0.956"
+          }
+        }
+      },
       "System.Buffers/4.5.1": {},
       "System.CodeDom/6.0.0": {
         "runtime": {
@@ -1102,6 +1111,13 @@
       "sha512": "sha512-Gf1L9hdJFW3zPw1CWqgkBLLxySAPzRKeWXFwm7YFxzgPQvM4ISkR8ZFGlVYWAxfd0oYxnXRulu+WVgt0jdHQ5Q==",
       "path": "pomelo.entityframeworkcore.mysql/9.0.0-preview.2.efcore.9.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.9.0.0-preview.2.efcore.9.0.0.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/7.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hgrXeKzyp5OGN8qVvL7A+vhmU7mDJTfGpiMBRL66IcfLOyna8UTLtn3cC3CghamXpRDufcc9ciklTszUGEQK0w==",
+      "path": "swashbuckle.aspnetcore.swaggerui/7.2.0",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.7.2.0.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

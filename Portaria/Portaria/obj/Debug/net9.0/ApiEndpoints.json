@@ -1,5 +1,63 @@
 [
   {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "GetFuncionario",
+    "RelativePath": "api/Funcionario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "PostFuncionario",
+    "RelativePath": "api/Funcionario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "funcionario",
+        "Type": "Portaria.Models.Funcionario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "PutFuncionario",
+    "RelativePath": "api/Funcionario",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "funcionario",
+        "Type": "Portaria.Models.Funcionario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "DeleteFuncionario",
+    "RelativePath": "api/Funcionario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

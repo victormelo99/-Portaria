@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l3mpqKYQ9OU=",
+  "dgSpecHash": "J28Z3JuTfww=",
   "success": true,
   "projectFilePath": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Portaria.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\victor.melo\\.nuget\\packages\\mysql.entityframeworkcore\\8.0.8\\mysql.entityframeworkcore.8.0.8.nupkg.sha512",
     "C:\\Users\\victor.melo\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512",
     "C:\\Users\\victor.melo\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\9.0.0-preview.2.efcore.9.0.0\\pomelo.entityframeworkcore.mysql.9.0.0-preview.2.efcore.9.0.0.nupkg.sha512",
+    "C:\\Users\\victor.melo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\7.2.0\\swashbuckle.aspnetcore.swaggerui.7.2.0.nupkg.sha512",
     "C:\\Users\\victor.melo\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\victor.melo\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\victor.melo\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
