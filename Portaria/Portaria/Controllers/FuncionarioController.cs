@@ -52,7 +52,7 @@ namespace Portaria.Controllers
         {
             try
             {
-                var cadastro = _context.Update(funcionario);
+                var atualizar = _context.Update(funcionario);
                 var resultado = await _context.SaveChangesAsync();
                 return Ok("Dado (s) do funcionário atualizado (s)");
             }
@@ -73,11 +73,11 @@ namespace Portaria.Controllers
                 {
                     var delete = _context.Pessoa.Remove(pessoa);
                     var resultado = await _context.SaveChangesAsync();
-                    return Ok("Usuário Removido");
+                    return Ok("Funcionário Removido");
                 }
                 else
                 {
-                    return NotFound("Usuário não encontrado");
+                    return NotFound("Funcionário não encontrado");
                 }
                 
             }
@@ -86,6 +86,29 @@ namespace Portaria.Controllers
                 return BadRequest($"Erro na hora de remover o funcionário. Exceção{e.Message}");
 
             }
+        }
+
+        //méthod para buscar funcionário pelo seu id
+        [HttpGet("{id}")]
+        public async Task<ActionResult> ProcurarFuncionario([FromRoute] int id)
+        {
+            Funcionario funcionario = await _context.Funcionario.FindAsync(id);
+            try
+            {
+                if (funcionario != null)
+                {
+                    return Ok(funcionario);
+                }
+                else
+                {
+                    return NotFound("funcionario não encontrado");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o funcionario. Exceção: {e.Message}");
+            }
+
         }
     }
 }

@@ -58,6 +58,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "GetVisitante",
+    "RelativePath": "api/Visitante",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "PostVisitante",
+    "RelativePath": "api/Visitante",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "visitante",
+        "Type": "Portaria.Models.Visitante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "PutVisitante",
+    "RelativePath": "api/Visitante",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "visitante",
+        "Type": "Portaria.Models.Visitante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "DeleteVisitante",
+    "RelativePath": "api/Visitante/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "ProcurarVisitante",
+    "RelativePath": "api/Visitante/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
