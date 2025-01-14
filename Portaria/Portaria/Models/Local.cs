@@ -9,19 +9,18 @@ namespace Portaria.Models
         
         [Required(ErrorMessage = "O campo nome é obrigatório")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
-        public string Name { get; set; }
+        public string Nome { get; set; }
 
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
         public string Descricao { get; set; }
 
         public Local()
         {
         }
 
-        public Local(int id, string name, string descricao)
+        public Local(int id, string nome, string descricao)
         {
             Id = id;
-            Name = name;
+            Nome = nome;
             Descricao = descricao;
         }
     }

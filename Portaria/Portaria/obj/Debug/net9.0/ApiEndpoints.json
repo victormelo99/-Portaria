@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "GetAcesso",
+    "RelativePath": "api/Acesso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "PostFuncionario",
+    "RelativePath": "api/Acesso",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acesso",
+        "Type": "Portaria.Models.Acesso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "PutFuncionario",
+    "RelativePath": "api/Acesso",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acesso",
+        "Type": "Portaria.Models.Acesso",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "DeleteFuncionario",
+    "RelativePath": "api/Acesso/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "ProcurarFuncionario",
+    "RelativePath": "api/Acesso/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.FuncionarioController",
     "Method": "GetFuncionario",
     "RelativePath": "api/Funcionario",
@@ -46,6 +120,244 @@
     "Method": "DeleteFuncionario",
     "RelativePath": "api/Funcionario/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "ProcurarFuncionario",
+    "RelativePath": "api/Funcionario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "GetLocal",
+    "RelativePath": "api/Local",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "PostLocal",
+    "RelativePath": "api/Local",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "local",
+        "Type": "Portaria.Models.Local",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "PutLocal",
+    "RelativePath": "api/Local",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "local",
+        "Type": "Portaria.Models.Local",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "DeleteLocal",
+    "RelativePath": "api/Local/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "ProcurarTerceiro",
+    "RelativePath": "api/Local/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "GetTerceiro",
+    "RelativePath": "api/Terceiro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "PostTerceiro",
+    "RelativePath": "api/Terceiro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "terceiro",
+        "Type": "Portaria.Models.Terceiro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "PutTerceiro",
+    "RelativePath": "api/Terceiro",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "terceiro",
+        "Type": "Portaria.Models.Terceiro",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "DeleteTerceiro",
+    "RelativePath": "api/Terceiro/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "ProcurarTerceiro",
+    "RelativePath": "api/Terceiro/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "GetVeiculos",
+    "RelativePath": "api/Veiculo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "PostVeiculo",
+    "RelativePath": "api/Veiculo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "veiculo",
+        "Type": "Portaria.Models.Veiculo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "PutFuncionario",
+    "RelativePath": "api/Veiculo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "veiculo",
+        "Type": "Portaria.Models.Veiculo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "DeleteFuncionario",
+    "RelativePath": "api/Veiculo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "ProcurarFuncionario",
+    "RelativePath": "api/Veiculo/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

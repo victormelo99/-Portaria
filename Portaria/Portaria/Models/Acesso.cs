@@ -13,29 +13,26 @@ namespace Portaria.Models
         
         public DateTime HoraSaida { get; set; }
 
-        [Required(ErrorMessage = "O campo local é obrigatório")]
-        public string Local { get; set; } // Local de acesso.
+        [ForeignKey("Local")]
+        public int LocalId { get; set; } // Local de acesso.
 
-        public string Autorizacao { get; set; } // Pessoa que autorizou o acesso.
+        public string? Autorizacao { get; set; } // Pessoa que autorizou o acesso.
 
         [ForeignKey("Veiculo")]
         public int VeiculoId { get; set; }
-        public Veiculo Veiculo { get; set; }
 
         [ForeignKey("Pessoa")]
-        public int PessoaId { get; set; }
-        public Pessoa Pessoa { get; set; }
-        
+        public int PessoaId { get; set; }        
         public Acesso()
         {
         }
 
-        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, string local, string autorizacao, int veiculoId, int pessoaId)
+        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, int localId, string autorizacao, int veiculoId, int pessoaId)
         {
             Id = id;
             HoraEntrada = horaEntrada;
             HoraSaida = horaSaida;
-            Local = local;
+            LocalId = localId;
             Autorizacao = autorizacao;
             VeiculoId = veiculoId;
             PessoaId = pessoaId;

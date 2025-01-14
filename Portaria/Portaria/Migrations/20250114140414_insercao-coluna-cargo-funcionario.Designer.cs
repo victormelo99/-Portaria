@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portaria.Data;
 
@@ -11,9 +12,11 @@ using Portaria.Data;
 namespace Portaria.Migrations
 {
     [DbContext(typeof(PortariaDbContext))]
-    partial class PortariaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250114140414_insercao-coluna-cargo-funcionario")]
+    partial class insercaocolunacargofuncionario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace Portaria.Migrations
                     b.Property<DateTime>("HoraSaida")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("LocalId")
+                    b.Property<string>("Local")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -51,6 +54,10 @@ namespace Portaria.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PessoaId");
+
+                    b.HasIndex("VeiculoId");
 
                     b.ToTable("Acesso");
                 });
@@ -191,6 +198,25 @@ namespace Portaria.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.ToTable("Visitante", (string)null);
+                });
+
+            modelBuilder.Entity("Portaria.Models.Acesso", b =>
+                {
+                    b.HasOne("Portaria.Models.Pessoa", "Pessoa")
+                        .WithMany()
+                        .HasForeignKey("PessoaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portaria.Models.Veiculo", "Veiculo")
+                        .WithMany()
+                        .HasForeignKey("VeiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pessoa");
+
+                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("Portaria.Models.Funcionario", b =>
