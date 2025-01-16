@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Portaria.Data;
 using Portaria.Models;
@@ -7,6 +8,7 @@ namespace Portaria.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class  TerceiroController : Controller
     {
         private readonly PortariaDbContext _context;
@@ -17,6 +19,7 @@ namespace Portaria.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> GetTerceiro()
         {
             try
@@ -32,6 +35,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PostTerceiro([FromBody] Terceiro terceiro)
         {
             try
@@ -48,6 +52,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutTerceiro([FromBody] Terceiro terceiro)
         {
             try
@@ -64,6 +69,7 @@ namespace Portaria.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "TI")]
         public async Task<ActionResult> DeleteTerceiro([FromRoute] int id)
         {
             Pessoa pessoa = await _context.Pessoa.FindAsync(id);
@@ -88,8 +94,9 @@ namespace Portaria.Controllers
             }
         }
 
-        //méthod para buscar funcionário pelo seu id
+        //méthod para buscar Terceiro pelo seu id
         [HttpGet("{id}")]
+        [Authorize(Roles = "TI")]
         public async Task<ActionResult> ProcurarTerceiro([FromRoute] int id)
         {
             Terceiro terceiro = await _context.Terceiro.FindAsync(id);

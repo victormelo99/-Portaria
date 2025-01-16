@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Portaria.Data;
 using Portaria.Models;
@@ -7,6 +8,7 @@ namespace Portaria.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class VisitanteController : Controller
     {
         private readonly PortariaDbContext _context;

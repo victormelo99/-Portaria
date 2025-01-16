@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Portaria.Data;
 using Portaria.Models;
@@ -7,6 +8,8 @@ namespace Portaria.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
+
     public class AcessoController : Controller
     {
         private readonly PortariaDbContext _context;
@@ -17,6 +20,8 @@ namespace Portaria.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "TI,PORTARIA")]
+
         public async Task<ActionResult> GetAcesso()
         {
             try
@@ -32,7 +37,8 @@ namespace Portaria.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> PostFuncionario([FromBody] Acesso acesso)
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> PostAcesso([FromBody] Acesso acesso)
         {
             try
             {
@@ -48,7 +54,8 @@ namespace Portaria.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> PutFuncionario([FromBody] Acesso acesso)
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> PutAcesso([FromBody] Acesso acesso)
         {
             try
             {
@@ -64,7 +71,8 @@ namespace Portaria.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteFuncionario([FromRoute] int id)
+        [Authorize(Roles = "TI")]
+        public async Task<ActionResult> DeleteAcesso([FromRoute] int id)
         {
             Acesso acesso = await _context.Acesso.FindAsync(id);
             try
@@ -88,9 +96,10 @@ namespace Portaria.Controllers
             }
         }
 
-        //méthod para buscar funcionário pelo seu id
+        //méthod para buscar Acesso pelo seu id
         [HttpGet("{id}")]
-        public async Task<ActionResult> ProcurarFuncionario([FromRoute] int id)
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarACesso([FromRoute] int id)
         {
             Acesso acesso = await _context.Acesso.FindAsync(id);
             try

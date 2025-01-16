@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Portaria.Data;
 using Portaria.Models;
+using Portaria.Services;
 
 namespace Portaria.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class FuncionarioController : Controller
     {
         private readonly PortariaDbContext _context;
@@ -17,6 +20,7 @@ namespace Portaria.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> GetFuncionario()
         {
             try
@@ -32,6 +36,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PostFuncionario([FromBody] Funcionario funcionario)
         {
             try
@@ -48,6 +53,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutFuncionario([FromBody] Funcionario funcionario)
         {
             try
@@ -64,6 +70,7 @@ namespace Portaria.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "TI")]
         public async Task<ActionResult> DeleteFuncionario([FromRoute] int id)
         {
             Pessoa pessoa = await _context.Pessoa.FindAsync(id);
@@ -90,6 +97,7 @@ namespace Portaria.Controllers
 
         //méthod para buscar funcionário pelo seu id
         [HttpGet("{id}")]
+        [Authorize(Roles = "TI")]
         public async Task<ActionResult> ProcurarFuncionario([FromRoute] int id)
         {
             Funcionario funcionario = await _context.Funcionario.FindAsync(id);

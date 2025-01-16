@@ -13,15 +13,11 @@ namespace Portaria.Models
 
         public Status Status { get; set; }
         
-        [Required(ErrorMessage = "O campo Cargo é obrigatório")]
-        public string Cargo { get; set; }
-
-        public Funcionario(int id, string nome, int matricula, DateTime dataAdmissao, DateTime dataDesligamento, string cargo) : base (id, nome)
+        public Funcionario(int id, string nome, int matricula, DateTime dataAdmissao, DateTime dataDesligamento) : base (id, nome)
         {
             Matricula = matricula;
             DataAdmissao = dataAdmissao;
             DataDesligamento = dataDesligamento;
-            Cargo = cargo;
         }
     }
 }

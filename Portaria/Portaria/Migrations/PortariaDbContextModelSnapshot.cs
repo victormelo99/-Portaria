@@ -17,7 +17,7 @@ namespace Portaria.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -31,7 +31,6 @@ namespace Portaria.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Autorizacao")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("HoraEntrada")
@@ -40,9 +39,8 @@ namespace Portaria.Migrations
                     b.Property<DateTime>("HoraSaida")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("LocalId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("LocalId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PessoaId")
                         .HasColumnType("int");
@@ -97,6 +95,37 @@ namespace Portaria.Migrations
                     b.UseTptMappingStrategy();
                 });
 
+            modelBuilder.Entity("Portaria.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cargo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
+                });
+
             modelBuilder.Entity("Portaria.Models.Veiculo", b =>
                 {
                     b.Property<int>("Id")
@@ -134,10 +163,6 @@ namespace Portaria.Migrations
             modelBuilder.Entity("Portaria.Models.Funcionario", b =>
                 {
                     b.HasBaseType("Portaria.Models.Pessoa");
-
-                    b.Property<string>("Cargo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("DataAdmissao")
                         .HasColumnType("datetime(6)");

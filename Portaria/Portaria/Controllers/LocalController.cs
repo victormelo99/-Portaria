@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Portaria.Data;
 using Portaria.Models;
@@ -7,6 +8,7 @@ namespace Portaria.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class LocalController : Controller
     {
         private readonly PortariaDbContext _context;
@@ -17,6 +19,7 @@ namespace Portaria.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> GetLocal()
         {
             try
@@ -32,6 +35,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PostLocal([FromBody] Local local)
         {
             try
@@ -48,6 +52,7 @@ namespace Portaria.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutLocal([FromBody] Local local)
         {
             try
@@ -64,6 +69,7 @@ namespace Portaria.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "TI")]
         public async Task<ActionResult> DeleteLocal([FromRoute] int id)
         {
             Local local = await _context.Local.FindAsync(id);
@@ -88,9 +94,10 @@ namespace Portaria.Controllers
             }
         }
 
-        //méthod para buscar funcionário pelo seu id
+        //méthod para buscar Local pelo seu id
         [HttpGet("{id}")]
-        public async Task<ActionResult> ProcurarTerceiro([FromRoute] int id)
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarLocal([FromRoute] int id)
         {
             Local local = await _context.Local.FindAsync(id);
             try

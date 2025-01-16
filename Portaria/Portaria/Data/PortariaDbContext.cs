@@ -14,7 +14,7 @@ namespace Portaria.Data
         public DbSet<Veiculo> Veiculo { get; set; }
         public DbSet<Acesso> Acesso { get; set; }
         public DbSet<Local> Local { get; set; }
-
+        public DbSet<Usuario> Usuario { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pessoa>()
