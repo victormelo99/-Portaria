@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\services\\usuariologinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\services\\usuariologinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\migrations\\20250116164419_mudanca-classe-usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\migrations\\20250116164419_mudanca-classe-usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\wwwroot\\frontend\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|solutionrelative:portaria\\wwwroot\\frontend\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7BB740A4-59FC-4C97-BF13-D59771A895D3}|Portaria\\Portaria.csproj|c:\\users\\victor.melo\\documents\\-portaria\\portaria\\portaria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,84 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20250116164419_mudanca-classe-usuario.cs",
-              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Migrations\\20250116164419_mudanca-classe-usuario.cs",
-              "RelativeDocumentMoniker": "Portaria\\Migrations\\20250116164419_mudanca-classe-usuario.cs",
-              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Migrations\\20250116164419_mudanca-classe-usuario.cs",
-              "RelativeToolTip": "Portaria\\Migrations\\20250116164419_mudanca-classe-usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T16:44:20.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Portaria\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Models\\Usuario.cs",
-              "RelativeToolTip": "Portaria\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAADwvxMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T16:27:18.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\appsettings.json",
-              "RelativeDocumentMoniker": "Portaria\\appsettings.json",
-              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\appsettings.json",
-              "RelativeToolTip": "Portaria\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-16T16:10:28.265Z",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\index.html",
+              "RelativeDocumentMoniker": "Portaria\\wwwroot\\FrontEnd\\index.html",
+              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\index.html",
+              "RelativeToolTip": "Portaria\\wwwroot\\FrontEnd\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-21T14:43:18.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "Portaria\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "Portaria\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAowGYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T12:42:05.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioLoginService.cs",
-              "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Services\\UsuarioLoginService.cs",
-              "RelativeDocumentMoniker": "Portaria\\Services\\UsuarioLoginService.cs",
-              "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Services\\UsuarioLoginService.cs",
-              "RelativeToolTip": "Portaria\\Services\\UsuarioLoginService.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAgwDkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-14T16:28:19.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Program.cs",
               "RelativeDocumentMoniker": "Portaria\\Program.cs",
               "ToolTip": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\Program.cs",
               "RelativeToolTip": "Portaria\\Program.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwFUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T13:23:37.237Z",
+              "WhenOpened": "2025-01-21T14:36:03.726Z",
               "EditorCaption": ""
             }
           ]

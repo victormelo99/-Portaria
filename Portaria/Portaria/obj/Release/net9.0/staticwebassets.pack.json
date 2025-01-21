@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AreaCAdastro.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AreaCAdastro.css"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\style.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\areaCadastro.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\areaCadastro.html"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\jquery-3.7.1.min.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\jquery-3.7.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\popper.min.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\script.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\img\\LogoFullGLobo.svg",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\img\\LogoFullGLobo.svg"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\img\\LogoSmall.svg",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\img\\LogoSmall.svg"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\img\\imagemTelaCadastro.svg",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\img\\imagemTelaCadastro.svg"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\img\\logoCadastro.svg",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\img\\logoCadastro.svg"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\index.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\index.html"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.Portaria.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.Portaria.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.build.Portaria.props",
+      "PackagePath": "build\\Portaria.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Portaria.props",
+      "PackagePath": "buildMultiTargeting\\Portaria.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildTransitive.Portaria.props",
+      "PackagePath": "buildTransitive\\Portaria.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
