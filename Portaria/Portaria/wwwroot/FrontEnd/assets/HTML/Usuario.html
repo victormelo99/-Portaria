@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Usuario.css">
+    <title>Portaria</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <button id="salvar">Salvar</button>
+                <button id="alterar">Alterar</button>
+                <button id="cadastrar">Cadastrar</button>
+                <input type="text" placeholder="Pesquisar Usuario" id="text">
+                <button id="Pesquisar">Pesquisar</button>
+            </nav>
+            <button id="sair">Sair</button>
+        </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="resultado">
+                <table class="table">
+                    <thead class="cabecalho">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Login</th>
+                            <th>Senha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <tr id="tr">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <nav class="navFooter">
+                <button id="ultimaPaginaBefore">Primeira Página</button>
+                <button id="alterar">Anterior</button>
+                <button id="cadastrar">Próximo</button>
+                <button id="ultimaPaginaNext">Ultima Página</button>
+            </nav>
+            <button id="deletar">Deletar</button>
+        </div>
+    </footer>
+    <script src="../JS/script.js"></script>
+</body>
+</html>

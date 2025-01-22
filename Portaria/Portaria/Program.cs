@@ -51,7 +51,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllowAll", 
         policy =>
         {
-            policy.WithOrigins(" https://localhost:7063", "http://localhost:5118", "https://localhost:7063/swagger/index.html")
+            policy.WithOrigins("https://localhost:7063","http://localhost:5118","https://localhost:7063/swagger/index.html")
                   .AllowAnyMethod()
                   .AllowAnyHeader();
         });
@@ -67,9 +67,10 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/openapi/v1.json", "weather api"));
 }
 
+var webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "FrontEnd");
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(@"C:\Users\PC\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd"),
+    FileProvider = new PhysicalFileProvider(webRootPath),
     RequestPath = "/frontend"
 });
 
