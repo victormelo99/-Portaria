@@ -31,12 +31,12 @@ namespace Portaria.Controllers
             
             if (usuario == null)
             {
-                return NotFound("Usuario inválido");
+                return NotFound("Usuario ou inválido");
             }
 
             if (!_service.VerificarSenha(usuarioLogin.Senha, usuario.Senha))
             {
-                return BadRequest("Senha inválida.");
+                return BadRequest(new { message = "Senha inválida." });
             }
 
             var token = _service.GerarToken(usuario);

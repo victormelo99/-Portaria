@@ -1,27 +1,34 @@
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', async function (evento) {
+    evento.preventDefault();
 
     const usuario = document.getElementById('usuario').value;
     const senha = document.getElementById('senha').value;
 
     try {
-        const response = await fetch('https://localhost/Portaria/api/Usuario/Login', {
+        const response = await fetch('https://localhost:7063/api/Usuario/Login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ login: usuario, senha: senha }), 
-            credentials: 'include'
+            body: JSON.stringify({ login: usuario, senha: senha }),
         });
 
-        const data = await response.json();
+        let message;
 
+        const body = await response.text(); 
         if (response.ok) {
+            const data = JSON.parse(body);
             localStorage.setItem('token', data.Token);
             document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
-            console.log('Token recebido:', data.Token);
+            window.location.href = '/frontend/assets/HTML/areaCadastro.html';
         } else {
-            document.getElementById('mensagem').innerText = data || 'Erro ao fazer login.';
+            try {
+                const errorData = JSON.parse(body);
+                message = errorData.message || 'Erro desconhecido.';
+            } catch {
+                message = body;
+            }
+            document.getElementById('mensagem').innerText = message;
         }
     } catch (error) {
         console.error('Erro:', error);
