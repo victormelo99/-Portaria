@@ -32,11 +32,11 @@ nav{
     display: flex;
     width: 50%;
     height: 100%;
+    gap: 20px;
     align-items: center;
 }
 
 .container nav button, #sair, #deletar{
-    flex: 1;
     height: 100%;
     text-align: center;
     border: none;
@@ -47,22 +47,14 @@ nav{
     cursor: pointer;
 }
 
-#sair,#deletar{
-    flex: none;
-    width: 5%;
-}
-.container nav button:last-child {
-    margin-left: 2%;
-}
-
 nav button:hover, #sair:hover, #deletar:hover {
-    background-color: #574a455b;
-  }
+    color: #777777;
+}
 
 .container nav input{
     width: 50%;
     height: 100%;
-    border: none;
+    border: 1px solid #e84d14dc;
     margin-left: 2%;
     padding-left: 10px;
     background-color: #fff;
@@ -76,9 +68,6 @@ nav button:hover, #sair:hover, #deletar:hover {
     outline: none; 
     background-color: #f1f1f1;
 }
-
-
-
 
 /*AREA RESULTADOS*/
 

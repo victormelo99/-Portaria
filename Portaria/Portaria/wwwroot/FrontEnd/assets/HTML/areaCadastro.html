@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portaria</title>
-    <link rel="stylesheet" href="../CSS/AreaCAdastro.css">
+    <link rel="stylesheet" href="../CSS/AreaCadastro.css">
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
                 <ul>
-                    <li><a href="">Pessoas</a></li>
-                    <li><a href="Usuario.html" target="_blank">Usuário</a></li>
-                    <li><a href="">Local</a></li>                    
-                    <li><a href="">Veiculos</a></li>
-                    <li><a href="">Acesso</a></li>
-                    <li><a href="">Entrada</a></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Pessoas.html')">Pessoas</button></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Usuario.html')">Usuário</button></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Local.html')">Local</button></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Veiculos.html')">Veículos</button></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Acesso.html')">Acesso</button></li>
+                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Entrada.html')">Entrada</button></li>
                 </ul>
             </nav>
             <div class="relatorio">
@@ -25,8 +27,9 @@
         </div>
     </header>
     <main>
-        <img src="../img/LogoFullGLobo.svg" alt="">
+    <img src="../img/LogoFullGLobo.svg">
     </main>
     <script src="../JS/script.js"></script>
 </body>
+
 </html>

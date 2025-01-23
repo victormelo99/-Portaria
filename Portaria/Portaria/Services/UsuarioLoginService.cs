@@ -28,12 +28,11 @@ namespace Portaria.Services
             var Desencriptar = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(
-                        new Claim[]
-                        {
+                        [
                             new Claim(ClaimTypes.Name, usuario.Login.ToString()),
                             new Claim(ClaimTypes.Role, usuario.Cargo.ToString()),
 
-                        }
+                        ]
                  ),
                 Expires = DateTime.UtcNow.AddHours(12),
                 SigningCredentials = new SigningCredentials(

@@ -19,52 +19,62 @@ header {
   align-content: center;
 }
 
-header .container{
-    justify-content: space-between;
+header .container {
+  justify-content: space-between;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    width: 35%;
-    align-content: center;
-    justify-content: space-between;
-  }
-  
-  nav ul {
-    display: flex;
-    padding: 10px;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  width: 35%;
+  align-content: center;
+  justify-content: space-between;
 }
-  
-  nav ul li {
-    flex: 1;
-    list-style-type: none; 
-  }
-  
-  nav li a, .relatorio a {
-    font-size: 20px;
-    color: #fff;
-  }
+
+nav ul {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  flex: 1;
+  list-style-type: none;
+}
+
+.botaoAreaCadastro {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.botaoAreaCadastro:hover {
+  color: #777777;
+}
+
+.botaoAreaCadastro,
+.relatorio a {
+  font-size: 20px;
+  color: #fff;
+}
 
 .relatorio {
-    display: flex;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 
-  main {
-    display: flex;
-    height: 90vh;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-  }
+main {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 
-  main img{
-    width: 50%;
-    height: 50%;
-  }
-
+main img {
+  width: 50%;
+  height: 50%;
+}

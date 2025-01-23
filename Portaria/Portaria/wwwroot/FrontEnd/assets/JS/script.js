@@ -1,8 +1,7 @@
-
-//AREA LOGIN
+// AREA LOGIN
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
-    if (loginForm) { 
+    if (loginForm) {
         loginForm.addEventListener('submit', async function (evento) {
             evento.preventDefault();
 
@@ -18,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify({ login: usuario, senha: senha }),
                 });
 
+                const body = await response.text();
                 let message;
 
-                const body = await response.text(); 
                 if (response.ok) {
                     const data = JSON.parse(body);
-                    localStorage.setItem('token', data.Token);
+                    localStorage.setItem('token', data.token);
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
                     window.location.href = '/frontend/assets/HTML/areaCadastro.html';
                 } else {
@@ -42,7 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-//AREA LISTAGEM DE USUÁRIOS
+//AUTENTICAÇÃO PARA ABRIR PAGINAS COM TOKEN
+function abrirPagina(pagina) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        window.open(`/Frontend/assets/HTML/${pagina}`, '_blank');
+    } else {
+        const mensagem = document.getElementById('mensagem');
+        mensagem.innerText = 'Você precisa estar autenticado para acessar esta página!';
+    }
+}
+// AREA LISTAGEM DE USUÁRIOS
 
 async function preencherTabela() {
     console.log("Função preencherTabela chamada");
@@ -50,7 +60,6 @@ async function preencherTabela() {
     const url = 'https://localhost:7063/api/Usuario';
     const token = localStorage.getItem('token');
 
-    console.log('Token encontrado:', token);  
     if (!token) {
         console.error('Token não encontrado no LocalStorage.');
         return;
@@ -65,9 +74,6 @@ async function preencherTabela() {
             },
         });
 
-        console.log("Resposta da API:", response);  
-
-
         if (!response.ok) {
             const errorMessage = await response.text();
             console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
@@ -75,24 +81,19 @@ async function preencherTabela() {
         }
 
         const usuarios = await response.json();
-        console.log("Usuários retornados da API:", usuarios); 
 
         const tbody = document.getElementById('tbody');
-        console.log("Tabela encontrada:", tbody); 
-        tbody.innerHTML = ''; 
+        tbody.innerHTML = '';
 
         usuarios.forEach((usuario) => {
             const tr = document.createElement('tr');
 
             const tdId = document.createElement('td');
             tdId.textContent = usuario.id;
-
             const tdNome = document.createElement('td');
             tdNome.textContent = usuario.nome;
-
             const tdCargo = document.createElement('td');
             tdCargo.textContent = usuario.cargo;
-
             const tdLogin = document.createElement('td');
             tdLogin.textContent = usuario.login;
 
@@ -108,9 +109,26 @@ async function preencherTabela() {
             tbody.appendChild(tr);
         });
 
-        console.log("Tabela preenchida:", tbody); 
+        console.log("Tabela preenchida:", tbody);
 
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    preencherTabela();
+});
+
+//AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DE USUARIO
+
+function abrirlinksUsuario(pagina) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        window.location.href = `/frontend//assets/HTML/${pagina}`;
+    } else {
+        const mensagem = document.getElementById('mensagem');
+        mensagem.innerText = 'Você precisa estar autenticado para acessar esta página!';
     }
 }
