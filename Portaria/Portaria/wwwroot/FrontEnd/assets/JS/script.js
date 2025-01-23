@@ -55,15 +55,9 @@ function abrirPagina(pagina) {
 // AREA LISTAGEM DE USUÁRIOS
 
 async function preencherTabela() {
-    console.log("Função preencherTabela chamada");
 
     const url = 'https://localhost:7063/api/Usuario';
     const token = localStorage.getItem('token');
-
-    if (!token) {
-        console.error('Token não encontrado no LocalStorage.');
-        return;
-    }
 
     try {
         const response = await fetch(url, {
@@ -109,8 +103,6 @@ async function preencherTabela() {
             tbody.appendChild(tr);
         });
 
-        console.log("Tabela preenchida:", tbody);
-
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
@@ -125,10 +117,77 @@ document.addEventListener('DOMContentLoaded', function () {
 function abrirlinksUsuario(pagina) {
     const token = localStorage.getItem('token');
 
-    if (token) {
-        window.location.href = `/frontend//assets/HTML/${pagina}`;
-    } else {
-        const mensagem = document.getElementById('mensagem');
-        mensagem.innerText = 'Você precisa estar autenticado para acessar esta página!';
-    }
+    return window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
 }
+
+//FUNCIONAMENTO BOTÃO CADASTRAR AREA USUARIO
+
+const opcoes = document.getElementById('opcoes');
+
+opcoes.addEventListener('click', (evento) => {
+    if (evento.target.id === 'salvar' || evento.target.id === 'salvarS') {
+        const nome = document.getElementById('nome').value.toUpperCase();
+        const login = document.getElementById('login').value;
+        const cargo = document.getElementById('cargo').value.toUpperCase();
+        const senha = document.getElementById('senha').value;
+        const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+        if (nome === '' || login === '' || cargo === '' || senha === '' || confirmarSenha === '') {
+            alert('Por favor, preencha todos os campos!');
+            return;
+        }
+
+        if (senha.length < 8 || senha.length > 16 || confirmarSenha.length < 8 || confirmarSenha.length > 16) {
+            alert('A senha deve ter entre 8 e 16 caracteres!');
+            return;
+        }
+
+        if (senha !== confirmarSenha) {
+            alert('campo senha e confirmar senha estão diferentes um do outro');
+            return;
+        }
+
+        enviarDados(nome, login, cargo, senha, evento.target.id);
+    } else if (evento.target.id === 'sair') {
+        fecharAba();
+    }
+});
+
+async function enviarDados(nome, login, cargo, senha, botaoId) {
+    const url = 'https://localhost:7063/api/Usuario';
+    const token = localStorage.getItem('token');
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ nome, login, cargo, senha }),
+        });
+
+        if (response.ok) {
+            document.querySelectorAll('input').forEach(input => input.value = '');
+
+            if (botaoId === 'salvarS') {
+                fecharAba();
+            }
+        } else {
+            console.error('Erro ao salvar os dados do usuário:', response.status);
+        }
+    } catch (error) {
+        console.error('Erro ao enviar dados para a API:', error);
+    }
+};
+
+const sair = document.getElementById('sair');
+
+sair.addEventListener('click', fecharAba);
+
+function fecharAba() {
+    window.close();
+}
+
+//FUNCIONAMENTO BOTÃO ALTERAR AREA USUARIO
+
