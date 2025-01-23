@@ -100,6 +100,8 @@ async function preencherTabela() {
             tr.appendChild(tdLogin);
             tr.appendChild(tdSenha);
 
+            tr.addEventListener('click', function () {selecionarLinha(this);});
+
             tbody.appendChild(tr);
         });
 
@@ -108,14 +110,17 @@ async function preencherTabela() {
     }
 }
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
 });
 
+
 //AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DE USUARIO
 
 function abrirlinksUsuario(pagina) {
-    const token = localStorage.getItem('token');
+    //const token = localStorage.getItem('token');
 
     return window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
 }
@@ -189,5 +194,115 @@ function fecharAba() {
     window.close();
 }
 
-//FUNCIONAMENTO BOTÃO ALTERAR AREA USUARIO
+//FUNCIONAMENTO AREA ALTERAR USUARIO
 
+function selecionarLinha(linha) {
+    const linhas = document.querySelectorAll('#tbody tr');
+    linhas.forEach((tr) => tr.classList.remove('selecionado'));
+
+    linha.classList.add('selecionado');
+
+    const idUsuario = linha.cells[0].textContent;
+    localStorage.setItem('idUsuarioSelecionado', idUsuario); 
+
+    const botaoAlterar = document.getElementById('alterar');
+    botaoAlterar.disabled = false;
+
+    preencherFormulario(); 
+}
+
+function desmarcarTabela(e) {
+    const tabelaIn = e.target.closest('#tbody tr');
+    if (!tabelaIn) {
+        const botaoAlterar = document.getElementById('alterar');
+        botaoAlterar.disabled = true;
+
+        document.querySelectorAll('#tbody tr').forEach((tr) => {
+            tr.classList.remove('selecionado');
+        });
+    }
+}
+
+async function preencherFormulario() {
+    const idUsuario = localStorage.getItem('idUsuarioSelecionado'); // Recuperar ID
+    
+    if (!idUsuario) {
+        console.error('Nenhum usuário selecionado para alteração.');
+        return;
+    }
+
+    const url = `https://localhost:7063/api/Usuario/${idUsuario}`; // URL para buscar os dados do usuário
+    const token = localStorage.getItem('token');
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
+            return;
+        }
+
+        const usuario = await response.json();
+
+        // Preencher o formulário com os dados do usuário
+        document.getElementById('nome').value = usuario.nome;
+        document.getElementById('cargo').value = usuario.cargo;
+        document.getElementById('login').value = usuario.login;
+        document.getElementById('senha').value = usuario.senha;
+
+    } catch (error) {
+        console.error('Erro ao preencher os dados do usuário:', error);
+    }
+}
+
+async function alterarTabela() {
+    const idUsuario = localStorage.getItem('idUsuarioSelecionado'); // Recuperar ID
+    if (!idUsuario) {
+        console.error('Nenhum usuário selecionado para alteração.');
+        return;
+    }
+
+    const nome = document.getElementById('nome').value;
+    const cargo = document.getElementById('cargo').value;
+    const login = document.getElementById('login').value;
+    const senha = document.getElementById('senha').value;
+
+    const url = `https://localhost:7063/api/Usuario`;
+    const token = localStorage.getItem('token');
+
+    const usuario = {
+        id: idUsuario,
+        nome: nome,
+        login: login,
+        senha: senha,
+        cargo: cargo
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(usuario),
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
+            return;
+        }
+
+        alert('Usuário alterado com sucesso!');
+    } catch (error) {
+        console.error('Erro ao alterar os dados do usuário:', error);
+    }
+}

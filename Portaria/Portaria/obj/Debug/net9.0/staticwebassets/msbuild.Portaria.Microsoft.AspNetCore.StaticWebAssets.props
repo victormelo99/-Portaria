@@ -1,5 +1,23 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AlterarUsuario.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/CSS/AlterarUsuario.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>5n1zsfr69n</Fingerprint>
+      <Integrity>76RIgnREs9mMLwRE/t282LO/jHBShjb6MpaNAdy9Kcw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AlterarUsuario.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AreaCadastro.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
@@ -72,6 +90,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\Usuario.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarUsuario.html'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/HTML/AlterarUsuario.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>xrlflf5bjk</Fingerprint>
+      <Integrity>/fzP8MWzfO02ltmB0ucIxQXvWtiSP5Wks4Z2SO7Qpiw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarUsuario.html'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\areaCadastro.html'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
@@ -102,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7ftq5dnz35</Fingerprint>
-      <Integrity>c8Cx29vFn7JC1/NGPcrDI7MnzAVkdZ6QwhR+vQ8IrHY=</Integrity>
+      <Fingerprint>ngo6niqfsy</Fingerprint>
+      <Integrity>qd+MfX4f8ByoqyJesP9SA6qk5MER20frvS0/lSPVOjk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroUsuario.html'))</OriginalItemSpec>
@@ -120,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7d5w7qur7n</Fingerprint>
-      <Integrity>K5JWCUytEe9A/rlQMyfN8FF7hyMfr0YUOEQvChg3U/U=</Integrity>
+      <Fingerprint>21vtcr4htd</Fingerprint>
+      <Integrity>qmUo0ef6B671wmRG7qNIvgm+kxrOZx97MZa1Ft+o7a8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Usuario.html'))</OriginalItemSpec>
@@ -264,8 +300,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>91x272mn50</Fingerprint>
-      <Integrity>Qx1d/t2e/o2qpWNeOSjmQ7Ap29YAOSHbTUj5oEVl0jw=</Integrity>
+      <Fingerprint>lcrpjolezo</Fingerprint>
+      <Integrity>tXm//TNNAihQKHl0Ce2Q/E4QFug32l0DR8LXHKTdOvg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\script.js'))</OriginalItemSpec>
