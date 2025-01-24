@@ -200,6 +200,7 @@ function fecharAba() {
 document.addEventListener('DOMContentLoaded', function () {
     vincularEventosLinhas();
     preencherFormulario();
+    selecionarLinha();
 });
 
 function vincularEventosLinhas() {
@@ -208,29 +209,36 @@ function vincularEventosLinhas() {
         linha.addEventListener('click', () => selecionarLinha(linha));
     });
 }
-
 function selecionarLinha(linha) {
     const linhas = document.querySelectorAll('#tbody tr');
+    const botaoAlterar = document.getElementById('alterar');
+    
     linhas.forEach((tr) => tr.classList.remove('selecionado'));
 
-    linha.classList.add('selecionado'); 
+    linha.classList.add('selecionado');
 
-    const idUsuario = linha.cells[0].textContent.trim(); 
+    const idUsuario = linha.cells[0].textContent.trim();
 
     localStorage.setItem('idUsuarioSelecionado', idUsuario);
 
-    const botaoAlterar = document.getElementById('alterar');
-    botaoAlterar.disabled = false; 
+    botaoAlterar.disabled = false;
 
     preencherFormulario();
+
+    document.addEventListener('click', function fora(event) {
+
+        const tabela = document.querySelector('.table'); 
+        if (!tabela.contains(event.target)) {
+
+            linhas.forEach((tr) => tr.classList.remove('selecionado'));
+            botaoAlterar.disabled = true;
+            document.removeEventListener('click', fora);
+        }
+    });
 }
 
 async function preencherFormulario() {
     const idUsuario = localStorage.getItem('idUsuarioSelecionado');
-    if (!idUsuario) {
-        console.error('Nenhum usuário selecionado para alteração.');
-        return;
-    }
 
     const url = `${API_URLS.Usuario}/${idUsuario}`;
 
@@ -249,16 +257,14 @@ async function preencherFormulario() {
         document.getElementById('nome').value = usuario.nome || '';
         document.getElementById('cargo').value = usuario.cargo || '';
         document.getElementById('login').value = usuario.login || '';
-        document.getElementById('senha').value = usuario.login;
-        document.getElementById('confirmarSenha').value = usuario.login;
+        document.getElementById('senha').value = usuario.senha;
+        document.getElementById('confirmarSenha').value = usuario.senha;
 
     } catch (error) {
         console.error('Erro ao preencher o formulário:', error);
     }
 }
-
 async function alterarTabela() {
-
     const idInput = document.getElementById('id');
     const nomeInput = document.getElementById('nome');
     const loginInput = document.getElementById('login');
@@ -266,26 +272,24 @@ async function alterarTabela() {
     const senhaInput = document.getElementById('senha');
     const confirmarSenhaInput = document.getElementById('confirmarSenha');
 
-    const id = idInput.value;
-    const nome = nomeInput.value;
+    const id = parseInt(idInput.value);
+    const nome = nomeInput.value.toUpperCase();
     const login = loginInput.value;
-    const cargo = cargoInput.value;
+    const cargo = cargoInput.value.toUpperCase();
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
 
-    if (senha) {
         if (senha !== confirmarSenha) {
             alert("As senhas não coincidem");
             return;
         }
-    }
-    
+
     const usuario = {
-        id: parseInt(id),
+        id: id,
         nome: nome,
         cargo: cargo,
         login: login,
-        senha: senha
+        senha: senha,
     };
 
     const url = `${API_URLS.Usuario}`;
@@ -301,6 +305,7 @@ async function alterarTabela() {
         });
 
         if (!response.ok) {
+            const errorMessage = await response.text();
             console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
             return;
         }
@@ -313,6 +318,7 @@ async function alterarTabela() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', alterarTabela);
-
-document.getElementById('Atualizar').addEventListener('click', (event) => alterarTabela(event));
+document.getElementById('Atualizar').addEventListener('click', (event) => {
+    event.preventDefault();
+    alterarTabela(); 
+});

@@ -120,7 +120,7 @@ namespace Portaria.Controllers
                 var usuarioAtual = await _context.Usuario.FindAsync(usuario.Id);
                 if (usuarioAtual == null)
                 {
-                    return NotFound("Erro: Usuário não encontrado.");
+                    return NotFound("Usuário não encontrado.");
                 }
 
                 usuarioAtual.Nome = usuario.Nome;
@@ -129,18 +129,24 @@ namespace Portaria.Controllers
 
                 if (!string.IsNullOrEmpty(usuario.Senha))
                 {
-                    if (usuario.Senha.Length >= 8 && usuario.Senha.Length <= 16)
+                    if (usuario.Senha != usuarioAtual.Senha)
                     {
+                        if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
+                        {
+                            return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                        }
+
                         usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
                     }
-                    else
-                    {
-                        return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
-                    }
+                }
+                else
+                {
+                    usuario.Senha = usuarioAtual.Senha;
                 }
 
                 _context.Update(usuarioAtual);
                 await _context.SaveChangesAsync();
+
                 return Ok("Dados do usuário atualizados com sucesso.");
             }
             catch (Exception e)
