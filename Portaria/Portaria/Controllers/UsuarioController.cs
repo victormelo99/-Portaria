@@ -108,32 +108,47 @@ namespace Portaria.Controllers
         {
             try
             {
-                var usuarioExistente = await _context.Usuario.Where(x => x.Login == usuario.Login && x.Id != usuario.Id).FirstOrDefaultAsync();
-                
+                var usuarioExistente = await _context.Usuario
+                    .Where(x => x.Login == usuario.Login && x.Id != usuario.Id)
+                    .FirstOrDefaultAsync();
+
                 if (usuarioExistente != null)
                 {
                     return BadRequest("Erro: O Login já está em uso por outro usuário.");
                 }
 
-                if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha.Length >= 8 && usuario.Senha.Length <= 16)
+                var usuarioAtual = await _context.Usuario.FindAsync(usuario.Id);
+                if (usuarioAtual == null)
                 {
-                    usuario.Senha = _service.Criptografar(usuario.Senha);
-                }
-                else
-                {
-                    return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                    return NotFound("Erro: Usuário não encontrado.");
                 }
 
-                var atualizar = _context.Update(usuario);
-                var resultado = await _context.SaveChangesAsync();
-                return Ok("Dado (s) do usuario atualizado (s)");
+                usuarioAtual.Nome = usuario.Nome;
+                usuarioAtual.Cargo = usuario.Cargo;
+                usuarioAtual.Login = usuario.Login;
+
+                if (!string.IsNullOrEmpty(usuario.Senha))
+                {
+                    if (usuario.Senha.Length >= 8 && usuario.Senha.Length <= 16)
+                    {
+                        usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
+                    }
+                    else
+                    {
+                        return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                    }
+                }
+
+                _context.Update(usuarioAtual);
+                await _context.SaveChangesAsync();
+                return Ok("Dados do usuário atualizados com sucesso.");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de atualizar o/os dado (s) do (s) usuario. Exceção{e.Message}");
-
+                return BadRequest($"Erro ao atualizar os dados do usuário. Exceção: {e.Message}");
             }
         }
+
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "TI")]

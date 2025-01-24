@@ -7,6 +7,7 @@ const API_URLS = {
 const token = localStorage.getItem('token');
 
 // AREA LOGIN
+
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //AUTENTICAÇÃO PARA ABRIR PAGINAS COM TOKEN
+
 function abrirPagina(pagina) {
     const token = localStorage.getItem('token');
 
@@ -61,10 +63,6 @@ function abrirPagina(pagina) {
     }
 }
 // AREA LISTAGEM DE USUÁRIOS
-document.addEventListener('DOMContentLoaded', function () {
-    preencherTabela();
-});
-
 
 async function preencherTabela() {
 
@@ -120,11 +118,12 @@ async function preencherTabela() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    preencherTabela();
+});
 //AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DE USUARIO
 
 function abrirlinksUsuario(pagina) {
-    //const token = localStorage.getItem('token');
-
     return window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
 }
 
@@ -198,6 +197,10 @@ function fecharAba() {
 
 //FUNCIONAMENTO AREA ALTERAR USUARIO
 
+document.addEventListener('DOMContentLoaded', function () {
+    vincularEventosLinhas();
+    preencherFormulario();
+});
 
 function vincularEventosLinhas() {
     const linhas = document.querySelectorAll('#tbody tr');
@@ -213,7 +216,6 @@ function selecionarLinha(linha) {
     linha.classList.add('selecionado'); 
 
     const idUsuario = linha.cells[0].textContent.trim(); 
-    console.log('ID do usuário selecionado:', idUsuario);
 
     localStorage.setItem('idUsuarioSelecionado', idUsuario);
 
@@ -241,45 +243,43 @@ async function preencherFormulario() {
             },
         });
 
-        if (!response.ok) {
-            const errorMessage = await response.text();
-            console.error(`Erro na API: ${response.status}, mensagem: ${errorMessage}`);
-            return;
-        }
-
         const usuario = await response.json();
-        console.log('Dados do usuário retornados:', usuario);
 
-        document.getElementById('id').value = usuario.id || ''; 
+        document.getElementById('id').value = usuario.id || '';
         document.getElementById('nome').value = usuario.nome || '';
         document.getElementById('cargo').value = usuario.cargo || '';
         document.getElementById('login').value = usuario.login || '';
-        document.getElementById('senha').value = usuario.senha || '';
-        document.getElementById('confirmarSenha').value = usuario.senha || ''; 
+        document.getElementById('senha').value = usuario.login;
+        document.getElementById('confirmarSenha').value = usuario.login;
 
     } catch (error) {
         console.error('Erro ao preencher o formulário:', error);
     }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    preencherFormulario(); 
-});
 
+async function alterarTabela() {
 
-async function alterarTabela(event) {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
-    
-    if (!idUsuario) {
-        console.error('Nenhum usuário selecionado para alteração.');
-        return;
+    const idInput = document.getElementById('id');
+    const nomeInput = document.getElementById('nome');
+    const loginInput = document.getElementById('login');
+    const cargoInput = document.getElementById('cargo');
+    const senhaInput = document.getElementById('senha');
+    const confirmarSenhaInput = document.getElementById('confirmarSenha');
+
+    const id = idInput.value;
+    const nome = nomeInput.value;
+    const login = loginInput.value;
+    const cargo = cargoInput.value;
+    const senha = senhaInput.value;
+    const confirmarSenha = confirmarSenhaInput.value;
+
+    if (senha) {
+        if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem");
+            return;
+        }
     }
-
-    const id = document.getElementById('id').value;
-    const nome = document.getElementById('nome').value;
-    const login = document.getElementById('login').value;
-    const cargo = document.getElementById('cargo').value;
-    const senha = document.getElementById('senha').value;
-
+    
     const usuario = {
         id: parseInt(id),
         nome: nome,
@@ -301,25 +301,18 @@ async function alterarTabela(event) {
         });
 
         if (!response.ok) {
-            const errorMessage = await response.text();
             console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
             return;
         }
 
-        const botaoId = event.target.id;
-
-        if (botaoId === 'AtualizarS') {
-            fecharAba(); 
-        }
-
         alert('Usuário alterado com sucesso!');
+        fecharAba();
+
     } catch (error) {
         console.error('Erro ao alterar os dados do usuário:', error);
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', alterarTabela);
 
 document.getElementById('Atualizar').addEventListener('click', (event) => alterarTabela(event));
-document.getElementById('AtualizarS').addEventListener('click', (event) => alterarTabela(event));

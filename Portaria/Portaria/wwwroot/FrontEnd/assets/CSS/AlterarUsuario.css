@@ -90,7 +90,7 @@
   }
   
   
-  .atualizar,.atualizarS,#sair {
+  .atualizar,#sair {
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -98,7 +98,7 @@
     cursor: pointer;
   }
   
-  #Atualizar:hover,#AtualizarS:hover,#sair:hover {
+  #Atualizar:hover,#sair:hover {
     color: #ff7300;
   }
   
