@@ -1,3 +1,11 @@
+//URLS e Token
+
+const API_URLS = {
+    Usuario: 'https://localhost:7063/api/Usuario',
+};
+
+const token = localStorage.getItem('token');
+
 // AREA LOGIN
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
@@ -9,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const senha = document.getElementById('senha').value;
 
             try {
-                const response = await fetch('https://localhost:7063/api/Usuario/Login', {
+                const response = await fetch(`${API_URLS.Usuario}/Login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -53,11 +61,14 @@ function abrirPagina(pagina) {
     }
 }
 // AREA LISTAGEM DE USUÁRIOS
+document.addEventListener('DOMContentLoaded', function () {
+    preencherTabela();
+});
+
 
 async function preencherTabela() {
 
-    const url = 'https://localhost:7063/api/Usuario';
-    const token = localStorage.getItem('token');
+    const url = `${API_URLS.Usuario}`;
 
     try {
         const response = await fetch(url, {
@@ -77,7 +88,6 @@ async function preencherTabela() {
         const usuarios = await response.json();
 
         const tbody = document.getElementById('tbody');
-        tbody.innerHTML = '';
 
         usuarios.forEach((usuario) => {
             const tr = document.createElement('tr');
@@ -109,13 +119,6 @@ async function preencherTabela() {
         console.error('Erro ao preencher a tabela:', error);
     }
 }
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    preencherTabela();
-});
-
 
 //AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DE USUARIO
 
@@ -159,8 +162,7 @@ opcoes.addEventListener('click', (evento) => {
 });
 
 async function enviarDados(nome, login, cargo, senha, botaoId) {
-    const url = 'https://localhost:7063/api/Usuario';
-    const token = localStorage.getItem('token');
+    const url = `${API_URLS.Usuario}`;
 
     try {
         const response = await fetch(url, {
@@ -196,43 +198,39 @@ function fecharAba() {
 
 //FUNCIONAMENTO AREA ALTERAR USUARIO
 
+
+function vincularEventosLinhas() {
+    const linhas = document.querySelectorAll('#tbody tr');
+    linhas.forEach((linha) => {
+        linha.addEventListener('click', () => selecionarLinha(linha));
+    });
+}
+
 function selecionarLinha(linha) {
     const linhas = document.querySelectorAll('#tbody tr');
     linhas.forEach((tr) => tr.classList.remove('selecionado'));
 
-    linha.classList.add('selecionado');
+    linha.classList.add('selecionado'); 
 
-    const idUsuario = linha.cells[0].textContent;
-    localStorage.setItem('idUsuarioSelecionado', idUsuario); 
+    const idUsuario = linha.cells[0].textContent.trim(); 
+    console.log('ID do usuário selecionado:', idUsuario);
+
+    localStorage.setItem('idUsuarioSelecionado', idUsuario);
 
     const botaoAlterar = document.getElementById('alterar');
-    botaoAlterar.disabled = false;
+    botaoAlterar.disabled = false; 
 
-    preencherFormulario(); 
-}
-
-function desmarcarTabela(e) {
-    const tabelaIn = e.target.closest('#tbody tr');
-    if (!tabelaIn) {
-        const botaoAlterar = document.getElementById('alterar');
-        botaoAlterar.disabled = true;
-
-        document.querySelectorAll('#tbody tr').forEach((tr) => {
-            tr.classList.remove('selecionado');
-        });
-    }
+    preencherFormulario();
 }
 
 async function preencherFormulario() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado'); // Recuperar ID
-    
+    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
     if (!idUsuario) {
         console.error('Nenhum usuário selecionado para alteração.');
         return;
     }
 
-    const url = `https://localhost:7063/api/Usuario/${idUsuario}`; // URL para buscar os dados do usuário
-    const token = localStorage.getItem('token');
+    const url = `${API_URLS.Usuario}/${idUsuario}`;
 
     try {
         const response = await fetch(url, {
@@ -245,45 +243,52 @@ async function preencherFormulario() {
 
         if (!response.ok) {
             const errorMessage = await response.text();
-            console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
+            console.error(`Erro na API: ${response.status}, mensagem: ${errorMessage}`);
             return;
         }
 
         const usuario = await response.json();
+        console.log('Dados do usuário retornados:', usuario);
 
-        // Preencher o formulário com os dados do usuário
-        document.getElementById('nome').value = usuario.nome;
-        document.getElementById('cargo').value = usuario.cargo;
-        document.getElementById('login').value = usuario.login;
-        document.getElementById('senha').value = usuario.senha;
+        document.getElementById('id').value = usuario.id || ''; 
+        document.getElementById('nome').value = usuario.nome || '';
+        document.getElementById('cargo').value = usuario.cargo || '';
+        document.getElementById('login').value = usuario.login || '';
+        document.getElementById('senha').value = usuario.senha || '';
+        document.getElementById('confirmarSenha').value = usuario.senha || ''; 
 
     } catch (error) {
-        console.error('Erro ao preencher os dados do usuário:', error);
+        console.error('Erro ao preencher o formulário:', error);
     }
 }
+document.addEventListener('DOMContentLoaded', function () {
+    preencherFormulario(); 
+});
 
-async function alterarTabela() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado'); // Recuperar ID
+
+async function alterarTabela(event) {
+    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    
     if (!idUsuario) {
         console.error('Nenhum usuário selecionado para alteração.');
         return;
     }
 
+    const id = document.getElementById('id').value;
     const nome = document.getElementById('nome').value;
-    const cargo = document.getElementById('cargo').value;
     const login = document.getElementById('login').value;
+    const cargo = document.getElementById('cargo').value;
     const senha = document.getElementById('senha').value;
 
-    const url = `https://localhost:7063/api/Usuario`;
-    const token = localStorage.getItem('token');
-
     const usuario = {
-        id: idUsuario,
+        id: parseInt(id),
         nome: nome,
+        cargo: cargo,
         login: login,
-        senha: senha,
-        cargo: cargo
+        senha: senha
     };
+
+    const url = `${API_URLS.Usuario}`;
 
     try {
         const response = await fetch(url, {
@@ -301,8 +306,20 @@ async function alterarTabela() {
             return;
         }
 
+        const botaoId = event.target.id;
+
+        if (botaoId === 'AtualizarS') {
+            fecharAba(); 
+        }
+
         alert('Usuário alterado com sucesso!');
     } catch (error) {
         console.error('Erro ao alterar os dados do usuário:', error);
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', alterarTabela);
+
+document.getElementById('Atualizar').addEventListener('click', (event) => alterarTabela(event));
+document.getElementById('AtualizarS').addEventListener('click', (event) => alterarTabela(event));

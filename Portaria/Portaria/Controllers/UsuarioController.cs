@@ -108,6 +108,22 @@ namespace Portaria.Controllers
         {
             try
             {
+                var usuarioExistente = await _context.Usuario.Where(x => x.Login == usuario.Login && x.Id != usuario.Id).FirstOrDefaultAsync();
+                
+                if (usuarioExistente != null)
+                {
+                    return BadRequest("Erro: O Login já está em uso por outro usuário.");
+                }
+
+                if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha.Length >= 8 && usuario.Senha.Length <= 16)
+                {
+                    usuario.Senha = _service.Criptografar(usuario.Senha);
+                }
+                else
+                {
+                    return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                }
+
                 var atualizar = _context.Update(usuario);
                 var resultado = await _context.SaveChangesAsync();
                 return Ok("Dado (s) do usuario atualizado (s)");
