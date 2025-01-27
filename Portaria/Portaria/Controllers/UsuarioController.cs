@@ -182,7 +182,30 @@ namespace Portaria.Controllers
             }
         }
 
-        //méthod para buscar Usuario pelo seu id
+
+        [HttpGet("{id}")]
+        [Authorize(Roles = "TI")]
+        public async Task<ActionResult> ProcurarUsuarioId([FromRoute] int id)
+        {
+            Usuario usuario = await _context.Usuario.FindAsync(id);
+            try
+            {
+                if (usuario != null)
+                {
+                    return Ok(usuario);
+                }
+                else
+                {
+                    return NotFound("Usuario não encontrado");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o Usuario. Exceção: {e.Message}");
+            }
+        }
+
+        //méthod para buscar Usuario
         [HttpGet("Pesquisa")]
         [Authorize(Roles = "TI")]
         public async Task<ActionResult> ProcurarUsuario([FromQuery] string valor)

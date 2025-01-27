@@ -192,17 +192,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-SxqltGsLCOC3yM2UtHpfIgKwG8BPmyvw/guJpiXcUYw="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"18600"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022SxqltGsLCOC3yM2UtHpfIgKwG8BPmyvw/guJpiXcUYw=\u0022"},{"Name":"Last-Modified","Value":"Fri, 24 Jan 2025 11:55:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/script.iak341vaji.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\script.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"iak341vaji"},{"Name":"integrity","Value":"sha256-eiHAdGoFyp1CTNk/AB0am3m5Z47HobUicLfNr/u6xU8="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/script.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"12102"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022eiHAdGoFyp1CTNk/AB0am3m5Z47HobUicLfNr/u6xU8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 27 Jan 2025 14:01:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/script.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\script.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-tB\u002Bs8v0ohYbsf72iZZgXKHKIBjoyHHNGIX5TdzCVP00="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"12100"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022tB\u002Bs8v0ohYbsf72iZZgXKHKIBjoyHHNGIX5TdzCVP00=\u0022"},{"Name":"Last-Modified","Value":"Mon, 27 Jan 2025 11:52:43 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/script.kekozocdgl.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\script.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kekozocdgl"},{"Name":"integrity","Value":"sha256-tB\u002Bs8v0ohYbsf72iZZgXKHKIBjoyHHNGIX5TdzCVP00="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/script.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"12100"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022tB\u002Bs8v0ohYbsf72iZZgXKHKIBjoyHHNGIX5TdzCVP00=\u0022"},{"Name":"Last-Modified","Value":"Mon, 27 Jan 2025 11:52:43 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eiHAdGoFyp1CTNk/AB0am3m5Z47HobUicLfNr/u6xU8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"12102"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022eiHAdGoFyp1CTNk/AB0am3m5Z47HobUicLfNr/u6xU8=\u0022"},{"Name":"Last-Modified","Value":"Mon, 27 Jan 2025 14:01:41 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/index.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\index.html'))</AssetFile>

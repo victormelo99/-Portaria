@@ -63,10 +63,16 @@ function abrirPagina(pagina) {
     }
 }
 // AREA LISTAGEM DE USUÁRIOS
+async function preencherTabela(pesquisa = "") {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
 
-async function preencherTabela() {
+    let url = `${API_URLS.Usuario}`;
 
-    const url = `${API_URLS.Usuario}`;
+    // Se houver um valor de pesquisa, altera a URL para a rota de pesquisa
+    if (pesquisa.trim() !== "") {
+        url = `${API_URLS.Usuario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
+    }
 
     try {
         const response = await fetch(url, {
@@ -84,8 +90,6 @@ async function preencherTabela() {
         }
 
         const usuarios = await response.json();
-
-        const tbody = document.getElementById('tbody');
 
         usuarios.forEach((usuario) => {
             const tr = document.createElement('tr');
@@ -118,9 +122,18 @@ async function preencherTabela() {
     }
 }
 
+// Evento para carregar a tabela ao abrir a página
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
+
+    // Evento para pesquisar ao clicar no botão de pesquisa
+    
+    document.getElementById("Pesquisar").addEventListener("click", async () => {
+        const pesquisa = document.getElementById("text").value.trim();
+        preencherTabela(pesquisa);
+    });
 });
+
 //AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DE USUARIO
 
 function abrirlinksUsuario(pagina) {
@@ -174,7 +187,9 @@ async function enviarDados(nome, login, cargo, senha, botaoId) {
         });
 
         if (response.ok) {
+            
             document.querySelectorAll('input').forEach(input => input.value = '');
+            alert('Usuário criado com sucesso!');
 
             if (botaoId === 'salvarS') {
                 fecharAba();
@@ -214,7 +229,7 @@ function selecionarLinha(linha) {
     const botaoDeletar = document.getElementById('deletar');
 
     linhas.forEach((tr) => tr.classList.remove('selecionado'));
-    
+
     linha.classList.add('selecionado');
 
     const idUsuario = linha.cells[0].textContent.trim();
@@ -267,6 +282,7 @@ async function preencherFormulario() {
     document.getElementById('confirmarSenha').value = usuario.senha;
 
 }
+
 async function alterarTabela() {
     const idInput = document.getElementById('id');
     const nomeInput = document.getElementById('nome');
@@ -330,11 +346,11 @@ document.getElementById('Atualizar').addEventListener('click', (event) => {
 
 async function deletarUsuario() {
     const idUsuario = localStorage.getItem('idUsuarioSelecionado');
-    
+
     if (confirm('Tem certeza que deseja excluir este usuário?')) {
         try {
             const url = `${API_URLS.Usuario}/${idUsuario}`;
-            console.log('URL da requisição DELETE:', url); 
+            console.log('URL da requisição DELETE:', url);
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
@@ -348,15 +364,15 @@ async function deletarUsuario() {
                 throw new Error(`Erro ao excluir usuário: ${errorMessage}`);
             }
 
-            const linhaSelecionada = document.querySelector('#tbody tr.selecionado');            
+            const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
             if (linhaSelecionada) {
                 linhaSelecionada.remove();
             }
-            
+
             alert('Usuário excluído com sucesso!');
-            
+
             localStorage.removeItem('idUsuarioSelecionado');
-            
+
             document.querySelectorAll('#tbody tr').forEach(tr => {
                 tr.classList.remove('selecionado');
             });

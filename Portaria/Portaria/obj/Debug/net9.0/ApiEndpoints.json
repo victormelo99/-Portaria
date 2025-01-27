@@ -355,6 +355,22 @@
   },
   {
     "ContainingType": "Portaria.Controllers.UsuarioController",
+    "Method": "ProcurarUsuarioId",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.UsuarioController",
     "Method": "Login",
     "RelativePath": "api/Usuario/Login",
     "HttpMethod": "POST",
