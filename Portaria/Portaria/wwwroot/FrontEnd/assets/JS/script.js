@@ -34,9 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     localStorage.setItem('token', data.token);
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
                     window.location.href = '/frontend/assets/HTML/areaCadastro.html';
+                } else{
+                    document.getElementById('mensagem').innerText = 'Usuário ou senha incorreto. Tente novamente.';
                 }
             } catch (error) {
-                document.getElementById('mensagem').innerText = `Erro ao conectar à API: ${error.message}`;
+                const mensagemEl = document.getElementById('mensagem');
+                mensagemEl.innerText = 'Usuário ou senha incorretos. Tente novamente.';
+                mensagemEl.style.color = 'red';
             }
         });
     }
@@ -115,10 +119,19 @@ async function preencherTabela(pesquisa = "") {
 // Evento para carregar a tabela ao abrir a página e pesquisar dados na tabela ao clicar no botão pesquisa
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
-    preencherTabelaLocal();
     document.getElementById("Pesquisar").addEventListener("click", async () => {
         const pesquisa = document.getElementById("text").value.trim();
         preencherTabela(pesquisa);
+    });
+    abrirlinksUsuario();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    preencherTabelaLocal();
+    
+    document.getElementById("PesquisarLocal").addEventListener("click", async () => {
+        const pesquisaLocal = document.getElementById("textLocal").value.trim();
+        preencherTabelaLocal(pesquisaLocal);
     });
 });
 
@@ -370,7 +383,6 @@ async function deletarUsuario() {
 
 //AREA LOCAL
 
-
 async function preencherTabelaLocal(pesquisa = "") {
     const tbody = document.getElementById('tbodyLocal');
     tbody.innerHTML = '';
@@ -426,16 +438,16 @@ function abrirlinksLocal(pagina) {
     return window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
 }
 
-//FUNCIONAMENTO BOTÃO CADASTRAR AREA Local
+//FUNCIONAMENTO BOTÃO CADASTRAR AREA LOCAL
 
 const opcoesLocal = document.getElementById('opcoesLocal');
 
 opcoesLocal.addEventListener('click', (evento) => {
-    if (evento.target.id === 'salvar' || evento.target.id === 'salvarS') {
-        const nome = document.getElementById('nome').value.toUpperCase();
+    if (evento.target.id === 'salvarLocal' || evento.target.id === 'salvarSLocal') {
+        const nome = document.getElementById('nomeLocal').value.toUpperCase();
         const descricao = document.getElementById('descricao').value.toUpperCase();
 
-        enviarDados(nome, descricao,evento.target.id);
+        enviarDadosLocal(nome, descricao,evento.target.id);
     } else if (evento.target.id === 'sair') {
         fecharAba();
     }
@@ -459,7 +471,7 @@ async function enviarDadosLocal(nome,descricao, botaoId) {
             document.querySelectorAll('input').forEach(input => input.value = '');
             alert('Local criado com sucesso!');
 
-            if (botaoId === 'salvarS') {
+            if (botaoId === 'salvarSLocal') {
                 fecharAba();
             }
         } else {

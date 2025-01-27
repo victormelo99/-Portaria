@@ -3,8 +3,12 @@
     "",
     "\\Portaria",
     "\\Portaria\\Portaria",
-    "\\Portaria\\Portaria\\Controllers"
+    "\\Portaria\\Portaria\\Controllers",
+    "\\Portaria\\Portaria\\wwwroot",
+    "\\Portaria\\Portaria\\wwwroot\\FrontEnd",
+    "\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets",
+    "\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS"
   ],
-  "SelectedNode": "\\Portaria\\Portaria\\Controllers\\UsuarioController.cs",
+  "SelectedNode": "\\Portaria\\Portaria\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
