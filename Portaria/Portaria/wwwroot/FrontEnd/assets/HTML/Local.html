@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Usuario.css">
-    <title>Usuario</title>
+    <link rel="stylesheet" href="../CSS/Local.css">
+    <title>Local</title>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <button id="cadastrar" onclick="abrirlinksUsuario('CadastroUsuario.html')">Cadastrar</button>
-                <button id="alterar" onclick="abrirlinksUsuario('AlterarUsuario.html')" disabled>Alterar</button>
-                <input type="text" placeholder="Pesquisar Usuario" id="text">
-                <button id="Pesquisar">Pesquisar</button>
+                <button id="cadastrar" onclick="abrirlinksLocal('CadastroLocal.html')">Cadastrar</button>
+                <button id="alterar" onclick="abrirlinksLocal('AlterarLocal.html')" disabled>Alterar</button>
+                <input type="text" placeholder="Pesquisar Local" id="text">
+                <button id="PesquisarLocal">Pesquisar</button>
             </nav>
         </div>
         </div>
@@ -21,17 +21,15 @@
     <main>
         <div class="container">
             <div class="resultado">
-                <table class="table">
-                    <thead class="cabecalho">
+                <table class="tableLocal">
+                    <thead class="cabecalhoLocal">
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
-                            <th>Cargo</th>
-                            <th>Login</th>
-                            <th>Senha</th>
+                            <th>Descrição</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
+                    <tbody id="tbodyLocal">
                     </tbody>
                 </table>
             </div>
@@ -49,5 +47,6 @@
         </div>
     </footer>
     <script src="../JS/script.js"></script>
+</body>
 </body>
 </html>

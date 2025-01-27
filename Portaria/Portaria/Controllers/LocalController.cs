@@ -97,7 +97,7 @@ namespace Portaria.Controllers
         //méthod para buscar Local pelo seu id
         [HttpGet("{id}")]
         [Authorize(Roles = "TI,PORTARIA")]
-        public async Task<ActionResult> ProcurarLocal([FromRoute] int id)
+        public async Task<ActionResult> ProcurarLocalId([FromRoute] int id)
         {
             Local local = await _context.Local.FindAsync(id);
             try
@@ -114,6 +114,27 @@ namespace Portaria.Controllers
             catch (Exception e)
             {
                 return BadRequest($"Erro ao encontrar o local. Exceção: {e.Message}");
+            }
+
+        }
+
+        //méthod para buscar Local
+        [HttpGet("Pesquisa")]
+        [Authorize(Roles = "TI")]
+        public async Task<ActionResult> ProcurarLocal([FromQuery] string valor)
+        {
+            try
+            {
+                var lista = from o in await _context.Local.ToListAsync()
+                            where o.Nome.ToUpper().Contains(valor.ToUpper())
+                            || o.Descricao.Contains(valor)
+                            select o;
+
+                return Ok(lista);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o Local. Exceção: {e.Message}");
             }
 
         }

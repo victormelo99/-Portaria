@@ -2,6 +2,7 @@
 
 const API_URLS = {
     Usuario: 'https://localhost:7063/api/Usuario',
+    Local: 'https://localhost:7063/api/Local'
 };
 
 const token = localStorage.getItem('token');
@@ -27,21 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 const body = await response.text();
-                let message;
 
                 if (response.ok) {
                     const data = JSON.parse(body);
                     localStorage.setItem('token', data.token);
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
                     window.location.href = '/frontend/assets/HTML/areaCadastro.html';
-                } else {
-                    try {
-                        const errorData = JSON.parse(body);
-                        message = errorData.message || 'Erro desconhecido.';
-                    } catch {
-                        message = body;
-                    }
-                    document.getElementById('mensagem').innerText = message;
                 }
             } catch (error) {
                 document.getElementById('mensagem').innerText = `Erro ao conectar à API: ${error.message}`;
@@ -62,14 +54,14 @@ function abrirPagina(pagina) {
         mensagem.innerText = 'Você precisa estar autenticado para acessar esta página!';
     }
 }
-// AREA LISTAGEM DE USUÁRIOS
+// AREA DE USUÁRIOS
+
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
 
     let url = `${API_URLS.Usuario}`;
 
-    // Se houver um valor de pesquisa, altera a URL para a rota de pesquisa
     if (pesquisa.trim() !== "") {
         url = `${API_URLS.Usuario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
     }
@@ -84,10 +76,8 @@ async function preencherTabela(pesquisa = "") {
         });
 
         if (!response.ok) {
-            const errorMessage = await response.text();
-            console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
-            return;
-        }
+            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
+          }
 
         const usuarios = await response.json();
 
@@ -122,12 +112,10 @@ async function preencherTabela(pesquisa = "") {
     }
 }
 
-// Evento para carregar a tabela ao abrir a página
+// Evento para carregar a tabela ao abrir a página e pesquisar dados na tabela ao clicar no botão pesquisa
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
-
-    // Evento para pesquisar ao clicar no botão de pesquisa
-    
+    preencherTabelaLocal();
     document.getElementById("Pesquisar").addEventListener("click", async () => {
         const pesquisa = document.getElementById("text").value.trim();
         preencherTabela(pesquisa);
@@ -233,7 +221,6 @@ function selecionarLinha(linha) {
     linha.classList.add('selecionado');
 
     const idUsuario = linha.cells[0].textContent.trim();
-    console.log(idUsuario)
 
     localStorage.setItem('idUsuarioSelecionado', idUsuario);
 
@@ -324,9 +311,7 @@ async function alterarTabela() {
         });
 
         if (!response.ok) {
-            const errorMessage = await response.text();
-            console.error(`Erro na resposta da API: ${response.status}, mensagem: ${errorMessage}`);
-            return;
+            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
 
         alert('Usuário alterado com sucesso!');
@@ -360,8 +345,7 @@ async function deletarUsuario() {
             });
 
             if (!response.ok) {
-                const errorMessage = await response.text();
-                throw new Error(`Erro ao excluir usuário: ${errorMessage}`);
+                throw new Error(`Erro ao excluir usuário`);
             }
 
             const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
@@ -382,4 +366,114 @@ async function deletarUsuario() {
             alert('Erro ao excluir usuário. Por favor, tente novamente.');
         }
     }
+}
+
+//AREA LOCAL
+
+
+async function preencherTabelaLocal(pesquisa = "") {
+    const tbody = document.getElementById('tbodyLocal');
+    tbody.innerHTML = '';
+
+    let url = `${API_URLS.Local}`;
+
+    if (pesquisa.trim() !== "") {
+        url = `${API_URLS.Local}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
+          }
+
+        const locais = await response.json();
+
+        locais.forEach((local) => {
+            const tr = document.createElement('tr');
+
+            const tdId = document.createElement('td');
+            tdId.textContent = local.id;
+            const tdNome = document.createElement('td');
+            tdNome.textContent = local.nome;
+            const tdDescricao = document.createElement('td');
+            tdDescricao.textContent = local.descricao;
+
+            tr.appendChild(tdId);
+            tr.appendChild(tdNome);
+            tr.appendChild(tdDescricao);
+
+            tr.addEventListener('click', function () { selecionarLinha(this); });
+
+            tbody.appendChild(tr);
+        });
+
+    } catch (error) {
+        console.error('Erro ao preencher a tabela:', error);
+    }
+}
+
+//AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DO LOCAL
+
+function abrirlinksLocal(pagina) {
+    return window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
+}
+
+//FUNCIONAMENTO BOTÃO CADASTRAR AREA Local
+
+const opcoesLocal = document.getElementById('opcoesLocal');
+
+opcoesLocal.addEventListener('click', (evento) => {
+    if (evento.target.id === 'salvar' || evento.target.id === 'salvarS') {
+        const nome = document.getElementById('nome').value.toUpperCase();
+        const descricao = document.getElementById('descricao').value.toUpperCase();
+
+        enviarDados(nome, descricao,evento.target.id);
+    } else if (evento.target.id === 'sair') {
+        fecharAba();
+    }
+});
+
+async function enviarDadosLocal(nome,descricao, botaoId) {
+    const url = `${API_URLS.Local}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ nome, descricao }),
+        });
+
+        if (response.ok) {
+            
+            document.querySelectorAll('input').forEach(input => input.value = '');
+            alert('Local criado com sucesso!');
+
+            if (botaoId === 'salvarS') {
+                fecharAba();
+            }
+        } else {
+            console.error('Erro ao salvar os dados do local:', response.status);
+        }
+    } catch (error) {
+        console.error('Erro ao enviar dados para a API:', error);
+    }
+};
+
+const sairLocal = document.getElementById('sair');
+
+sairLocal.addEventListener('click', fecharAba);
+
+function fecharAba() {
+    window.close();
 }
