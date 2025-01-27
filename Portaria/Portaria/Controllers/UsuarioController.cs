@@ -183,21 +183,18 @@ namespace Portaria.Controllers
         }
 
         //méthod para buscar Usuario pelo seu id
-        [HttpGet("{id}")]
+        [HttpGet("Pesquisa")]
         [Authorize(Roles = "TI")]
-        public async Task<ActionResult> ProcurarUsuario([FromRoute] int id)
+        public async Task<ActionResult> ProcurarUsuario([FromQuery] string valor)
         {
-            Usuario usuario = await _context.Usuario.FindAsync(id);
             try
             {
-                if (usuario != null)
-                {
-                    return Ok(usuario);
-                }
-                else
-                {
-                    return NotFound("Usuario não encontrado");
-                }
+                var lista = from o in await _context.Usuario.ToListAsync()
+                             where o.Nome.ToUpper().Contains(valor.ToUpper())
+                             || o.Login.Contains(valor)
+                             select o;
+
+                return Ok(lista);
             }
             catch (Exception e)
             {

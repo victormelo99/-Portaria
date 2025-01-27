@@ -355,22 +355,6 @@
   },
   {
     "ContainingType": "Portaria.Controllers.UsuarioController",
-    "Method": "ProcurarUsuario",
-    "RelativePath": "api/Usuario/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Portaria.Controllers.UsuarioController",
     "Method": "Login",
     "RelativePath": "api/Usuario/Login",
     "HttpMethod": "POST",
@@ -381,6 +365,22 @@
         "Name": "usuarioLogin",
         "Type": "Portaria.Models.UsuarioLogin",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.UsuarioController",
+    "Method": "ProcurarUsuario",
+    "RelativePath": "api/Usuario/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

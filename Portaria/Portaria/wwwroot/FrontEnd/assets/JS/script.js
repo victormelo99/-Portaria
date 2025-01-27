@@ -108,7 +108,7 @@ async function preencherTabela() {
             tr.appendChild(tdLogin);
             tr.appendChild(tdSenha);
 
-            tr.addEventListener('click', function () {selecionarLinha(this);});
+            tr.addEventListener('click', function () { selecionarLinha(this); });
 
             tbody.appendChild(tr);
         });
@@ -200,7 +200,6 @@ function fecharAba() {
 document.addEventListener('DOMContentLoaded', function () {
     vincularEventosLinhas();
     preencherFormulario();
-    selecionarLinha();
 });
 
 function vincularEventosLinhas() {
@@ -212,26 +211,34 @@ function vincularEventosLinhas() {
 function selecionarLinha(linha) {
     const linhas = document.querySelectorAll('#tbody tr');
     const botaoAlterar = document.getElementById('alterar');
-    
-    linhas.forEach((tr) => tr.classList.remove('selecionado'));
+    const botaoDeletar = document.getElementById('deletar');
 
+    linhas.forEach((tr) => tr.classList.remove('selecionado'));
+    
     linha.classList.add('selecionado');
 
     const idUsuario = linha.cells[0].textContent.trim();
+    console.log(idUsuario)
 
     localStorage.setItem('idUsuarioSelecionado', idUsuario);
 
     botaoAlterar.disabled = false;
+    botaoDeletar.disabled = false;
 
     preencherFormulario();
 
+    if (botaoDeletar) {
+        botaoDeletar.addEventListener('click', deletarUsuario);
+    }
+
     document.addEventListener('click', function fora(event) {
 
-        const tabela = document.querySelector('.table'); 
+        const tabela = document.querySelector('.table');
         if (!tabela.contains(event.target)) {
 
             linhas.forEach((tr) => tr.classList.remove('selecionado'));
             botaoAlterar.disabled = true;
+            botaoDeletar.disabled = true;
             document.removeEventListener('click', fora);
         }
     });
@@ -242,27 +249,23 @@ async function preencherFormulario() {
 
     const url = `${API_URLS.Usuario}/${idUsuario}`;
 
-    try {
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer ' + token,
-                'Content-Type': 'application/json',
-            },
-        });
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json',
+        },
+    });
 
-        const usuario = await response.json();
+    const usuario = await response.json();
 
-        document.getElementById('id').value = usuario.id || '';
-        document.getElementById('nome').value = usuario.nome || '';
-        document.getElementById('cargo').value = usuario.cargo || '';
-        document.getElementById('login').value = usuario.login || '';
-        document.getElementById('senha').value = usuario.senha;
-        document.getElementById('confirmarSenha').value = usuario.senha;
+    document.getElementById('id').value = usuario.id;
+    document.getElementById('nome').value = usuario.nome;
+    document.getElementById('cargo').value = usuario.cargo;
+    document.getElementById('login').value = usuario.login;
+    document.getElementById('senha').value = usuario.senha;
+    document.getElementById('confirmarSenha').value = usuario.senha;
 
-    } catch (error) {
-        console.error('Erro ao preencher o formulário:', error);
-    }
 }
 async function alterarTabela() {
     const idInput = document.getElementById('id');
@@ -279,10 +282,10 @@ async function alterarTabela() {
     const senha = senhaInput.value;
     const confirmarSenha = confirmarSenhaInput.value;
 
-        if (senha !== confirmarSenha) {
-            alert("As senhas não coincidem");
-            return;
-        }
+    if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem");
+        return;
+    }
 
     const usuario = {
         id: id,
@@ -320,5 +323,47 @@ async function alterarTabela() {
 
 document.getElementById('Atualizar').addEventListener('click', (event) => {
     event.preventDefault();
-    alterarTabela(); 
+    alterarTabela();
 });
+
+//FUNÇÃO EXCLUIR USUÁRIO 
+
+async function deletarUsuario() {
+    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    
+    if (confirm('Tem certeza que deseja excluir este usuário?')) {
+        try {
+            const url = `${API_URLS.Usuario}/${idUsuario}`;
+            console.log('URL da requisição DELETE:', url); 
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                throw new Error(`Erro ao excluir usuário: ${errorMessage}`);
+            }
+
+            const linhaSelecionada = document.querySelector('#tbody tr.selecionado');            
+            if (linhaSelecionada) {
+                linhaSelecionada.remove();
+            }
+            
+            alert('Usuário excluído com sucesso!');
+            
+            localStorage.removeItem('idUsuarioSelecionado');
+            
+            document.querySelectorAll('#tbody tr').forEach(tr => {
+                tr.classList.remove('selecionado');
+            });
+
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao excluir usuário. Por favor, tente novamente.');
+        }
+    }
+}
