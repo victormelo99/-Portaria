@@ -1,4 +1,4 @@
-import { Token } from './config.js';  // Importa a função Token
+import { Token } from './config.js';
 import { API_URLS } from './config.js';
 
 // Função para preencher os campos do formulário com os dados do usuário
@@ -28,7 +28,6 @@ async function preencherFormulario() {
 
         const usuario = await response.json();
 
-        // Preenche os campos do formulário com os dados do usuário
         document.getElementById('id').value = usuario.id;
         document.getElementById('nome').value = usuario.nome.toUpperCase();
         document.getElementById('cargo').value = usuario.cargo.toUpperCase();
@@ -41,7 +40,6 @@ async function preencherFormulario() {
     }
 }
 
-// Função para atualizar o usuário
 async function atualizarUsuario() {
     const id = document.getElementById('id').value;
     const nome = document.getElementById('nome').value.toUpperCase();

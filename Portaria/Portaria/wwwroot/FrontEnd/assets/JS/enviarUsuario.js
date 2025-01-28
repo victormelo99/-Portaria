@@ -22,8 +22,6 @@ export async function enviarDados(nome, login, cargo, senha, botaoId) {
             if (botaoId === 'salvarS') {
                 window.close();
             }
-        } else {
-            console.error('Erro ao salvar os dados do usuário:', response.status);
         }
     } catch (error) {
         console.error('Erro ao enviar dados para a API:', error);

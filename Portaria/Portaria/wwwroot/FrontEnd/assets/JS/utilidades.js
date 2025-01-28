@@ -1,10 +1,9 @@
 import { Token } from './config.js';  // Importa a função Token
 
 export function abrirPagina(pagina) {
-    const token = Token();  // Obtém o token
+    const token = Token();
 
     if (token) {
-        // Abre a página em uma nova aba com o caminho correto
         window.open(`/Frontend/assets/HTML/${pagina}`, '_blank');
     } else {
         const mensagem = document.getElementById('mensagem');
@@ -29,11 +28,9 @@ export function selecionarLinha(linha) {
     linhas.forEach((tr) => tr.classList.remove('selecionado'));
     linha.classList.add('selecionado');
 
-    // Salvar o id do usuário no localStorage
     const id = linha.cells[0].textContent.trim();
-    localStorage.setItem('idUsuarioSelecionado', id);  // Alterado para 'idUsuarioSelecionado'
+    localStorage.setItem('idUsuarioSelecionado', id);
 
-    // Habilitar botões
     botaoAlterar.disabled = false;
     botaoDeletar.disabled = false;
 
@@ -51,7 +48,6 @@ export function selecionarLinha(linha) {
     });
 }
 
-// Vincular eventos às linhas da tabela ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
     vincularEventosLinhas();
 });

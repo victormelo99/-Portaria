@@ -1,4 +1,5 @@
 // login.js
+
 import { API_URLS } from './config.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const data = JSON.parse(body);
                     localStorage.setItem('token', data.token);
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
-                    window.location.href = '/frontend/assets/HTML/areaCadastro.html';  // Isso pode ser alterado dependendo da sua lógica
+                    window.location.href = '/frontend/assets/HTML/areaCadastro.html';
                 } else {
                     document.getElementById('mensagem').innerText = 'Usuário ou senha incorreto. Tente novamente.';
                 }

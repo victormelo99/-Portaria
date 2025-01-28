@@ -14,12 +14,12 @@ async function preencherTabela(pesquisa = "") {
     }
 
     try {
-        const token = Token();  // Obtendo o token aqui
+        const token = Token();
 
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,  // Usando o token aqui
+                'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
             },
         });
@@ -29,12 +29,6 @@ async function preencherTabela(pesquisa = "") {
         }
 
         const usuarios = await response.json();
-        console.log("Usuários recebidos:", usuarios);  // Verificar os dados recebidos
-
-        // Verifica se existem usuários para preencher
-        if (usuarios.length === 0) {
-            console.log("Nenhum usuário encontrado.");
-        }
         
         usuarios.forEach((usuario) => {
             const tr = document.createElement('tr');
@@ -73,11 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
     preencherTabela(); 
 });
 
-document.getElementById('Pesquisar').addEventListener('click', function() {
-    const pesquisa = document.getElementById('text').value;
-    preencherTabela(pesquisa); 
-});
-
 // Função para abrir links de usuário
 export function abrirlinksUsuario(pagina) {
     const token = Token();  
@@ -87,20 +76,6 @@ export function abrirlinksUsuario(pagina) {
         alert('Você precisa estar autenticado para acessar esta página!');
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // EVENTO CLIQUE BOTÃO CADASTRAR
-    document.getElementById('cadastrar').addEventListener('click', function() {
-        abrirlinksUsuario('CadastroUsuario.html');
-    });
-
-    // EVENTO CLIQUE BOTÃO ALTERAR
-    document.getElementById('alterar').addEventListener('click', function() {
-        abrirlinksUsuario('AlterarUsuario.html');
-    });
-});
-
-
 
 async function deletarUsuario() {
     const idUsuario = localStorage.getItem('idUsuarioSelecionado');
@@ -140,3 +115,26 @@ async function deletarUsuario() {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('Pesquisar').addEventListener('click', function () {
+        const pesquisa = document.getElementById('text').value;
+        preencherTabela(pesquisa);
+    });
+
+    // Evento clique botão deletar
+    document.getElementById('deletar').addEventListener('click', function () {
+        deletarUsuario();
+    });
+
+    // Evento clique botão cadastrar
+    document.getElementById('cadastrar').addEventListener('click', function () {
+        abrirlinksUsuario('CadastroUsuario.html');
+    });
+
+    // Evento clique botão alterar
+    document.getElementById('alterar').addEventListener('click', function () {
+        abrirlinksUsuario('AlterarUsuario.html');
+    });
+});
+
