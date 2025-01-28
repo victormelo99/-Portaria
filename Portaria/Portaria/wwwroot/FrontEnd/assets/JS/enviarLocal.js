@@ -1,8 +1,8 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
 
-export async function enviarDados(nome, login, cargo, senha, botaoId) {
-    const url = `${API_URLS.Usuario}`;
+async function enviarDados(nome, descricao, botaoId) {
+    const url = `${API_URLS.Local}`;
 
     try {
         const token = Token();
@@ -13,43 +13,44 @@ export async function enviarDados(nome, login, cargo, senha, botaoId) {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nome, login, cargo, senha }),
+            body: JSON.stringify({ nome, descricao }),
         });
 
         if (response.ok) {
+
             document.querySelectorAll('input').forEach(input => input.value = '');
-            alert('Usuário criado com sucesso!');
+            alert('Local criado com sucesso!');
+
             if (botaoId === 'salvarS') {
-                window.close();
+                fecharAba();
             }
         }
     } catch (error) {
         console.error('Erro ao enviar dados para a API:', error);
     }
+};
+
+function fecharAba() {
+    window.close();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('salvar').addEventListener('click', function () {
         let nome = document.getElementById('nome').value.toUpperCase();
-        let login = document.getElementById('login').value;
-        let cargo = document.getElementById('cargo').value.toUpperCase();
-        let senha = document.getElementById('senha').value;
+        let descricao = document.getElementById('descricao').valu.toUpperCase();
 
-        enviarDados(nome, login, cargo, senha, 'salvar');
+        enviarDados(nome, descricao, 'salvar');
     });
 
     document.getElementById('salvarS').addEventListener('click', function () {
         let nome = document.getElementById('nome').value.toUpperCase();
-        let login = document.getElementById('login').value;
-        let cargo = document.getElementById('cargo').value.toUpperCase();
-        let senha = document.getElementById('senha').value;
+        let descricao = document.getElementById('descricao').value.toUpperCase();
 
-        enviarDados(nome, login, cargo, senha, 'salvarS');
+        enviarDados(nome, descricao, 'salvarS');
     });
 
     document.getElementById('sair').addEventListener('click', function () {
         window.close();
     });
 });
-

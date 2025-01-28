@@ -10,26 +10,25 @@
     <header>
         <div class="container">
             <nav>
-                <button id="cadastrar" onclick="abrirlinksLocal('CadastroLocal.html')">Cadastrar</button>
-                <button id="alterar" onclick="abrirlinksLocal('AlterarLocal.html')" disabled>Alterar</button>
-                <input type="text" placeholder="Pesquisar Local" id="textLocal">
-                <button id="PesquisarLocal">Pesquisar</button>
+                <button id="cadastrar">Cadastrar</button>
+                <button id="alterar" disabled>Alterar</button>
+                <input type="text" placeholder="Pesquisar Local" id="text">
+                <button id="Pesquisar">Pesquisar</button>
             </nav>
-        </div>
         </div>
     </header>
     <main>
         <div class="container">
             <div class="resultado">
-                <table class="tableLocal">
-                    <thead class="cabecalhoLocal">
+                <table class="table">
+                    <thead class="cabecalho">
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
                             <th>Descrição</th>
                         </tr>
                     </thead>
-                    <tbody id="tbodyLocal">
+                    <tbody id="tbody">
                     </tbody>
                 </table>
             </div>
@@ -46,7 +45,9 @@
             <button id="deletar" disabled>Deletar</button>
         </div>
     </footer>
-    <script src="../JS/script.js"></script>
+    <script src="../JS/config.js" type="module"></script>
+    <script src="../JS/enviarLocal.js" type="module"></script>
+    <script src="../JS/local.js" type="module"></script>
 </body>
 </body>
 </html>

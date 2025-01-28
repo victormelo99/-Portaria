@@ -5,12 +5,12 @@ async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
 
     if (!id) {
-        alert('Nenhum usuário selecionado!');
+        alert('Nenhum local selecionado!');
         return;
     }
 
     const token = Token();
-    const url = `${API_URLS.Usuario}/${id}`;
+    const url = `${API_URLS.Local}/${id}`;
 
     try {
         const response = await fetch(url, {
@@ -25,43 +25,30 @@ async function preencherFormulario() {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
 
-        const usuario = await response.json();
+        const local = await response.json();
 
-        document.getElementById('id').value = usuario.id;
-        document.getElementById('nome').value = usuario.nome.toUpperCase();
-        document.getElementById('cargo').value = usuario.cargo.toUpperCase();
-        document.getElementById('login').value = usuario.login;
-        document.getElementById('senha').value = usuario.senha;
-        document.getElementById('confirmarSenha').value = usuario.senha;
+        document.getElementById('id').value = local.id;
+        document.getElementById('nome').value = local.nome.toUpperCase();
+        document.getElementById('descricao').value = local.descricao.toUpperCase();
 
     } catch (error) {
         console.error('Erro ao preencher o formulário:', error);
     }
 }
 
-async function atualizarUsuario() {
+async function atualizarLocal() {
     const id = document.getElementById('id').value;
     const nome = document.getElementById('nome').value.toUpperCase();
-    const cargo = document.getElementById('cargo').value.toUpperCase();
-    const login = document.getElementById('login').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
+    const descricao = document.getElementById('descricao').value.toUpperCase();
 
-    if (senha !== confirmarSenha) {
-        alert('As senhas não coincidem!');
-        return;
-    }
-
-    const usuarioAtualizado = {
+    const localAtualizado = {
         id: id,
         nome: nome,
-        cargo: cargo,
-        login: login,
-        senha: senha
+        descricao: descricao
     };
 
     const token = Token();
-    const url = `${API_URLS.Usuario}`;
+    const url = `${API_URLS.Local}`;
 
     try {
         const response = await fetch(url, {
@@ -70,14 +57,14 @@ async function atualizarUsuario() {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(usuarioAtualizado),
+            body: JSON.stringify(localAtualizado),
         });
 
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
 
-        alert('Usuário atualizado com sucesso!');
+        alert('Local atualizado com sucesso!');
         window.close();
 
     } catch (error) {
@@ -93,4 +80,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.getElementById('Atualizar').addEventListener('click', atualizarUsuario);
+document.getElementById('atualizar').addEventListener('click', atualizarLocal);
