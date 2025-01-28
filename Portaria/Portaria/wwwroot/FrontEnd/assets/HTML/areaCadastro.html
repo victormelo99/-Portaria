@@ -13,12 +13,12 @@
         <div class="container">
             <nav>
                 <ul>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Pessoas.html')">Pessoas</button></li>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Usuario.html')">Usuário</button></li>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Local.html')">Local</button></li>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Veiculos.html')">Veículos</button></li>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Acesso.html')">Acesso</button></li>
-                    <li><button class="botaoAreaCadastro" onclick="abrirPagina('Entrada.html')">Entrada</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Pessoas">Pessoas</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Usuario">Usuário</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Local">Local</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Veiculos">Veículos</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Acesso">Acesso</button></li>
+                    <li><button class="botaoAreaCadastro" data-pagina="Entrada">Entrada</button></li>
                 </ul>
             </nav>
             <div class="relatorio">
@@ -29,7 +29,7 @@
     <main>
     <img src="../img/LogoFullGLobo.svg">
     </main>
-    <script src="../JS/script.js"></script>
+    <script type="module" src="../JS/utilidades.js"></script>
+    <script type="module" src="../JS/areaCadastro.js"></script>
 </body>
-
 </html>

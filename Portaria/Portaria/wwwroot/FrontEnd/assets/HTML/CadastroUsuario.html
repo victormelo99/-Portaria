@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadasro</title>
+  <title>Cadastrar Usuário</title>
   <link rel="stylesheet" href="../CSS/CadastroUsuario.css" />
 </head>
 
@@ -23,7 +23,7 @@
         </div>
         <div>
           <p>Login:</p>
-          <input type="text" required id="login"/>
+          <input type="text" required id="login" />
         </div>
         <div>
           <p>Cargo:</p>
@@ -35,7 +35,7 @@
         </div>
         <div>
           <p>Confirmar Senha:</p>
-          <input type="password" required id="confirmarSenha"/>
+          <input type="password" required id="confirmarSenha" />
         </div>
         <div class="opcoes" id="opcoes">
           <div class="opcoes-left">
@@ -51,12 +51,14 @@
   </main>
   <footer>
     <div class="container">
-      <h2>
-        Todos os direitos Reservados
-      </h2>
+      <h2>Todos os direitos Reservados</h2>
     </div>
   </footer>
-  <script src="../JS/script.js"></script>
+
+  <script src="../JS/config.js" type="module"></script>
+  <script src="../JS/utilidades.js" type="module"></script>
+  <script src="../JS/usuario.js" type="module"></script>
+  <script src="../JS/enviarUsuario.js" type="module"></script>
 </body>
 
 </html>

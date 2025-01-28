@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/Usuario.css">
-    <title>Usuario</title>
+    <title>Usuário</title>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <button id="cadastrar" onclick="abrirlinksUsuario('CadastroUsuario.html')">Cadastrar</button>
-                <button id="alterar" onclick="abrirlinksUsuario('AlterarUsuario.html')" disabled>Alterar</button>
-                <input type="text" placeholder="Pesquisar Usuario" id="text">
+                <button id="cadastrar">Cadastrar</button>
+                <button id="alterar" disabled>Alterar</button>
+                <input type="text" placeholder="Pesquisar Usuário" id="text">
                 <button id="Pesquisar">Pesquisar</button>
             </nav>
-        </div>
         </div>
     </header>
     <main>
@@ -43,11 +42,13 @@
                 <button id="ultimaPaginaBefore">Primeira Página</button>
                 <button id="anterior">Anterior</button>
                 <button id="proximo">Próximo</button>
-                <button id="ultimaPaginaNext">Ultima Página</button>
+                <button id="ultimaPaginaNext">Última Página</button>
             </nav>
             <button id="deletar" disabled>Deletar</button>
         </div>
-    </footer>
-    <script src="../JS/script.js"></script>
+    </footer>  
+    <script src="../JS/config.js" type="module"></script>
+    <script src="../JS/enviarUsuario.js" type="module"></script>
+    <script src="../JS/usuario.js" type="module"></script>
 </body>
 </html>

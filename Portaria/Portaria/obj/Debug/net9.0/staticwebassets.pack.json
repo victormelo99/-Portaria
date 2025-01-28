@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AreaCAdastro.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroLocal.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroLocal.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroUsuario.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroUsuario.css"
     },
@@ -29,6 +33,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\AlterarUsuario.html"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\CadastroLocal.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\CadastroLocal.html"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\CadastroUsuario.html",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\CadastroUsuario.html"
     },
@@ -45,20 +53,36 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\areaCadastro.html"
     },
     {
-      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\bootstrap.min.js"
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\areaCadastro.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\areaCadastro.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\jquery-3.7.1.min.js",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\jquery-3.7.1.min.js"
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\autenticacao.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\autenticacao.js"
     },
     {
-      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\popper.min.js",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\popper.min.js"
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\config.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\config.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\local.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\local.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\login.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\login.js"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\script.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\usuario.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\usuario.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\utilidades.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\utilidades.js"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\img\\LogoFullGLobo.svg",
