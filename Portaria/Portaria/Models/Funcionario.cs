@@ -12,8 +12,12 @@ namespace Portaria.Models
         public DateTime DataDesligamento { get; set; }
 
         public Status Status { get; set; }
-        
-        public Funcionario(int id, string nome, int matricula, DateTime dataAdmissao, DateTime dataDesligamento) : base (id, nome)
+
+        public Funcionario()
+        {
+        }
+
+        public Funcionario(int id, string nome, string cpf, int matricula, DateTime dataAdmissao, DateTime dataDesligamento) : base (id, nome,cpf)
         {
             Matricula = matricula;
             DataAdmissao = dataAdmissao;

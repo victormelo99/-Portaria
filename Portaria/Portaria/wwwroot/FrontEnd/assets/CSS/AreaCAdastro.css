@@ -20,6 +20,7 @@ header {
 }
 
 header .container {
+  position: relative;
   justify-content: space-between;
 }
 
@@ -41,6 +42,7 @@ nav ul {
 nav ul li {
   flex: 1;
   list-style-type: none;
+  position: relative;
 }
 
 .botaoAreaCadastro {
@@ -53,9 +55,61 @@ nav ul li {
   color: #777777;
 }
 
+.botaoAreaCadastrofirst{
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  background-color: transparent;
+
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+  z-index: 1000;
+  border-radius: 8%;
+}
+
+.submenu li {
+  padding-top: 15px;
+  width: 100%;
+}
+
+.submenu li a {
+  display: block;
+  padding: 15px;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  border-radius: 8%;
+
+}
+
+.submenu li a:hover {
+  width: 99%;
+  color: #777777;
+  background-color: #e84d14b0;
+  border-radius: 10%;
+
+}
+
+nav ul li:hover .submenu {
+  flex: 1;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  background-color: #e84d14a9;
+}
+
 .botaoAreaCadastro,
 .relatorio a {
-  font-size: 20px;
+  font-size: 17px;
   color: #fff;
 }
 

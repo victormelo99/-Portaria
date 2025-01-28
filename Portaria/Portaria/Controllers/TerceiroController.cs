@@ -24,7 +24,7 @@ namespace Portaria.Controllers
         {
             try
             {
-                var resultado = await _context.Funcionario.ToListAsync();
+                var resultado = await _context.Terceiro.ToListAsync();
                 return Ok(resultado);
             }
             catch (Exception e)
@@ -108,12 +108,12 @@ namespace Portaria.Controllers
                 }
                 else
                 {
-                    return NotFound("funcionario não encontrado");
+                    return NotFound("Terceiro não encontrado");
                 }
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro ao encontrar o funcionario. Exceção: {e.Message}");
+                return BadRequest($"Erro ao encontrar o terceiro. Exceção: {e.Message}");
             }
 
         }

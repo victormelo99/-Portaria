@@ -11,7 +11,11 @@ namespace Portaria.Models
         [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
         public string PessoaVisitada { get; set; } // Nome da pessoa que o visitante irá encontrar
 
-        public Visitante(int id, string nome, string motivoVisita, string pessoaVisitada) : base (id,nome)
+        public Visitante()
+        {
+        }
+
+        public Visitante(int id, string nome, string cpf, string motivoVisita, string pessoaVisitada) : base (id,nome, cpf)
         {
             MotivoVisita = motivoVisita;
             PessoaVisitada = pessoaVisitada;
