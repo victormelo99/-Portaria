@@ -148,6 +148,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "ProcurarFuncionario",
+    "RelativePath": "api/Funcionario/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.LocalController",
     "Method": "GetLocal",
     "RelativePath": "api/Local",

@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro do funcionario</title>
-    <link rel="stylesheet" href="../CSS/CadastroFuncionario.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/AlterarFuncionario.css">
+    <title>Alterar</title>
 </head>
 
 <body>
@@ -18,6 +18,10 @@
         <div class="container">
             <div class="areaCadastro">
                 <div>
+                    <p>Id:</p>
+                    <input type="text" required class="upper" id="id" />
+                </div>
+                <div>
                     <p>Nome:</p>
                     <input type="text" required class="upper" id="nome" />
                 </div>
@@ -27,7 +31,7 @@
                 </div>
                 <div>
                     <p>Matricula:</p>
-                    <input type="text" class="upper" id="matricula"  maxlength="14"/>
+                    <input type="text" class="upper" id="matricula" maxlength="14" />
                 </div>
                 <div>
                     <p>Status:</p>
@@ -44,10 +48,9 @@
                     <p>Data de desligamento:</p>
                     <input type="date" class="upper" id="dataDesligamento" />
                 </div>
-                <div class="opcoes" id="opcoesLocal">
+                <div class="opcoes">
                     <div class="opcoes-left">
-                        <button id="salvar">Salvar</button>
-                        <button id="salvarS">Salvar e Sair</button>
+                        <button id="Atualizar" class="atualizar">Atualizar</button>
                     </div>
                     <div class="opcao-right">
                         <button id="sair">Sair</button>
@@ -56,17 +59,14 @@
             </div>
         </div>
     </main>
+
     <footer>
         <div class="container">
-            <h2>
-                Todos os direitos Reservados
-            </h2>
+            <h2>Todos os direitos Reservados</h2>
         </div>
     </footer>
-    <script src="../JS/config.js" type="module"></script>
-    <script src="../JS/utilidades.js" type="module"></script>
-    <script src="../JS/funcionario.js" type="module"></script>
-    <script src="../JS/enviarFuncionario.js" type="module"></script>
+    <script src="../JS/alterarFuncionario.js" type="module" defer></script>
+    <script src="../JS/utilidades.js" type="module" defer></script>
 </body>
 
 </html>

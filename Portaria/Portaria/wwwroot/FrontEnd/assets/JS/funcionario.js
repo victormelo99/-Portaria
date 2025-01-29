@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Evento clique botão alterar
     document.getElementById('alterar').addEventListener('click', function () {
-        abrirlinks('AlterarUsuario.html');
+        abrirlinks('alterarFuncionario.html');
     });
 });
 

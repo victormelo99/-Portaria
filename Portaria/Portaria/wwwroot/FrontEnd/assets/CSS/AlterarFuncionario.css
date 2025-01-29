@@ -5,14 +5,17 @@
   text-decoration: none;
 }
 
-html,body{
+html, body {
   height: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .container {
   display: flex;
+  align-items: center;
+  align-content: center;
   margin: auto;
   width: 90%;
 }
@@ -20,12 +23,12 @@ html,body{
 header {
   height: 50px;
   background-color: #e84d14dc;
+  padding-bottom: 10px;
 }
 
 header .container {
   justify-content: center;
-  align-content: center;
-  align-items: center;
+
 }
 
 header h1 {
@@ -33,26 +36,25 @@ header h1 {
   color: #ffffffec;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 main{
   flex: 1;
+  padding: 10px;
 }
 main .container {
-  margin-top: 50px;
   background-color: #858585d5;
   border-radius: 10px;
+
 }
 
 .areaCadastro {
   display: flex;
+  align-content: center;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
   gap: 20px;
-  padding: 25px 20px 30px 20px;
+  margin-top: 20px;
+  padding: 10px 20px 15px 20px;
 }
 
 p {
@@ -61,26 +63,27 @@ p {
   color: #fff;
 }
 
-input {
+input, select {
   width: 20%;
   height: 35px;
   padding-left: 5px;
   border: none;
 }
 
-input:focus {
+input:focus,select:focus {
   border: none;
   outline: none;
+  padding-left: 5px;
+
 }
 
 .upper {
   text-transform: uppercase;
 }
 
-
 .opcoes {
   width: 100%;
-  padding-top: 20px;
+  padding: 10px 0 5px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -90,7 +93,7 @@ input:focus {
 }
 
 
-.atualizar,#sair {
+#Atualizar,#sair {
   background-color: transparent;
   border: none;
   font-size: 20px;
@@ -98,13 +101,15 @@ input:focus {
   cursor: pointer;
 }
 
-#Atualizar:hover,#sair:hover {
+#salvar:hover,#salvarS:hover,#sair:hover {
   color: #ff7300;
 }
 
 footer {
   height: 50px;
   background-color: #e84d14dc;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
 footer .container {

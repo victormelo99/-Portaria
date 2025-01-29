@@ -39,16 +39,20 @@ namespace Portaria.Controllers
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PostFuncionario([FromBody] Funcionario funcionario)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
-                var cadastro = await _context.AddAsync(funcionario);
-                var resultado = await _context.SaveChangesAsync();
-                return Ok("Funcionário incluído");
+                await _context.AddAsync(funcionario);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Funcionário incluído" });
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de cadastrar funcionários. Exceção{e.Message}");
-
+                return BadRequest(new { error = $"Erro na hora de cadastrar funcionários. Exceção: {e.Message}" });
             }
         }
 
@@ -115,6 +119,26 @@ namespace Portaria.Controllers
             catch (Exception e)
             {
                 return BadRequest($"Erro ao encontrar o funcionario. Exceção: {e.Message}");
+            }
+
+        }
+
+        [HttpGet("Pesquisa")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarFuncionario([FromQuery] string valor)
+        {
+            try
+            {
+                var lista = from o in await _context.Funcionario.ToListAsync()
+                            where o.Nome.ToUpper().Contains(valor.ToUpper())
+                            || o.Cpf.Contains(valor) || o.Matricula.ToString().Contains(valor)
+                            select o;
+
+                return Ok(lista);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o Local. Exceção: {e.Message}");
             }
 
         }
