@@ -17,6 +17,7 @@ namespace Portaria.Models
         {
         }
 
+
         public Local(int id, string nome, string descricao)
         {
             Id = id;

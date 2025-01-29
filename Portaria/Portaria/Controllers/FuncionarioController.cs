@@ -62,16 +62,30 @@ namespace Portaria.Controllers
         {
             try
             {
-                var atualizar = _context.Update(funcionario);
+                var funcionarioExistente = await _context.Funcionario
+                    .FirstOrDefaultAsync(f => f.Id == funcionario.Id);
+
+                if (funcionarioExistente == null)
+                {
+                    return NotFound("Funcionário não encontrado.");
+                }
+
+                funcionarioExistente.Nome = funcionario.Nome;
+                funcionarioExistente.Cpf = funcionario.Cpf;
+                funcionarioExistente.Matricula = funcionario.Matricula;
+                funcionarioExistente.DataAdmissao = funcionario.DataAdmissao;
+                funcionarioExistente.DataDesligamento = funcionario.DataDesligamento;
+                funcionarioExistente.Status = funcionario.Status;
+
                 var resultado = await _context.SaveChangesAsync();
-                return Ok("Dado (s) do funcionário atualizado (s)");
+                return Ok("Dado(s) do funcionário atualizado(s)");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de atualizar o/os dado (s) do (s) funcionário (s). Exceção{e.Message}");
-
+                return BadRequest($"Erro ao atualizar o(s) dado(s) do(s) funcionário(s). Exceção: {e.Message}");
             }
         }
+
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "TI")]
@@ -80,7 +94,7 @@ namespace Portaria.Controllers
             Pessoa pessoa = await _context.Pessoa.FindAsync(id);
             try
             {
-                if(pessoa != null)
+                if (pessoa != null)
                 {
                     var delete = _context.Pessoa.Remove(pessoa);
                     var resultado = await _context.SaveChangesAsync();
@@ -90,7 +104,7 @@ namespace Portaria.Controllers
                 {
                     return NotFound("Funcionário não encontrado");
                 }
-                
+
             }
             catch (Exception e)
             {

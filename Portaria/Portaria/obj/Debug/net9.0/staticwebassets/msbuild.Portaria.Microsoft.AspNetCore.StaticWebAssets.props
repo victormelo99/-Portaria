@@ -54,12 +54,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AlterarUsuario.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AreaCadastro.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AreaCAdastro.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Portaria</BasePath>
-      <RelativePath>FrontEnd/assets/CSS/AreaCadastro.css</RelativePath>
+      <RelativePath>FrontEnd/assets/CSS/AreaCAdastro.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -70,7 +70,7 @@
       <Integrity>f5bf6zOE0S0bkUA7frr9Rigv9o+1+GxvdZz3EPqIMuc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AreaCadastro.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AreaCAdastro.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroFuncionario.css'))">
       <SourceType>Package</SourceType>
@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q6bese890w</Fingerprint>
-      <Integrity>3nsKah4T1NjMGJ7HWFzezaKkPseI61dZEOA07S3gVfY=</Integrity>
+      <Fingerprint>sibeafjdmm</Fingerprint>
+      <Integrity>LHjgNAaRC5P05fnLJdEB3kwGNwuc2liY6TQpJpLU/MQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroFuncionario.css'))</OriginalItemSpec>
@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>eakbwoc3we</Fingerprint>
-      <Integrity>djsTwLyLwLphYl+cd9ER0jpxs0t6bmM6ydsOBmCPoT0=</Integrity>
+      <Fingerprint>q9lc6w1v9a</Fingerprint>
+      <Integrity>rgwxqiOPxxhpii9Hz03AJAn+lJUjgcSXv7I/xSz1C2s=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\alterarFuncionario.html'))</OriginalItemSpec>
@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7ckffzto79</Fingerprint>
-      <Integrity>t7+FS3GyeP47e2qHGa8P+3KPNm/t1cif1PPATi/Q5aQ=</Integrity>
+      <Fingerprint>4roc3c1c8t</Fingerprint>
+      <Integrity>UKs7unTb6GJJh9LFubFszbfg6gye75o8xZWjlPGxpQ8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarUsuario.html'))</OriginalItemSpec>
@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fe4el5h70a</Fingerprint>
-      <Integrity>ObkK1R5Yfqbvs6XMfWVMUR7iTDYdVOkKtJoKbju1/Ys=</Integrity>
+      <Fingerprint>1r5s9wtv51</Fingerprint>
+      <Integrity>4zoZsCTqkHTEr8BpfhKmOP2nUY8ymxGrEGaAR6EyfdQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarFuncionario.js'))</OriginalItemSpec>

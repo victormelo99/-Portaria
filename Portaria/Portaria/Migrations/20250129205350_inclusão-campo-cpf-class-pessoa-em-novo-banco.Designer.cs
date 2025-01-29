@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portaria.Data;
 
@@ -11,9 +12,11 @@ using Portaria.Data;
 namespace Portaria.Migrations
 {
     [DbContext(typeof(PortariaDbContext))]
-    partial class PortariaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250129205350_inclusão-campo-cpf-class-pessoa-em-novo-banco")]
+    partial class inclusãocampocpfclasspessoaemnovobanco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

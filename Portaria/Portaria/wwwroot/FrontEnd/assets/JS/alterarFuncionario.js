@@ -3,7 +3,6 @@ import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-
     const token = Token();
     const url = `${API_URLS.Funcionario}/${id}`;
 
@@ -19,6 +18,7 @@ async function preencherFormulario() {
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
+
         const funcionario = await response.json();
 
         document.getElementById('id').value = funcionario.id;
@@ -26,9 +26,17 @@ async function preencherFormulario() {
         document.getElementById('cpf').value = funcionario.cpf.trim();
         document.getElementById('matricula').value = funcionario.matricula;
         document.getElementById('status').value = funcionario.status.toUpperCase();
-        document.getElementById('dataAdmissao').value = funcionario.dataAdmissao;
-        document.getElementById('dataDesligamento').value = funcionario.dataDesligamento;
-        
+
+        const formatarData = (data) => {
+            if (!data) return '';
+            const date = new Date(data);
+            if (isNaN(date.getTime())) return '';
+            return date.toISOString().split('T')[0];
+        };
+
+        document.getElementById('dataAdmissao').value = formatarData(funcionario.dataAdmissao);
+        document.getElementById('dataDesligamento').value = formatarData(funcionario.dataDesligamento);
+
     } catch (error) {
         console.error('Erro ao preencher o formulário:', error);
     }
@@ -50,30 +58,37 @@ async function atualizarFuncionario() {
         if (!id) return alert('ID do funcionário não encontrado.');
         if (!nome || nome.length < 2 || nome.length > 50) return alert('Nome deve ter entre 2 e 50 caracteres.');
         if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
-        if (!dataAdmissao) return alert('Data de admissão é obrigatória.');
 
         const matriculaNum = parseInt(matricula);
-
         const mapearStatus = statusSelecionado === 'ATIVO' ? 0 : 1;
 
         const formatarData = (data) => {
-            if (!data) {
-                return new Date('0001-01-01T00:00:00').toISOString();
-            }
+            if (!data) return null; 
             const date = new Date(data);
-            if (isNaN(date.getTime())) {
-                return new Date('0001-01-01T00:00:00').toISOString();
-            }
-            return date.toISOString();
+            if (isNaN(date.getTime())) return null; 
         };
 
-        const funcionarioAtualizado = {
+        const responseFuncionario = await fetch(`${API_URLS.Funcionario}/${id}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!responseFuncionario.ok) {
+            throw new Error(`Erro ao obter dados do funcionário: ${responseFuncionario.status}, mensagem: ${await responseFuncionario.text()}`);
+        }
+
+        const funcionarioExistente = await responseFuncionario.json();
+
+        const dados = {
             id: id,
             nome: nome,
             cpf: cpf,
             matricula: matriculaNum,
-            dataAdmissao: formatarData(dataAdmissao),
-            dataDesligamento: formatarData(dataDesligamento),
+            dataAdmissao: formatarData(dataAdmissao) || funcionarioExistente.dataAdmissao,
+            dataDesligamento: formatarData(dataDesligamento) || funcionarioExistente.dataDesligamento,
             status: mapearStatus
         };
 
@@ -83,7 +98,7 @@ async function atualizarFuncionario() {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(funcionarioAtualizado),
+            body: JSON.stringify(dados),
         });
 
         if (!response.ok) {
@@ -94,7 +109,6 @@ async function atualizarFuncionario() {
         window.close();
 
     } catch (error) {
-        console.error('Erro ao atualizar o Funcionário:', error);
         alert('Erro ao atualizar o funcionário: ' + error.message);
     }
 }
