@@ -567,7 +567,7 @@
   },
   {
     "ContainingType": "Portaria.Controllers.VisitanteController",
-    "Method": "ProcurarVisitante",
+    "Method": "ProcurarVisitanteId",
     "RelativePath": "api/Visitante/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -577,6 +577,22 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "ProcurarVisitante",
+    "RelativePath": "api/Visitante/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -137,17 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
         preencherTabela(pesquisa);
     });
 
-    // Evento clique botão deletar
     document.getElementById('deletar').addEventListener('click', function () {
         deletarFuncionario();
     });
 
-    // Evento clique botão cadastrar
     document.getElementById('cadastrar').addEventListener('click', function () {
         abrirlinks('CadastroFuncionario.html');
     });
 
-    // Evento clique botão alterar
     document.getElementById('alterar').addEventListener('click', function () {
         abrirlinks('alterarFuncionario.html');
     });

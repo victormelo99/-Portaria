@@ -92,7 +92,7 @@ namespace Portaria.Controllers
 
         //méthod para buscar visitante pelo seu id
         [HttpGet("{id}")]
-        public async Task<ActionResult> ProcurarVisitante([FromRoute] int id)
+        public async Task<ActionResult> ProcurarVisitanteId([FromRoute] int id)
         {
             Visitante visitante = await _context.Visitante.FindAsync(id);
             try
@@ -110,6 +110,27 @@ namespace Portaria.Controllers
                 return BadRequest($"Erro ao encontrar o visitante. Exceção: {e.Message}");
             }
            
+        }
+
+
+        [HttpGet("Pesquisa")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarVisitante([FromQuery] string valor)
+        {
+            try
+            {
+                var lista = from o in await _context.Visitante.ToListAsync()
+                            where o.Nome.ToUpper().Contains(valor.ToUpper())
+                            || o.Cpf.Contains(valor)
+                            select o;
+
+                return Ok(lista);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o Local. Exceção: {e.Message}");
+            }
+
         }
     }
 }
