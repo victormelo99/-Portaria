@@ -103,7 +103,7 @@
     "ContainingType": "Portaria.Controllers.FuncionarioController",
     "Method": "PutFuncionario",
     "RelativePath": "api/Funcionario",
-    "HttpMethod": "PUT",
+    "HttpMethod": "",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -281,9 +281,9 @@
   },
   {
     "ContainingType": "Portaria.Controllers.TerceiroController",
-    "Method": "PutTerceiro",
+    "Method": "PatchTerceiro",
     "RelativePath": "api/Terceiro",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [

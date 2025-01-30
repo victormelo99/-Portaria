@@ -55,20 +55,12 @@ namespace Portaria.Controllers
                 return BadRequest(new { error = $"Erro na hora de cadastrar funcionários. Exceção: {e.Message}" });
             }
         }
-
-        [HttpPut]
-        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutFuncionario([FromBody] Funcionario funcionario)
         {
             try
             {
                 var funcionarioExistente = await _context.Funcionario
                     .FirstOrDefaultAsync(f => f.Id == funcionario.Id);
-
-                if (funcionarioExistente == null)
-                {
-                    return NotFound("Funcionário não encontrado.");
-                }
 
                 funcionarioExistente.Nome = funcionario.Nome;
                 funcionarioExistente.Cpf = funcionario.Cpf;

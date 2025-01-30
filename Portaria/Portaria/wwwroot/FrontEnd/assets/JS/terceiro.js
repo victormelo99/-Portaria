@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('alterar').addEventListener('click', function () {
-        abrirlinks('alterarVisitante.html');
+        abrirlinks('alterarTerceiro.html');
     });
 });
 

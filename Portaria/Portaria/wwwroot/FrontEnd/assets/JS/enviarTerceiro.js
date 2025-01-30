@@ -13,14 +13,12 @@ export async function enviarDados(botaoTipo) {
 
         const token = Token();
 
-        // Validações
         if (!nome || nome.length < 2 || nome.length > 50) return alert('Nome deve ter entre 2 e 50 caracteres.');
         if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
         if (!empresa) return alert('Empresa é obrigatória.');
         if (!tipoServico) return alert('Tipo de serviço é obrigatório.');
         if (!responsavel) return alert('Responsável é obrigatório.');
 
-        // Dados para envio
         const dados = {
             nome: nome,
             cpf: cpf,
@@ -29,7 +27,6 @@ export async function enviarDados(botaoTipo) {
             responsavel: responsavel,
         };
 
-        // Envio da requisição
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -40,7 +37,6 @@ export async function enviarDados(botaoTipo) {
         });
 
         if (response.ok) {
-            // Limpa os campos após o sucesso
             document.querySelectorAll('input').forEach(input => input.value = '');
             alert('Terceiro cadastrado com sucesso!');
             if (botaoTipo === 'salvarS') {

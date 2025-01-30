@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro de Terceiro</title>
-  <link rel="stylesheet" href="../CSS/cadastroTerceiro.css" />
+  <title>Cadastro do local</title>
+  <link rel="stylesheet" href="../CSS/alterarTerceiro.css" />
 </head>
 
 <body>
@@ -17,6 +17,10 @@
   <main>
     <div class="container">
       <div class="areaCadastro">
+        <div>
+            <p>Id:</p>
+            <input type="text" required class="upper" id="id" />
+          </div>
         <div>
           <p>Nome:</p>
           <input type="text" required class="upper" id="nome" />
@@ -39,8 +43,7 @@
           </div>
         <div class="opcoes" id="opcoesLocal">
           <div class="opcoes-left">
-            <button id="salvar">Salvar</button>
-            <button id="salvarS">Salvar e Sair</button>
+            <button id="atualizar">Atualizar</button>
           </div>
           <div class="opcao-right">
             <button id="sair">Sair</button>
@@ -58,8 +61,7 @@
   </footer>
   <script src="../JS/config.js" type="module"></script>
   <script src="../JS/utilidades.js" type="module"></script>
-  <script src="../JS/terceiro.js" type="module"></script>
-  <script src="../JS/enviarTerceiro.js" type="module"></script>
+  <script src="../JS/AlterarTerceiro.js" type="module"></script>
 </body>
 
 </html>

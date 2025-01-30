@@ -60,14 +60,15 @@ async function atualizarFuncionario() {
         if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
 
         const matriculaNum = parseInt(matricula);
-        const mapearStatus = statusSelecionado === 'ATIVO' ? 0 : 1;
+        const mapearStatus = statusSelecionado === 'ATIVO' ? 1 : 0;
 
         const formatarData = (data) => {
             if (!data) return null; 
             const date = new Date(data);
             if (isNaN(date.getTime())) return null; 
+            // Falta retornar a data formatada
+            return date.toISOString().split('T')[0]; // Adicione esta linha
         };
-
         const responseFuncionario = await fetch(`${API_URLS.Funcionario}/${id}`, {
             method: 'GET',
             headers: {

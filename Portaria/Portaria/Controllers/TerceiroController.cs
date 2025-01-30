@@ -50,21 +50,19 @@ namespace Portaria.Controllers
 
             }
         }
-
-        [HttpPut]
+        [HttpPatch]
         [Authorize(Roles = "TI,PORTARIA")]
-        public async Task<ActionResult> PutTerceiro([FromBody] Terceiro terceiro)
+        public async Task<ActionResult> PatchTerceiro([FromBody] Terceiro terceiro)
         {
             try
             {
                 var atualizar = _context.Update(terceiro);
                 var resultado = await _context.SaveChangesAsync();
-                return Ok("Dado (s) do terceiro atualizado (s)");
+                return Ok("Dado(s) do terceiro atualizado(s)");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de atualizar o/os dado (s) do (s) terceiro (s). Exceção{e.Message}");
-
+                return BadRequest($"Erro na hora de atualizar o(s) dado(s) do(s) terceiro(s). Exceção: {e.Message}");
             }
         }
 
