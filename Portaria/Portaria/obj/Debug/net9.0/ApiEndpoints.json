@@ -328,6 +328,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "ProcurarTerceiro",
+    "RelativePath": "api/Terceiro/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.UsuarioController",
     "Method": "GetUsuario",
     "RelativePath": "api/Usuario",

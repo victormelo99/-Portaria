@@ -117,5 +117,26 @@ namespace Portaria.Controllers
             }
 
         }
+
+
+        [HttpGet("Pesquisa")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarTerceiro([FromQuery] string valor)
+        {
+            try
+            {
+                var lista = from o in await _context.Terceiro.ToListAsync()
+                            where o.Nome.ToUpper().Contains(valor.ToUpper())
+                            || o.Cpf.Contains(valor) || o.Empresa.Contains(valor)
+                            select o;
+
+                return Ok(lista);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o Local. Exceção: {e.Message}");
+            }
+
+        }
     }
 }

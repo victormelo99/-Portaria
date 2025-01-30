@@ -9,7 +9,7 @@ namespace Portaria.Models
         public string Empresa {  get; set; } // Nome da empresa terceirizada.
 
         [Required(ErrorMessage = "O campo TipoServico é obrigatório")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter entre 50 2 caracteres")]
         public string TipoServico { get; set; } // Tipo de serviço prestado.
 
         [Required(ErrorMessage = "O campo Responsavel é obrigatório")]

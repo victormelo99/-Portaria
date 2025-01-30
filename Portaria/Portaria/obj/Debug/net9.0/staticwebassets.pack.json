@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Local.css"
     },
     {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\Terceiro.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Terceiro.css"
+    },
+    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\Usuario.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Usuario.css"
     },
@@ -85,6 +89,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\Local.html"
     },
     {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\Terceiro.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\Terceiro.html"
+    },
+    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\Usuario.html",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\Usuario.html"
     },
@@ -117,6 +125,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarLocal.js"
     },
     {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarTerceiro.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarTerceiro.js"
+    },
+    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarUsuario.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarUsuario.js"
     },
@@ -145,6 +157,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\enviarLocal.js"
     },
     {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\enviarTerceiro.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\enviarTerceiro.js"
+    },
+    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\enviarUsuario.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\enviarUsuario.js"
     },
@@ -163,6 +179,10 @@
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\login.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\login.js"
+    },
+    {
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\terceiro.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\terceiro.js"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\usuario.js",

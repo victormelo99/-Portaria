@@ -13,6 +13,7 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\usuario.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\visitante.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\AlterarUsuario.css
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\Terceiro.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroUsuario.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroLocal.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\config.js
@@ -24,9 +25,13 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\alterarLocal.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\utilidades.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\style.css
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\terceiro.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\enviarLocal.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\Visitante.html
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\enviarTerceiro.js
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\alterarTerceiro.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\CadastroVisitante.css
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\Terceiro.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\CadastroLocal.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\alterarFuncionario.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\local.js
@@ -59,6 +64,7 @@ wwwroot\FrontEnd\assets\CSS\CadastroVisitante.css
 wwwroot\FrontEnd\assets\CSS\funcionario.css
 wwwroot\FrontEnd\assets\CSS\Local.css
 wwwroot\FrontEnd\assets\CSS\style.css
+wwwroot\FrontEnd\assets\CSS\Terceiro.css
 wwwroot\FrontEnd\assets\CSS\Usuario.css
 wwwroot\FrontEnd\assets\CSS\visitante.css
 wwwroot\FrontEnd\assets\HTML\alterarFuncionario.html
@@ -72,6 +78,7 @@ wwwroot\FrontEnd\assets\HTML\CadastroUsuario.html
 wwwroot\FrontEnd\assets\HTML\CadastroVisitante.html
 wwwroot\FrontEnd\assets\HTML\Funcionario.html
 wwwroot\FrontEnd\assets\HTML\Local.html
+wwwroot\FrontEnd\assets\HTML\Terceiro.html
 wwwroot\FrontEnd\assets\HTML\Usuario.html
 wwwroot\FrontEnd\assets\HTML\Visitante.html
 wwwroot\FrontEnd\assets\img\imagemTelaCadastro.svg
@@ -80,6 +87,7 @@ wwwroot\FrontEnd\assets\img\LogoFullGLobo.svg
 wwwroot\FrontEnd\assets\img\LogoSmall.svg
 wwwroot\FrontEnd\assets\JS\alterarFuncionario.js
 wwwroot\FrontEnd\assets\JS\alterarLocal.js
+wwwroot\FrontEnd\assets\JS\alterarTerceiro.js
 wwwroot\FrontEnd\assets\JS\alterarUsuario.js
 wwwroot\FrontEnd\assets\JS\alterarVisitante.js
 wwwroot\FrontEnd\assets\JS\areaCadastro.js
@@ -87,11 +95,13 @@ wwwroot\FrontEnd\assets\JS\autenticacao.js
 wwwroot\FrontEnd\assets\JS\config.js
 wwwroot\FrontEnd\assets\JS\enviarFuncionario.js
 wwwroot\FrontEnd\assets\JS\enviarLocal.js
+wwwroot\FrontEnd\assets\JS\enviarTerceiro.js
 wwwroot\FrontEnd\assets\JS\enviarUsuario.js
 wwwroot\FrontEnd\assets\JS\enviarVisitante.js
 wwwroot\FrontEnd\assets\JS\funcionario.js
 wwwroot\FrontEnd\assets\JS\local.js
 wwwroot\FrontEnd\assets\JS\login.js
+wwwroot\FrontEnd\assets\JS\terceiro.js
 wwwroot\FrontEnd\assets\JS\usuario.js
 wwwroot\FrontEnd\assets\JS\utilidades.js
 wwwroot\FrontEnd\assets\JS\visitante.js

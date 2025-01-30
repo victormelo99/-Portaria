@@ -144,6 +144,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-nCgeC94wiOI\u002BMbSdN4GyVyZrZ2tfGPvIUz1GkebYWBg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1742"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022nCgeC94wiOI\u002BMbSdN4GyVyZrZ2tfGPvIUz1GkebYWBg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 24 Jan 2025 11:55:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/CSS/Terceiro.5iqlry9f8f.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\Terceiro.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5iqlry9f8f"},{"Name":"integrity","Value":"sha256-k3MxXTzrejD2rwej0MQFKhnzxTXMpnFkJ\u002Bw\u002BigOZdtM="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/CSS/Terceiro.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2184"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022k3MxXTzrejD2rwej0MQFKhnzxTXMpnFkJ\u002Bw\u002BigOZdtM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:35:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/CSS/Terceiro.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\Terceiro.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-k3MxXTzrejD2rwej0MQFKhnzxTXMpnFkJ\u002Bw\u002BigOZdtM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2184"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022k3MxXTzrejD2rwej0MQFKhnzxTXMpnFkJ\u002Bw\u002BigOZdtM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:35:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/CSS/Usuario.5iqlry9f8f.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\Usuario.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -300,6 +312,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1nw/l7LXMLFQ/XBIZtaXS7PlvTEt08GST1D09rMNqjE="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1817"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u00221nw/l7LXMLFQ/XBIZtaXS7PlvTEt08GST1D09rMNqjE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 28 Jan 2025 11:52:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/HTML/Terceiro.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Terceiro.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5ZCcEqVrHBOascZWOtjtrsf9r8JjiJtVoA\u002BhkR59wIE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1976"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u00225ZCcEqVrHBOascZWOtjtrsf9r8JjiJtVoA\u002BhkR59wIE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 15:12:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/HTML/Terceiro.vf6q8lxxh3.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Terceiro.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vf6q8lxxh3"},{"Name":"integrity","Value":"sha256-5ZCcEqVrHBOascZWOtjtrsf9r8JjiJtVoA\u002BhkR59wIE="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/HTML/Terceiro.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1976"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u00225ZCcEqVrHBOascZWOtjtrsf9r8JjiJtVoA\u002BhkR59wIE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 15:12:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/HTML/Usuario.2imu1z264j.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Usuario.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -396,6 +420,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k1r1i07b0b"},{"Name":"integrity","Value":"sha256-2D4fqMJNi0THvxL9xb/1qQ/GdWKxRdpO/fMniOq1OBg="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/alterarLocal.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2447"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00222D4fqMJNi0THvxL9xb/1qQ/GdWKxRdpO/fMniOq1OBg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 28 Jan 2025 12:20:01 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarTerceiro.5ipweew5fc.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarTerceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5ipweew5fc"},{"Name":"integrity","Value":"sha256-47DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/alterarTerceiro.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"0"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u002247DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:27:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarTerceiro.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarTerceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-47DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"0"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u002247DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:27:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarUsuario.9z02q4yz7p.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarUsuario.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -480,6 +516,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jv1t40h8uy"},{"Name":"integrity","Value":"sha256-Qb1cFi0Xj9GmLnS0PBqoH1yFKm7RkdDWu8EBHKXaTXU="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/enviarLocal.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1701"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Qb1cFi0Xj9GmLnS0PBqoH1yFKm7RkdDWu8EBHKXaTXU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 28 Jan 2025 12:14:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/enviarTerceiro.5ipweew5fc.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarTerceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5ipweew5fc"},{"Name":"integrity","Value":"sha256-47DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/enviarTerceiro.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"0"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u002247DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:27:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/enviarTerceiro.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarTerceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-47DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"0"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u002247DEQpj8HBSa\u002B/TImW\u002B5JCeuQeRkm5NMpJWZG3hSuFU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 14:27:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/enviarUsuario.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarUsuario.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -539,6 +587,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"n37qd4kmkm"},{"Name":"integrity","Value":"sha256-cyNtybMU9lhBl2gf/gsSxojk5rlpM1KJmHF5YqIkVY8="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/login.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1645"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022cyNtybMU9lhBl2gf/gsSxojk5rlpM1KJmHF5YqIkVY8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 28 Jan 2025 10:43:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/terceiro.f94jmusjzu.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\terceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f94jmusjzu"},{"Name":"integrity","Value":"sha256-rdVfO8tpK/b3RzhSG/wmAqbNuFSsJSx48VVV7o70w/Y="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/terceiro.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4690"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rdVfO8tpK/b3RzhSG/wmAqbNuFSsJSx48VVV7o70w/Y=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 15:49:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/terceiro.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\terceiro.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rdVfO8tpK/b3RzhSG/wmAqbNuFSsJSx48VVV7o70w/Y="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4690"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rdVfO8tpK/b3RzhSG/wmAqbNuFSsJSx48VVV7o70w/Y=\u0022"},{"Name":"Last-Modified","Value":"Thu, 30 Jan 2025 15:49:33 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/usuario.bfw4s31zel.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\usuario.js'))</AssetFile>
