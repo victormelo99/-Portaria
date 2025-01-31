@@ -4,11 +4,11 @@ import { abrirPagina } from './utilidades.js';
 document.addEventListener('DOMContentLoaded', function () {
     // Captura botões de área de cadastro
     const botoes = document.querySelectorAll('.botaoAreaCadastro');
-    
+
     // Adiciona botão
     botoes.forEach((botao) => {
-        botao.addEventListener('click', function() {
-            const pagina = this.getAttribute('data-pagina') + '.html'; 
+        botao.addEventListener('click', function () {
+            const pagina = this.getAttribute('data-pagina') + '.html';
             abrirPagina(pagina);
         });
     });
@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             case 'Terceiro':
                 url = 'terceiro.html';
+                break;
+            case 'Veiculo':
+                url = 'veiculo.html';
+                break;
+            case 'Acesso':
+                url = 'acesso.html';
                 break;
             default:
                 console.error('Página não encontrada');

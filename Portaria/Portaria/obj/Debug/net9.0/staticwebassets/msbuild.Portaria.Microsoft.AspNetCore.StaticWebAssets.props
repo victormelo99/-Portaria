@@ -36,6 +36,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\alterarLocal.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\alterarTerceiro.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/CSS/alterarTerceiro.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>bm90hdkw14</Fingerprint>
+      <Integrity>TYrb4k3gTBKx4mjgkv8Q2oZ3hPbtpI2ho7fe0NV9Lyk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\alterarTerceiro.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\AlterarUsuario.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
@@ -102,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>r4yb6v646i</Fingerprint>
-      <Integrity>dXxCscdP6kekimVp+YfXck7yjdGIdlMwY3zwo2IDe+0=</Integrity>
+      <Fingerprint>kj9axjd9m0</Fingerprint>
+      <Integrity>MLR24DTSPCbvRQ+N8iRVU4g2ce2nLqHxV3ifN1aKAl8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroFuncionario.css'))</OriginalItemSpec>
@@ -126,6 +144,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroLocal.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\cadastroTerceiro.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/CSS/cadastroTerceiro.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>5n1zsfr69n</Fingerprint>
+      <Integrity>76RIgnREs9mMLwRE/t282LO/jHBShjb6MpaNAdy9Kcw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\cadastroTerceiro.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroUsuario.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
@@ -143,6 +179,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroUsuario.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroVeiculo.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/CSS/CadastroVeiculo.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>kj9axjd9m0</Fingerprint>
+      <Integrity>MLR24DTSPCbvRQ+N8iRVU4g2ce2nLqHxV3ifN1aKAl8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroVeiculo.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\CadastroVisitante.css'))">
       <SourceType>Package</SourceType>
@@ -300,11 +354,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>k1q0yzca8h</Fingerprint>
-      <Integrity>KG5EWD6bq/2u5AZykd7FGGBoaEc/93pEu0HGzKH2hXk=</Integrity>
+      <Fingerprint>khd859xxeb</Fingerprint>
+      <Integrity>SC9Huvybdu4/pGxmaAB7J9r3X2myDqfmyxlyz1bH7+o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\alterarLocal.html'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarTerceiro.html'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/HTML/AlterarTerceiro.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8de9tx7jjb</Fingerprint>
+      <Integrity>BL5bYajH52ShZJA3LseUeWixiE/NnZTuw7xTpcyqftI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarTerceiro.html'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\AlterarUsuario.html'))">
       <SourceType>Package</SourceType>
@@ -354,8 +426,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1acnzppzxw</Fingerprint>
-      <Integrity>Fwv4ONK+TVOD6Ld5yjM/nAEh7FbEBxB3+9mFEUQ8Evc=</Integrity>
+      <Fingerprint>630wve77vt</Fingerprint>
+      <Integrity>cm+W6jRFFmNkx//PAIHAow461iEH8fuoNhfJ1DRDHKE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\areaCadastro.html'))</OriginalItemSpec>
@@ -408,8 +480,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dd6xyhfmr3</Fingerprint>
-      <Integrity>gVS25cfUt59YfZK5FH06bFQCEavraWiFiiAdgX4/4Jo=</Integrity>
+      <Fingerprint>at66e2804b</Fingerprint>
+      <Integrity>/v24V3UrWF5p9Q2nFeDgTGpsWyyS9ATngtscZeakFLw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroTerceiro.html'))</OriginalItemSpec>
@@ -431,6 +503,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroUsuario.html'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroVeiculo.html'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/HTML/CadastroVeiculo.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9foxmzjjaa</Fingerprint>
+      <Integrity>G9SgPczlCiH3+GqAE0PsR12QPX/eQFJ/uFNn4S48ui8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroVeiculo.html'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\CadastroVisitante.html'))">
       <SourceType>Package</SourceType>
@@ -521,6 +611,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Usuario.html'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Veiculo.html'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/HTML/Veiculo.html</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>i4dnxca0um</Fingerprint>
+      <Integrity>MrO6fmE/oWk4BohttMUR9g+PeK0d3OaOjr6Qk8k+zUM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Veiculo.html'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\Visitante.html'))">
       <SourceType>Package</SourceType>
@@ -624,8 +732,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>s194g2076r</Fingerprint>
-      <Integrity>0B64sEieqit5+TzaGNv3k8sf3IqlNfWlh7W559Vvy/0=</Integrity>
+      <Fingerprint>6kkhd3no9h</Fingerprint>
+      <Integrity>qvQ4f73JlAqhITD57YwPZL23OdhFT6HOm9ONH7WoESA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarFuncionario.js'))</OriginalItemSpec>
@@ -660,8 +768,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6ha7486dgh</Fingerprint>
-      <Integrity>NouH7NFZZ8u6D7eT+yq33giEjsDwsTgVfE9lB/ldvI0=</Integrity>
+      <Fingerprint>b6hoc70x7s</Fingerprint>
+      <Integrity>DUvjxSc+wPa77v/l+Hx9E22j8+zRINbfbxJFTPt+dZs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarTerceiro.js'))</OriginalItemSpec>
@@ -714,8 +822,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>coguyhnl2x</Fingerprint>
-      <Integrity>7KV97alT9lUHMaY5NMrO5dbuqth27cDEva2Ahf86QVE=</Integrity>
+      <Fingerprint>7qi7w7hxfu</Fingerprint>
+      <Integrity>cbmehdQVGiPLp+bLoUKTAKz/bSndCi5uNl9RTmnGVpw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\areaCadastro.js'))</OriginalItemSpec>
@@ -750,8 +858,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7ezpgs0z9g</Fingerprint>
-      <Integrity>bz+CjecugbY/S1I3fWJyRjnOcEPVj+f/2RhZcNrePoM=</Integrity>
+      <Fingerprint>ngksq60wtk</Fingerprint>
+      <Integrity>aXf8tFg1qf/10EygzBqiJLCDcXXzHFGFlTpUJRiBw/Y=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\config.js'))</OriginalItemSpec>
@@ -768,8 +876,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>phmlntvm88</Fingerprint>
-      <Integrity>HeCVWCHRWfh1xgmfxpUEzsSZsKOyATgUGPGHQxDru1w=</Integrity>
+      <Fingerprint>h7eklc481u</Fingerprint>
+      <Integrity>7anPju35x7BUeOjeW0FCo8Ed2qUMSj0fN6TQ5XTbCoQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarFuncionario.js'))</OriginalItemSpec>
@@ -827,6 +935,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarUsuario.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarVeiculo.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/JS/enviarVeiculo.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>w2iff9il49</Fingerprint>
+      <Integrity>SJzdMh25qLAEpLx2Lv4LIFFMxmbymZ58rZfVAmSn5AE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarVeiculo.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\enviarVisitante.js'))">
       <SourceType>Package</SourceType>
@@ -953,6 +1079,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\utilidades.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\veiculo.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portaria</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portaria</BasePath>
+      <RelativePath>FrontEnd/assets/JS/veiculo.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>23ye1ojj83</Fingerprint>
+      <Integrity>8mr7m4h5wpiIpt9Bj21q69/ZdSI70reOcbrkKBpK2Aw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\veiculo.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\visitante.js'))">
       <SourceType>Package</SourceType>

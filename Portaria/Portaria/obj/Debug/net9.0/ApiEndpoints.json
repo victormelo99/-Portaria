@@ -103,7 +103,7 @@
     "ContainingType": "Portaria.Controllers.FuncionarioController",
     "Method": "PutFuncionario",
     "RelativePath": "api/Funcionario",
-    "HttpMethod": "",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

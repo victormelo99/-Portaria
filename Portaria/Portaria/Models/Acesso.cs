@@ -19,23 +19,25 @@ namespace Portaria.Models
         public string? Autorizacao { get; set; } // Pessoa que autorizou o acesso.
 
         [ForeignKey("Veiculo")]
-        public int VeiculoId { get; set; }
+        public int veiculoId { get; set; }
+        public Veiculo Veiculo { get; set; }
 
         [ForeignKey("Pessoa")]
-        public int PessoaId { get; set; }        
+        public int pessoaId { get; set; }  
+        public Pessoa pessoa { get; set; }
         public Acesso()
         {
         }
 
-        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, int localId, string autorizacao, int veiculoId, int pessoaId)
+        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, int localId, string autorizacao, int VeiculoId, int PessoaId)
         {
             Id = id;
             HoraEntrada = horaEntrada;
             HoraSaida = horaSaida;
             LocalId = localId;
             Autorizacao = autorizacao;
-            VeiculoId = veiculoId;
-            PessoaId = pessoaId;
+            veiculoId = VeiculoId;
+            PessoaId = PessoaId;
         }
     }
 }

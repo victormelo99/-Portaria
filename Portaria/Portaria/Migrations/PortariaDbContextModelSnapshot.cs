@@ -45,7 +45,7 @@ namespace Portaria.Migrations
                     b.Property<int>("PessoaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VeiculoId")
+                    b.Property<int?>("VeiculoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -162,6 +162,8 @@ namespace Portaria.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PessoaId");
+
                     b.ToTable("Veiculo");
                 });
 
@@ -176,7 +178,6 @@ namespace Portaria.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("Matricula")
-                        .HasMaxLength(14)
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -222,6 +223,17 @@ namespace Portaria.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.ToTable("Visitante", (string)null);
+                });
+
+            modelBuilder.Entity("Portaria.Models.Veiculo", b =>
+                {
+                    b.HasOne("Portaria.Models.Pessoa", "pessoa")
+                        .WithMany()
+                        .HasForeignKey("PessoaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("pessoa");
                 });
 
             modelBuilder.Entity("Portaria.Models.Funcionario", b =>

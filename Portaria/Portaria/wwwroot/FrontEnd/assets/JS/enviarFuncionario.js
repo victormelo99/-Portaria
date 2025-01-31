@@ -20,7 +20,7 @@ export async function enviarDados(botaoId) {
 
         const matriculaNum = parseInt(matricula);
 
-        const mapearStatus = status === 'ATIVO' ? 0 : 1; 
+        const mapearStatus = status === 'ATIVO' ? 1 : 0; 
 
         const formatarData = (data) => {
             if (!data) {

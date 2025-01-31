@@ -24,7 +24,7 @@ namespace Portaria.Controllers
         {
             try
             {
-                var resultado = await _context.Veiculo.ToListAsync();
+                var resultado = await _context.Veiculo.Include(p => p.pessoa).ToListAsync();
                 return Ok(resultado);
             }
             catch (Exception e)
@@ -40,6 +40,7 @@ namespace Portaria.Controllers
         {
             try
             {
+
                 var cadastro = await _context.AddAsync(veiculo);
                 var resultado = await _context.SaveChangesAsync();
                 return Ok("Veículo cadastrado");

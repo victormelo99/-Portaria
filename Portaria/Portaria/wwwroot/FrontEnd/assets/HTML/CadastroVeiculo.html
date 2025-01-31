@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro do Veículo</title>
+    <link rel="stylesheet" href="../CSS/CadastroVeiculo.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Globo Pharma</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="areaCadastro">
+                <div>
+                    <p>Placa</p>
+                    <input type="text" required class="upper" id="placa" />
+                </div>
+                <div>
+                    <p>Modelo:</p>
+                    <input type="text" required class="upper" id="modelo" />
+                </div>
+                <div>
+                    <p>Cor:</p>
+                    <input type="text" class="upper" id="cor" maxlength="14" />
+                </div>
+                <div>
+                    <p>Tipo de veículo:</p>
+                    <select id="tipoVeiculo" class="upper">
+                        <option value="0">MOTO</option>
+                        <option value="1">CARRO</option>
+                        <option value="2">CAMINHÃO</option>
+                    </select>
+                </div>
+                <div>
+                    <p>CPF</p>
+                    <input type="text" class="upper" id="cpf" maxlength="11" />
+                </div>
+                <div>
+                    <p>Pessoa</p>
+                    <select class="upper" id="pessoa"></select>
+                </div>
+                <div class="opcoes" id="opcoesLocal">
+                    <div class="opcoes-left">
+                        <button id="salvar">Salvar</button>
+                        <button id="salvarS">Salvar e Sair</button>
+                    </div>
+                    <div class="opcao-right">
+                        <button id="sair">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <h2>Todos os direitos Reservados</h2>
+        </div>
+    </footer>
+    <script src="../JS/config.js" type="module"></script>
+    <script src="../JS/utilidades.js" type="module"></script>
+    <script src="../JS/veiculo.js" type="module"></script>
+    <script src="../JS/enviarVeiculo.js" type="module"></script>
+</body>
+</html>

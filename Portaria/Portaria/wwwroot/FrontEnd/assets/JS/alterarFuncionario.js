@@ -25,8 +25,7 @@ async function preencherFormulario() {
         document.getElementById('nome').value = funcionario.nome.toUpperCase();
         document.getElementById('cpf').value = funcionario.cpf.trim();
         document.getElementById('matricula').value = funcionario.matricula;
-        document.getElementById('status').value = funcionario.status.toUpperCase();
-
+        document.getElementById('status').value = funcionario.status === 1 ? 'ATIVO' : 'iNATIVO';
         const formatarData = (data) => {
             if (!data) return '';
             const date = new Date(data);

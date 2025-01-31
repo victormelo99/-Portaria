@@ -24,6 +24,7 @@ namespace Portaria.Models
 
         [ForeignKey("Pessoa")]
         public int PessoaId { get; set; }
+        public Pessoa pessoa { get; set; }
         public Veiculo()
         {
         }
