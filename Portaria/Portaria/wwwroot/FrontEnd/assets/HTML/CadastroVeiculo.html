@@ -17,34 +17,46 @@
     <main>
         <div class="container">
             <div class="areaCadastro">
-                <div>
-                    <p>Placa</p>
-                    <input type="text" required class="upper" id="placa" />
+                <div class="lados">
+                    <div class="esquerdo">
+                        <div>
+                            <p>Placa</p>
+                            <input type="text" required class="upper" id="placa" />
+                        </div>
+                        <div>
+                            <p>Modelo:</p>
+                            <input type="text" required class="upper" id="modelo" />
+                        </div>
+                        <div>
+                            <p>Cor:</p>
+                            <input type="text" class="upper" id="cor" maxlength="14" />
+                        </div>
+                        <div>
+                            <p>Tipo de veículo:</p>
+                            <select id="tipoVeiculo" class="upper">
+                                <option value="0">MOTO</option>
+                                <option value="1">CARRO</option>
+                                <option value="2">CAMINHÃO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>CPF</p>
+                            <input type="text" class="upper" id="cpf" maxlength="11" />
+                        </div>
+        
+                        <div>
+                            <p>Pessoa</p>
+                            <select class="upper" id="pessoa"></select>
+                        </div>
+                    </div>
+                    <div class="direito">
+                        <div>
+                            <p>Id da Pessoa</p>
+                            <input type="text" class="upper" id="IdPessoa" />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <p>Modelo:</p>
-                    <input type="text" required class="upper" id="modelo" />
-                </div>
-                <div>
-                    <p>Cor:</p>
-                    <input type="text" class="upper" id="cor" maxlength="14" />
-                </div>
-                <div>
-                    <p>Tipo de veículo:</p>
-                    <select id="tipoVeiculo" class="upper">
-                        <option value="0">MOTO</option>
-                        <option value="1">CARRO</option>
-                        <option value="2">CAMINHÃO</option>
-                    </select>
-                </div>
-                <div>
-                    <p>CPF</p>
-                    <input type="text" class="upper" id="cpf" maxlength="11" />
-                </div>
-                <div>
-                    <p>Pessoa</p>
-                    <select class="upper" id="pessoa"></select>
-                </div>
+
                 <div class="opcoes" id="opcoesLocal">
                     <div class="opcoes-left">
                         <button id="salvar">Salvar</button>

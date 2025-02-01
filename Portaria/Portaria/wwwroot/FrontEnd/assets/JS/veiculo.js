@@ -1,8 +1,9 @@
+// veiculo.js
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
 
-
+// Função para converter o número do tipo de veículo em texto
 function tipoVeiculo(VeiculoNumero) {
     switch (VeiculoNumero) {
         case 0:
@@ -16,12 +17,14 @@ function tipoVeiculo(VeiculoNumero) {
     }
 }
 
+// Função para preencher a tabela com os veículos
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
-    tbody.innerHTML = '';
+    tbody.innerHTML = ''; // Limpa o conteúdo atual da tabela
 
     let url = `${API_URLS.Veiculo}`;
 
+    // Se houver uma pesquisa, adiciona o parâmetro à URL
     if (pesquisa.trim() !== "") {
         url = `${API_URLS.Veiculo}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
     }
@@ -29,6 +32,7 @@ async function preencherTabela(pesquisa = "") {
     try {
         const token = Token();
 
+        // Faz a requisição à API
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -39,57 +43,63 @@ async function preencherTabela(pesquisa = "") {
 
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
-          }
+        }
 
         const veiculos = await response.json();
 
+        // Preenche a tabela com os dados recebidos
         veiculos.forEach((veiculo) => {
             const tr = document.createElement('tr');
-        
+
+            // Cria as células da tabela
             const tdId = document.createElement('td');
             tdId.textContent = veiculo.id;
+
             const tdPlaca = document.createElement('td');
             tdPlaca.textContent = veiculo.placa;
+
             const tdModelo = document.createElement('td');
-            tdModelo.textContent = veiculo.modelo; 
+            tdModelo.textContent = veiculo.modelo;
+
             const tdCor = document.createElement('td');
             tdCor.textContent = veiculo.cor;
+
             const tdTipoVeiculo = document.createElement('td');
-            tdTipoVeiculo.textContent = tipoVeiculo (veiculo.tipoVeiculo); 
+            tdTipoVeiculo.textContent = tipoVeiculo(veiculo.tipoVeiculo);
+
             const tdCpf = document.createElement('td');
             tdCpf.textContent = veiculo.pessoa?.cpf || 'N/A';
+
             const tdNome = document.createElement('td');
             tdNome.textContent = veiculo.pessoa?.nome || 'N/A';
-            const tdIdPessoa = document.createElement('td');
-            tdIdPessoa.textContent = veiculo.pessoa?.idPessoa || 'N/A';
 
+            // Adiciona as células à linha da tabela
             tr.appendChild(tdId);
             tr.appendChild(tdPlaca);
             tr.appendChild(tdModelo);
             tr.appendChild(tdCor);
             tr.appendChild(tdTipoVeiculo);
-            tr.appendChild(tdTipoVeiculo);
             tr.appendChild(tdCpf);
             tr.appendChild(tdNome);
-            tr.appendChild(tdIdPessoa);
-        
-            tr.addEventListener('click', function () { selecionarLinha(this); });
-        
+
+            tr.addEventListener('click', function () {
+                selecionarLinha(this);
+            });
+
             tbody.appendChild(tr);
         });
+
         vincularEventosLinhas();
+
         console.log('Dados recebidos:', veiculos);
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    preencherTabela(); 
-});
-
+// Função para abrir links de páginas
 export function abrirlinks(pagina) {
-    const token = Token();  
+    const token = Token();
     if (token) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
@@ -104,16 +114,17 @@ async function deletarVeiculo() {
         try {
             const token = Token();
             const url = `${API_URLS.Veiculo}/${idUsuario}`;
+
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,  
+                    'Authorization': 'Bearer ' + token,
                     'Content-Type': 'application/json'
                 }
             });
 
             if (!response.ok) {
-                throw new Error(`Erro ao excluir o local`);
+                throw new Error(`Erro ao excluir o veículo`);
             }
 
             const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
@@ -135,22 +146,28 @@ async function deletarVeiculo() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// Configura os eventos quando a página é carregada
+document.addEventListener('DOMContentLoaded', function () {
+    // Preenche a tabela ao carregar a página
+    preencherTabela();
+
+    // Evento de clique no botão Pesquisar
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);
     });
 
+    // Evento de clique no botão Deletar
     document.getElementById('deletar').addEventListener('click', function () {
         deletarVeiculo();
     });
 
-    // Evento clique botão cadastrar
+    // Evento de clique no botão Cadastrar
     document.getElementById('cadastrar').addEventListener('click', function () {
         abrirlinks('CadastroVeiculo.html');
     });
 
-    // Evento clique botão alterar
+    // Evento de clique no botão Alterar
     document.getElementById('alterar').addEventListener('click', function () {
         abrirlinks('AlterarVeiculo.html');
     });

@@ -33,22 +33,33 @@ namespace Portaria.Controllers
 
             }
         }
-
         [HttpPost]
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PostVeiculo([FromBody] Veiculo veiculo)
         {
             try
             {
+                var pessoaExistente = await _context.Pessoa.FindAsync(veiculo.PessoaId);
+                if (pessoaExistente == null)
+                {
+                    return BadRequest("Pessoa não encontrada.");
+                }
 
-                var cadastro = await _context.AddAsync(veiculo);
+                _context.Pessoa.Attach(pessoaExistente);
+
+                veiculo.pessoa = pessoaExistente;
+
+                veiculo.PessoaId = pessoaExistente.Id;
+
+                var cadastro = await _context.Veiculo.AddAsync(veiculo);
+
                 var resultado = await _context.SaveChangesAsync();
+
                 return Ok("Veículo cadastrado");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de cadastrar veiculo. Exceção{e.Message}");
-
+                return BadRequest($"Erro na hora de cadastrar veiculo. Exceção: {e.Message}");
             }
         }
 
