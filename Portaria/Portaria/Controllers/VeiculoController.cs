@@ -65,7 +65,7 @@ namespace Portaria.Controllers
 
         [HttpPut]
         [Authorize(Roles = "TI,PORTARIA")]
-        public async Task<ActionResult> PutFuncionario([FromBody] Veiculo veiculo)
+        public async Task<ActionResult> PutVeiculo([FromBody] Veiculo veiculo)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Portaria.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "TI")]
-        public async Task<ActionResult> DeleteFuncionario([FromRoute] int id)
+        public async Task<ActionResult> DeleteVeiculo([FromRoute] int id)
         {
             Veiculo veiculo = await _context.Veiculo.FindAsync(id);
             try
@@ -109,7 +109,7 @@ namespace Portaria.Controllers
         //méthod para buscar Veículo pelo seu id
         [HttpGet("{id}")]
         [Authorize(Roles = "TI,PORTARIA")]
-        public async Task<ActionResult> ProcurarFuncionario([FromRoute] int id)
+        public async Task<ActionResult> ProcurarVeiculoPorID([FromRoute] int id)
         {
             Veiculo veiculo = await _context.Veiculo.FindAsync(id);
             try
@@ -129,5 +129,36 @@ namespace Portaria.Controllers
             }
 
         }
+
+        [HttpGet("Pesquisa")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ProcurarVeiculo([FromQuery] string valor)
+        {
+            try
+            {
+                valor = valor?.ToUpper() ?? "";
+
+                var lista = from veiculo in await _context.Veiculo.Include(v => v.pessoa).ToListAsync()
+                            where veiculo.Placa.ToUpper().Contains(valor)
+                               || veiculo.Modelo.ToUpper().Contains(valor)
+                               || veiculo.pessoa.Nome.ToUpper().Contains(valor)
+                               || veiculo.pessoa.Cpf.Contains(valor)
+                            select new
+                            {
+                                veiculo.Placa,
+                                veiculo.Modelo,
+                                veiculo.Cor,
+                                PessoaNome = veiculo.pessoa.Nome,
+                                PessoaCpf = veiculo.pessoa.Cpf
+                            };
+
+                return Ok(lista);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao encontrar o veículo. Exceção: {e.Message}");
+            }
+        }
+
     }
 }

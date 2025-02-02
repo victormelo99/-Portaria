@@ -477,7 +477,7 @@
   },
   {
     "ContainingType": "Portaria.Controllers.VeiculoController",
-    "Method": "PutFuncionario",
+    "Method": "PutVeiculo",
     "RelativePath": "api/Veiculo",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -493,7 +493,7 @@
   },
   {
     "ContainingType": "Portaria.Controllers.VeiculoController",
-    "Method": "DeleteFuncionario",
+    "Method": "DeleteVeiculo",
     "RelativePath": "api/Veiculo/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -509,7 +509,7 @@
   },
   {
     "ContainingType": "Portaria.Controllers.VeiculoController",
-    "Method": "ProcurarFuncionario",
+    "Method": "ProcurarVeiculoPorID",
     "RelativePath": "api/Veiculo/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -519,6 +519,22 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "ProcurarVeiculo",
+    "RelativePath": "api/Veiculo/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -47,7 +47,6 @@ async function preencherTabela(pesquisa = "") {
 
         const veiculos = await response.json();
 
-        // Preenche a tabela com os dados recebidos
         veiculos.forEach((veiculo) => {
             const tr = document.createElement('tr');
 

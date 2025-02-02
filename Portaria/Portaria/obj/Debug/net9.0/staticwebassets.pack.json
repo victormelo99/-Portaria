@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarUsuario.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AlterarVeiculo.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarVeiculo.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AlterarVisitante.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarVisitante.css"
     },
@@ -69,6 +73,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\style.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\veiculo.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\veiculo.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\visitante.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\visitante.css"
     },
@@ -79,6 +87,10 @@
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\AlterarUsuario.html",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\AlterarUsuario.html"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\AlterarVeiculo.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\AlterarVeiculo.html"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\CadastroFuncionario.html",
@@ -159,6 +171,10 @@
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarUsuario.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarUsuario.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarVeiculo.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarVeiculo.js"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarVisitante.js",
