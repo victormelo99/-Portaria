@@ -27,27 +27,21 @@ namespace Portaria.Controllers
         {
             try
             {
-                var resultado = await _context.Acesso.Include(a => a.Local).Include(a => a.Veiculo).Include(a => a.Pessoa)
-                    .Select(a => new
+                var resultado = await _context.Acesso
+                    .Include(a => a.Local)
+                    .Include(a => a.Veiculo)
+                    .Include(a => a.Pessoa)
+                    .Select(acesso => new
                     {
-                        a.Id,
-                        a.HoraEntrada,
-                        a.HoraSaida,
-                        a.Autorizacao,
-                        Local = new
-                        {
-                            a.Local.Nome
-                        },
-                        Veiculo = new
-                        {
-                            a.Veiculo.Modelo,
-                            a.Veiculo.Placa
-                        },
-                        Pessoa = new
-                        {
-                            a.Pessoa.Nome,
-                            a.Pessoa.Cpf
-                        }
+                        acesso.Id,
+                        NomePessoa = acesso.Pessoa != null ? acesso.Pessoa.Nome : "NÃO INFORMADO",
+                        CpfPessoa = acesso.Pessoa != null ? acesso.Pessoa.Cpf : "NÃO INFORMADO",
+                        NomeLocal = acesso.Local != null ? acesso.Local.Nome : "NÃO INFORMADO",
+                        ModeloVeiculo = acesso.Veiculo != null ? acesso.Veiculo.Modelo : "NÃO UTILIZA",
+                        PlacaVeiculo = acesso.Veiculo != null ? acesso.Veiculo.Placa : "NÃO UTILIZA",
+                        Autorizacao = acesso.Autorizacao ?? "NÃO INFORMADO",
+                        acesso.HoraEntrada,
+                        acesso.HoraSaida
                     })
                     .ToListAsync();
 
@@ -187,19 +181,25 @@ namespace Portaria.Controllers
         {
             try
             {
-                valor = valor?.ToUpper() ?? ""; // Certifique-se de que a string de pesquisa não seja nula ou vazia
+                valor = valor?.ToUpper() ?? "";
 
-                var lista = _context.Acesso
+                var lista = await _context.Acesso
                     .Include(a => a.Pessoa)
                     .Include(a => a.Local)
                     .Include(a => a.Veiculo)
                     .Where(acesso =>
-                        (acesso.Pessoa != null && acesso.Pessoa.Nome != null && acesso.Pessoa.Nome.ToUpper().Contains(valor)) ||
-                        (acesso.Pessoa != null && acesso.Pessoa.Cpf != null && acesso.Pessoa.Cpf.Contains(valor)) ||
-                        (acesso.Local != null && acesso.Local.Nome != null && acesso.Local.Nome.ToUpper().Contains(valor)) ||
-                        (acesso.Veiculo != null && acesso.Veiculo.Modelo != null && acesso.Veiculo.Modelo.ToUpper().Contains(valor)) ||
-                        (acesso.Veiculo != null && acesso.Veiculo.Placa != null && acesso.Veiculo.Placa.ToUpper().Contains(valor)) ||
-                        (acesso.Autorizacao != null && acesso.Autorizacao.ToUpper().Contains(valor))
+                        (acesso.Pessoa != null && acesso.Pessoa.Nome != null &&
+                         acesso.Pessoa.Nome.ToUpper().Contains(valor)) ||
+                        (acesso.Pessoa != null && acesso.Pessoa.Cpf != null &&
+                         acesso.Pessoa.Cpf.Contains(valor)) ||
+                        (acesso.Local != null && acesso.Local.Nome != null &&
+                         acesso.Local.Nome.ToUpper().Contains(valor)) ||
+                        (acesso.Veiculo != null && acesso.Veiculo.Modelo != null &&
+                         acesso.Veiculo.Modelo.ToUpper().Contains(valor)) ||
+                        (acesso.Veiculo != null && acesso.Veiculo.Placa != null &&
+                         acesso.Veiculo.Placa.ToUpper().Contains(valor)) ||
+                        (acesso.Autorizacao != null &&
+                         acesso.Autorizacao.ToUpper().Contains(valor))
                     )
                     .Select(acesso => new
                     {
@@ -212,10 +212,10 @@ namespace Portaria.Controllers
                         Autorizacao = acesso.Autorizacao ?? "NÃO INFORMADO",
                         acesso.HoraEntrada,
                         acesso.HoraSaida
-                    });
+                    })
+                    .ToListAsync();
 
-                var listaResult = await lista.ToListAsync(); // Fazendo o ToListAsync aqui para evitar carregar dados desnecessários
-                return Ok(listaResult);
+                return Ok(lista);
             }
             catch (Exception e)
             {

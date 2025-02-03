@@ -2,18 +2,37 @@ import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
 
+function normalizarDados(acesso) {
+    return {
+        Id: acesso.id,
+        NomePessoa: acesso.nomePessoa,
+        CpfPessoa: acesso.cpfPessoa,
+        NomeLocal: acesso.nomeLocal,
+        ModeloVeiculo: acesso.modeloVeiculo,
+        PlacaVeiculo: acesso.placaVeiculo,
+        Autorizacao: acesso.autorizacao,
+        HoraEntrada: acesso.horaEntrada,
+        HoraSaida: acesso.horaSaida
+    };
+}
+
+function formatarData(dataISO) {
+    return dataISO 
+        ? new Date(dataISO).toLocaleString('pt-BR', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit', hour12: false
+        }).replace(',', '') 
+        : 'NÃO REGISTRADO';
+}
+
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
 
     let url = `${API_URLS.Acesso}`;
-
-    if (pesquisa.trim() !== "") {
-        url = `${API_URLS.Acesso}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
-    }
+    if (pesquisa.trim() !== "") { url = `${API_URLS.Acesso}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;}
 
     try {
-
         const response = await fetch(url, {
             method: 'GET',
             headers: {
@@ -22,55 +41,37 @@ async function preencherTabela(pesquisa = "") {
             },
         });
 
-        if (!response.ok) {
-            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
-        }
-
         const acessos = await response.json();
-
-        function formatarData(dataISO) {
-            if (!dataISO) return 'NÃO REGISTRADO';
-            const data = new Date(dataISO);
-            return data.toLocaleString('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false
-            }).replace(',', '');
-        }
-
-
         acessos.forEach((acesso) => {
+            const dadosNormalizados = normalizarDados(acesso);
             const tr = document.createElement('tr');
 
             const tdId = document.createElement('td');
-            tdId.textContent = acesso.id;
+            tdId.textContent = dadosNormalizados.Id;
 
             const tdNome = document.createElement('td');
-            tdNome.textContent = acesso.pessoa?.nome;
+            tdNome.textContent = dadosNormalizados.NomePessoa;
 
             const tdCpf = document.createElement('td');
-            tdCpf.textContent = acesso.pessoa.cpf;
+            tdCpf.textContent = dadosNormalizados.CpfPessoa;
 
             const tdLocal = document.createElement('td');
-            tdLocal.textContent = acesso.local?.nome;
+            tdLocal.textContent = dadosNormalizados.NomeLocal;
 
             const tdVeiculo = document.createElement('td');
-            tdVeiculo.textContent = acesso.veiculo?.modelo;
+            tdVeiculo.textContent = dadosNormalizados.ModeloVeiculo;
 
             const tdPlaca = document.createElement('td');
-            tdPlaca.textContent = acesso.veiculo?.placa;
+            tdPlaca.textContent = dadosNormalizados.PlacaVeiculo;
 
             const tdAutorizado = document.createElement('td');
-            tdAutorizado.textContent = acesso.autorizacao;
+            tdAutorizado.textContent = dadosNormalizados.Autorizacao;
 
             const tdHoraEntrada = document.createElement('td');
-            tdHoraEntrada.textContent = formatarData(acesso.horaEntrada)
+            tdHoraEntrada.textContent = formatarData(dadosNormalizados.HoraEntrada);
             
             const tdHoraSaida = document.createElement('td');
-            tdHoraSaida.textContent = formatarData(acesso.horaSaida);
+            tdHoraSaida.textContent = formatarData(dadosNormalizados.HoraSaida);
 
             tr.appendChild(tdId);
             tr.appendChild(tdNome);
@@ -90,7 +91,6 @@ async function preencherTabela(pesquisa = "") {
         });
 
         vincularEventosLinhas();
-
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
@@ -143,6 +143,7 @@ async function deletarAcesso() {
     }
 }
 
+// Eventos ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
 
