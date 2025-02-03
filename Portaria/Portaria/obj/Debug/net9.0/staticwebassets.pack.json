@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AreaCAdastro.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroAcesso.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroAcesso.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroFuncionario.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroFuncionario.css"
     },
@@ -53,6 +57,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Usuario.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\acesso.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\acesso.css"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\alterarLocal.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\alterarLocal.css"
     },
@@ -81,6 +89,10 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\visitante.css"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\Acesso.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\Acesso.html"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\AlterarTerceiro.html",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\AlterarTerceiro.html"
     },
@@ -91,6 +103,10 @@
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\AlterarVeiculo.html",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\AlterarVeiculo.html"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\CadastroAcesso.html",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\CadastroAcesso.html"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\CadastroFuncionario.html",
@@ -157,6 +173,14 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\HTML\\areaCadastro.html"
     },
     {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\acesso.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\acesso.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarAcesso.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarAcesso.js"
+    },
+    {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\alterarFuncionario.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\alterarFuncionario.js"
     },
@@ -191,6 +215,10 @@
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\config.js",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\config.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\enviarAcesso.js",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\JS\\enviarAcesso.js"
     },
     {
       "Id": "C:\\Users\\PC\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\enviarFuncionario.js",

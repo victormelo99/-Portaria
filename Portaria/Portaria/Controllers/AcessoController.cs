@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Portaria.Data;
 using Portaria.Models;
 
@@ -21,20 +22,42 @@ namespace Portaria.Controllers
 
         [HttpGet]
         [Authorize(Roles = "TI,PORTARIA")]
-
         public async Task<ActionResult> GetAcesso()
         {
             try
             {
-                var resultado = await _context.Acesso.ToListAsync();
+                var resultado = await _context.Acesso.Include(a => a.Local).Include(a => a.Veiculo).Include(a => a.Pessoa)
+                    .Select(a => new
+                    {
+                        a.Id,
+                        a.HoraEntrada,
+                        a.HoraSaida,
+                        a.Autorizacao,
+                        Local = new
+                        {
+                            a.Local.Nome
+                        },
+                        Veiculo = new
+                        {
+                            a.Veiculo.Modelo,
+                            a.Veiculo.Placa
+                        },
+                        Pessoa = new
+                        {
+                            a.Pessoa.Nome,
+                            a.Pessoa.Cpf
+                        }
+                    })
+                    .ToListAsync();
+
                 return Ok(resultado);
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de listar Acessos. Exceção{e.Message}");
-
+                return BadRequest($"Erro na hora de listar Acessos. Exceção: {e.Message}");
             }
         }
+
 
         [HttpPost]
         [Authorize(Roles = "TI,PORTARIA")]
@@ -42,16 +65,62 @@ namespace Portaria.Controllers
         {
             try
             {
-                var cadastro = await _context.AddAsync(acesso);
+                Console.WriteLine($"Dados recebidos: {JsonConvert.SerializeObject(acesso)}");
+
+                if (acesso == null)
+                {
+                    return BadRequest("Dados de acesso não fornecidos.");
+                }
+
+                var pessoaExistente = await _context.Pessoa.FindAsync(acesso.PessoaId);
+
+                if (pessoaExistente == null)
+                {
+                    Console.WriteLine("Pessoa não encontrada.");
+                    return BadRequest("Pessoa não encontrada.");
+                }
+
+                var localExistente = await _context.Local.FindAsync(acesso.LocalId);
+
+                if (localExistente == null)
+                {
+                    Console.WriteLine("Local não encontrado.");
+                    return BadRequest("Local não encontrado.");
+                }
+
+                Veiculo veiculoExistente = null;
+
+                if (acesso.veiculoId.HasValue)
+                {
+                    veiculoExistente = await _context.Veiculo.FindAsync(acesso.veiculoId);
+                    if (veiculoExistente == null)
+                    {
+                        Console.WriteLine("Veículo não encontrado.");
+                        veiculoExistente = null;  // Aqui definimos o veículo como null se não for encontrado
+                    }
+                }
+
+                acesso.Pessoa = pessoaExistente;
+                acesso.Local = localExistente;
+
+                // Se o veículo foi encontrado, atribuímos ele ao acesso. Caso contrário, o campo ficará null
+                acesso.Veiculo = veiculoExistente;
+
+                var cadastro = await _context.Acesso.AddAsync(acesso);
                 var resultado = await _context.SaveChangesAsync();
-                return Ok("Acesso cadastrado");
+
+                Console.WriteLine("Acesso cadastrado com sucesso.");
+
+                return Ok("Acesso cadastrado com sucesso.");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de cadastrar acesso. Exceção{e.Message}");
-
+                Console.WriteLine($"Erro ao cadastrar acesso. Exceção: {e.Message}");
+                return BadRequest($"Erro ao cadastrar acesso. Exceção: {e.Message}");
             }
         }
+
+
 
         [HttpPut]
         [Authorize(Roles = "TI,PORTARIA")]

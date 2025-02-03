@@ -5,6 +5,7 @@ export const API_URLS = {
     Visitante: 'https://localhost:7063/api/Visitante',
     Terceiro: 'https://localhost:7063/api/Terceiro',
     Veiculo: 'https://localhost:7063/api/Veiculo',
+    Acesso: 'https://localhost:7063/api/Acesso',
 };
 
 export const Token = () => localStorage.getItem('token');

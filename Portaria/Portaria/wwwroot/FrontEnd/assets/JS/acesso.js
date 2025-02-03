@@ -3,27 +3,14 @@ import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
 
-function tipoVeiculo(VeiculoNumero) {
-    switch (VeiculoNumero) {
-        case 0:
-            return 'MOTO';
-        case 1:
-            return 'CARRO';
-        case 2:
-            return 'CAMINHÃO';
-        default:
-            return 'DESCONHECIDO';
-    }
-}
-
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
 
-    let url = `${API_URLS.Veiculo}`;
+    let url = `${API_URLS.Acesso}`;
 
     if (pesquisa.trim() !== "") {
-        url = `${API_URLS.Veiculo}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
+        url = `${API_URLS.Acesso}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
     }
 
     try {
@@ -40,39 +27,61 @@ async function preencherTabela(pesquisa = "") {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
 
-        const veiculos = await response.json();
+        const acessos = await response.json();
 
-        veiculos.forEach((veiculo) => {
+        function formatarData(dataISO) {
+            if (!dataISO) return 'NÃO REGISTRADO';
+            const data = new Date(dataISO);
+            return data.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }).replace(',', '');
+        }
+
+
+        acessos.forEach((acesso) => {
             const tr = document.createElement('tr');
 
             const tdId = document.createElement('td');
-            tdId.textContent = veiculo.id;
-
-            const tdPlaca = document.createElement('td');
-            tdPlaca.textContent = veiculo.placa;
-
-            const tdModelo = document.createElement('td');
-            tdModelo.textContent = veiculo.modelo;
-
-            const tdCor = document.createElement('td');
-            tdCor.textContent = veiculo.cor;
-
-            const tdTipoVeiculo = document.createElement('td');
-            tdTipoVeiculo.textContent = tipoVeiculo(veiculo.tipoVeiculo);
-
-            const tdCpf = document.createElement('td');
-            tdCpf.textContent = veiculo.pessoa?.cpf || 'N/A';
+            tdId.textContent = acesso.id;
 
             const tdNome = document.createElement('td');
-            tdNome.textContent = veiculo.pessoa?.nome || 'N/A';
+            tdNome.textContent = acesso.pessoa?.nome;
+
+            const tdCpf = document.createElement('td');
+            tdCpf.textContent = acesso.pessoa?.cpf;
+
+            const tdLocal = document.createElement('td');
+            tdLocal.textContent = acesso.local?.nome;
+
+            const tdVeiculo = document.createElement('td');
+            tdVeiculo.textContent = acesso.veiculo.modelo;
+
+            const tdPlaca = document.createElement('td');
+            tdPlaca.textContent = acesso.veiculo.placa || 'NÃO UTILIZA' ;
+
+            const tdAutorizado = document.createElement('td');
+            tdAutorizado.textContent = acesso.autorizacao || 'NÃO INFORMADO';
+
+            const tdHoraEntrada = document.createElement('td');
+            tdHoraEntrada.textContent = formatarData(acesso.horaEntrada)
+            
+            const tdHoraSaida = document.createElement('td');
+            tdHoraSaida.textContent = formatarData(acesso.horaSaida);
 
             tr.appendChild(tdId);
-            tr.appendChild(tdPlaca);
-            tr.appendChild(tdModelo);
-            tr.appendChild(tdCor);
-            tr.appendChild(tdTipoVeiculo);
-            tr.appendChild(tdCpf);
             tr.appendChild(tdNome);
+            tr.appendChild(tdCpf);
+            tr.appendChild(tdLocal);
+            tr.appendChild(tdVeiculo);
+            tr.appendChild(tdPlaca);
+            tr.appendChild(tdAutorizado);
+            tr.appendChild(tdHoraEntrada);
+            tr.appendChild(tdHoraSaida);
 
             tr.addEventListener('click', function () {
                 selecionarLinha(this);
@@ -97,24 +106,23 @@ export function abrirlinks(pagina) {
     }
 }
 
-async function deletarVeiculo() {
+async function deletarAcesso() {
     const idUsuario = localStorage.getItem('idUsuarioSelecionado');
 
-    if (confirm('Tem certeza que deseja excluir este veículo?')) {
+    if (confirm('Tem certeza que deseja excluir este acesso?')) {
         try {
-            const token = Token();
-            const url = `${API_URLS.Veiculo}/${idUsuario}`;
+            const url = `${API_URLS.Acesso}/${idUsuario}`;
 
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': 'Bearer ' + Token(),
                     'Content-Type': 'application/json'
                 }
             });
 
             if (!response.ok) {
-                throw new Error(`Erro ao excluir o veículo`);
+                throw new Error(`Erro ao excluir o acesso`);
             }
 
             const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
@@ -122,7 +130,7 @@ async function deletarVeiculo() {
                 linhaSelecionada.remove();
             }
 
-            alert('Veículo excluído com sucesso!');
+            alert('Acesso excluído com sucesso!');
 
             localStorage.removeItem('idUsuarioSelecionado');
 
@@ -131,7 +139,7 @@ async function deletarVeiculo() {
             });
 
         } catch (error) {
-            alert('Erro ao excluir o veículo. Por favor, tente novamente.');
+            alert('Erro ao excluir o acesso. Por favor, tente novamente.');
         }
     }
 }
@@ -145,14 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('deletar').addEventListener('click', function () {
-        deletarVeiculo();
+        deletarAcesso();
     });
 
     document.getElementById('cadastrar').addEventListener('click', function () {
-        abrirlinks('CadastroVeiculo.html');
+        abrirlinks('CadastroAcesso.html');
     });
 
     document.getElementById('alterar').addEventListener('click', function () {
-        abrirlinks('AlterarVeiculo.html');
+        abrirlinks('AlterarAcesso.html');
     });
 });
