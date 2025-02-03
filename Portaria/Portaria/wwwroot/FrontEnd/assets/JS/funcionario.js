@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
     preencherTabela(); 
 });
 
-// Função para abrir links de usuário
 export function abrirlinks(pagina) {
     const token = Token();  
     if (token) {

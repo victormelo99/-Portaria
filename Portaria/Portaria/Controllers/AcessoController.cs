@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Portaria.Data;
 using Portaria.Models;
+using System.Linq;
 
 namespace Portaria.Controllers
 {
@@ -186,32 +187,34 @@ namespace Portaria.Controllers
         {
             try
             {
-                valor = valor?.ToUpper() ?? "";
+                valor = valor?.ToUpper() ?? ""; // Certifique-se de que a string de pesquisa não seja nula ou vazia
 
                 var lista = _context.Acesso
                     .Include(a => a.Pessoa)
-                    .Include(a => a.Veiculo)
                     .Include(a => a.Local)
+                    .Include(a => a.Veiculo)
                     .Where(acesso =>
-                        acesso.Pessoa.Nome.ToUpper().Contains(valor) ||
-                        acesso.Pessoa.Cpf.Contains(valor) ||
-                        acesso.Veiculo.Placa.ToUpper().Contains(valor) ||
-                        acesso.Veiculo.Modelo.ToUpper().Contains(valor) ||
-                        acesso.Id.ToString().Contains(valor)
+                        (acesso.Pessoa != null && acesso.Pessoa.Nome != null && acesso.Pessoa.Nome.ToUpper().Contains(valor)) ||
+                        (acesso.Pessoa != null && acesso.Pessoa.Cpf != null && acesso.Pessoa.Cpf.Contains(valor)) ||
+                        (acesso.Local != null && acesso.Local.Nome != null && acesso.Local.Nome.ToUpper().Contains(valor)) ||
+                        (acesso.Veiculo != null && acesso.Veiculo.Modelo != null && acesso.Veiculo.Modelo.ToUpper().Contains(valor)) ||
+                        (acesso.Veiculo != null && acesso.Veiculo.Placa != null && acesso.Veiculo.Placa.ToUpper().Contains(valor)) ||
+                        (acesso.Autorizacao != null && acesso.Autorizacao.ToUpper().Contains(valor))
                     )
                     .Select(acesso => new
                     {
-                        PessoaNome = acesso.Pessoa.Nome,
-                        PessoaCpf = acesso.Pessoa.Cpf,
-                        HoraEntrada = acesso.HoraEntrada,
-                        HoraSaida = acesso.HoraSaida,
-                        VeiculoPlaca = acesso.Veiculo.Placa,
-                        VeiculoModelo = acesso.Veiculo.Modelo,
-                        LocalNome = acesso.Local.Nome,
-                        Autorizacao = acesso.Autorizacao
+                        acesso.Id,
+                        NomePessoa = acesso.Pessoa != null ? acesso.Pessoa.Nome : "NÃO INFORMADO",
+                        CpfPessoa = acesso.Pessoa != null ? acesso.Pessoa.Cpf : "NÃO INFORMADO",
+                        NomeLocal = acesso.Local != null ? acesso.Local.Nome : "NÃO INFORMADO",
+                        ModeloVeiculo = acesso.Veiculo != null ? acesso.Veiculo.Modelo : "NÃO UTILIZA",
+                        PlacaVeiculo = acesso.Veiculo != null ? acesso.Veiculo.Placa : "NÃO UTILIZA",
+                        Autorizacao = acesso.Autorizacao ?? "NÃO INFORMADO",
+                        acesso.HoraEntrada,
+                        acesso.HoraSaida
                     });
 
-                var listaResult = await lista.ToListAsync();
+                var listaResult = await lista.ToListAsync(); // Fazendo o ToListAsync aqui para evitar carregar dados desnecessários
                 return Ok(listaResult);
             }
             catch (Exception e)
