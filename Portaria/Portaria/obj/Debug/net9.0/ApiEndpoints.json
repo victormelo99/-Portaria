@@ -74,6 +74,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "ProcurarAcesso",
+    "RelativePath": "api/Acesso/Pesquisa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Portaria.Controllers.FuncionarioController",
     "Method": "GetFuncionario",
     "RelativePath": "api/Funcionario",

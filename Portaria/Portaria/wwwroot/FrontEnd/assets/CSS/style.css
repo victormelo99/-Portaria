@@ -27,10 +27,9 @@ body {
   border-radius: 20px;
   align-content: center;
   background-image: linear-gradient(to right, #e84e14, #9c2d05fd);
-  justify-content: space-between;
   height: 80%;
   width: 80%;
-  flex:1;
+  flex: 1 ;
 }
 
 .content-first-content {
@@ -98,10 +97,11 @@ body {
 .content-second-content {
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-size: cover;
 }
 
 .content-second-content img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }

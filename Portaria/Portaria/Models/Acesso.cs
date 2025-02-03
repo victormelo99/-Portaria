@@ -21,8 +21,8 @@ namespace Portaria.Models
         public string? Autorizacao { get; set; }
 
         [ForeignKey("Veiculo")]
-        public int? veiculoId { get; set; }
-        public Veiculo Veiculo { get; set; }
+        public int? VeiculoId { get; set; }
+        public Veiculo? Veiculo { get; set; }
 
         [ForeignKey("Pessoa")]
         public int PessoaId { get; set; }  
@@ -31,14 +31,14 @@ namespace Portaria.Models
         {
         }
 
-        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, int localId, string autorizacao, int VeiculoId, int pessoaId)
+        public Acesso(int id, DateTime horaEntrada, DateTime horaSaida, int localId, string autorizacao, int veiculoId, int pessoaId)
         {
             Id = id;
             HoraEntrada = horaEntrada;
             HoraSaida = horaSaida;
             LocalId = localId;
             Autorizacao = autorizacao;
-            veiculoId = VeiculoId;
+            VeiculoId = veiculoId;
             PessoaId = pessoaId;
         }
     }

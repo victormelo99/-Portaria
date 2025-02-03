@@ -43,13 +43,13 @@ main {
 
 main .container {
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: space-between;
     margin: 20px auto 20px auto;
     background-color: #858585d5;
     border-radius: 10px;
     width: 60%;
-    height: 52%;
+    height: auto;
 }
 
 .lados {
@@ -64,7 +64,7 @@ main .container {
     width: 100%;
     gap: 20px;
     justify-content: space-between;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
 }
 
 .direito {

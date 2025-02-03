@@ -1,4 +1,3 @@
-// veiculo.js
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
@@ -53,19 +52,19 @@ async function preencherTabela(pesquisa = "") {
             tdNome.textContent = acesso.pessoa?.nome;
 
             const tdCpf = document.createElement('td');
-            tdCpf.textContent = acesso.pessoa?.cpf;
+            tdCpf.textContent = acesso.pessoa.cpf;
 
             const tdLocal = document.createElement('td');
             tdLocal.textContent = acesso.local?.nome;
 
             const tdVeiculo = document.createElement('td');
-            tdVeiculo.textContent = acesso.veiculo.modelo;
+            tdVeiculo.textContent = acesso.veiculo?.modelo;
 
             const tdPlaca = document.createElement('td');
-            tdPlaca.textContent = acesso.veiculo.placa || 'NÃO UTILIZA' ;
+            tdPlaca.textContent = acesso.veiculo?.placa;
 
             const tdAutorizado = document.createElement('td');
-            tdAutorizado.textContent = acesso.autorizacao || 'NÃO INFORMADO';
+            tdAutorizado.textContent = acesso.autorizacao;
 
             const tdHoraEntrada = document.createElement('td');
             tdHoraEntrada.textContent = formatarData(acesso.horaEntrada)
