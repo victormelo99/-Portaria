@@ -912,8 +912,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ck35t7qtl7</Fingerprint>
-      <Integrity>TDrrj0Zgi1QXI2sI3OvUTzhjtvVrVlMcHFrFodrThH0=</Integrity>
+      <Fingerprint>lmj6r0d4pf</Fingerprint>
+      <Integrity>I4xFBngebEnOcgNXtBrOF1Vy+uBG9MKeB7NH39fJZDI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarAcesso.js'))</OriginalItemSpec>
