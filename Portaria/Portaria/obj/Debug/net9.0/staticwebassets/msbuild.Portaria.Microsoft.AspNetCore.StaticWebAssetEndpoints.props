@@ -600,17 +600,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mt8mwv9wv2"},{"Name":"integrity","Value":"sha256-KmL0nw/f\u002BA9Y3Nmh8F35Wlkudz5Ps/Bc/kEIoghkuw8="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/acesso.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5607"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022KmL0nw/f\u002BA9Y3Nmh8F35Wlkudz5Ps/Bc/kEIoghkuw8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 10:53:26 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarAcesso.da7lyqu1kg.js">
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarAcesso.ck35t7qtl7.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarAcesso.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"da7lyqu1kg"},{"Name":"integrity","Value":"sha256-JUJhsYSxMCR0S7q5qr4Qy9ePoCNsAWcEUw1tH3mHR9U="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/alterarAcesso.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7311"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022JUJhsYSxMCR0S7q5qr4Qy9ePoCNsAWcEUw1tH3mHR9U=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 15:35:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ck35t7qtl7"},{"Name":"integrity","Value":"sha256-TDrrj0Zgi1QXI2sI3OvUTzhjtvVrVlMcHFrFodrThH0="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/alterarAcesso.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6402"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022TDrrj0Zgi1QXI2sI3OvUTzhjtvVrVlMcHFrFodrThH0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 15:48:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarAcesso.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarAcesso.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-JUJhsYSxMCR0S7q5qr4Qy9ePoCNsAWcEUw1tH3mHR9U="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7311"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022JUJhsYSxMCR0S7q5qr4Qy9ePoCNsAWcEUw1tH3mHR9U=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 15:35:55 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-TDrrj0Zgi1QXI2sI3OvUTzhjtvVrVlMcHFrFodrThH0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6402"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022TDrrj0Zgi1QXI2sI3OvUTzhjtvVrVlMcHFrFodrThH0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 04 Feb 2025 15:48:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/alterarFuncionario.6kkhd3no9h.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarFuncionario.js'))</AssetFile>
