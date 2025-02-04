@@ -4,7 +4,7 @@ import { API_URLS } from './config.js';
 let pessoas = [];
 
 async function carregarPessoas() {
-    if (pessoas.length > 0) return; // Evita carregamentos desnecessários
+    if (pessoas.length > 0) return;
 
     const token = Token();
     const rotas = [API_URLS.Funcionario, API_URLS.Visitante, API_URLS.Terceiro];

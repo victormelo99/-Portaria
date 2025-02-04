@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    height: 5vh;
+    background-color: #e84d14dc;
+
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 70%;
+}
+
+
+header h1 {
+    text-align: center;
+    color: #ffffffec;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+main .container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin: 20px auto 20px auto;
+    background-color: #858585d5;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+}
+
+
+
+.areaCadastro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.lados {
+    display: flex;
+    padding: 0 20px 0 20px;
+    flex: 1;
+}
+
+.direito {
+    display: flex;
+    align-items: end;
+    width: 50%;
+    gap: 20px;
+    flex-direction: column;
+}
+
+
+.esquerdo {
+    display: flex;
+    height: 50%;
+    width: 50%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.direito>.areaForm {
+    width: 30%;
+}
+
+p {
+    font-size: 18px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+input,
+select {
+    width: 100%;
+    height: 32px;
+    padding-left: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+select {
+    width: 30%;
+}
+
+
+
+input:focus,
+select:focus {
+    border: none;
+    outline: none;
+    padding-left: 5px;
+}
+
+
+
+
+.pesquisar {
+    background-color: #fff;
+    width: 15%;
+    border: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 20px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.pesquisar:hover {
+    background-color: #ff7300;
+    border: none;
+}
+
+.upper {
+    text-transform: uppercase;
+    width: 30%;
+}
+
+.direito .upper {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.opcoes {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    align-content: end;
+    justify-content: space-between;
+}
+
+.opcoes-left button {
+    padding-right: 30px;
+}
+
+
+#atualizar,
+#sair {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#atualizar:hover,
+#sair:hover {
+    color: #ff7300;
+}
+
+footer {
+    display: flex;
+    height: 5vh;
+    background-color: #e84d14dc;
+}
+
+footer .container {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+footer h2 {
+    color: #ffffffec;
+}

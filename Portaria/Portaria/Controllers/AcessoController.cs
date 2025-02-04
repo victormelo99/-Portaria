@@ -156,24 +156,43 @@ namespace Portaria.Controllers
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> ProcurarACesso([FromRoute] int id)
         {
-            Acesso acesso = await _context.Acesso.FindAsync(id);
             try
             {
-                if (acesso != null)
-                {
-                    return Ok(acesso);
-                }
-                else
+                var acesso = await _context.Acesso
+                    .Include(a => a.Local)
+                    .Include(a => a.Veiculo)
+                    .Include(a => a.Pessoa)
+                    .Where(a => a.Id == id)
+                    .Select(a => new
+                    {
+                        a.Id,
+                        NomePessoa = a.Pessoa != null ? a.Pessoa.Nome : "NÃO INFORMADO",
+                        CpfPessoa = a.Pessoa != null ? a.Pessoa.Cpf : "NÃO INFORMADO",
+                        NomeLocal = a.Local != null ? a.Local.Nome : "NÃO INFORMADO",
+                        ModeloVeiculo = a.Veiculo != null ? a.Veiculo.Modelo : "NÃO UTILIZA",
+                        PlacaVeiculo = a.Veiculo != null ? a.Veiculo.Placa : "NÃO UTILIZA",
+                        Autorizacao = a.Autorizacao ?? "NÃO INFORMADO",
+                        a.HoraEntrada,
+                        a.HoraSaida,
+                        PessoaId = a.Pessoa != null ? a.Pessoa.Id : (int?)null,
+                        VeiculoId = a.Veiculo != null ? a.Veiculo.Id : (int?)null,
+                        LocalId = a.Local != null ? a.Local.Id : (int?)null
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (acesso == null)
                 {
                     return NotFound("Acesso não encontrado");
                 }
+
+                return Ok(acesso);
             }
             catch (Exception e)
             {
                 return BadRequest($"Erro ao encontrar o acesso. Exceção: {e.Message}");
             }
-
         }
+
 
         [HttpGet("Pesquisa")]
         [Authorize(Roles = "TI,PORTARIA")]

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alteração de Acesso</title>
+    <link rel="stylesheet" href="../CSS/alterarAcesso.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Globo Pharma</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="areaCadastro">
+                <div class="lados">
+                    <div class="esquerdo">
+                        <div class="areaId">
+                            <p>Id</p>
+                            <input class="upper" readonly id="id"></input>
+                        </div>
+                        <div>
+                            <p>Nome</p>
+                            <div>
+                                <input type="text" required class="upper" id="nome" />
+                                <button id="pesquisarNome" class="pesquisar">Pesquisar</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p>CPF</p>
+                            <div>
+                                <input type="text" required class="upper" id="cpf" maxlength="11" />
+                                <button id="pesquisarCpf" class="pesquisar">Pesquisar</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Veículo</p>
+                            <select id="veiculo">
+                                <option value="">Selecione um veículo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Placa</p>
+                            <div>
+                                <input type="text" class="upper" id="placa" />
+                                <button id="pesquisarPlaca" class="pesquisar">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="direito">
+                        <div>
+                            <p>Local</p>
+                            <select id="local" class="upper">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Autorizado por</p>
+                            <input class="upper" id="autorizacao"></input>
+                        </div>
+                        <div>
+                            <p>Hora de entrada</p>
+                            <input type="datetime-local" class="upper" id="horaEntrada" />
+                        </div>
+                        <div>
+                            <p>Hora de saída</p>
+                            <input type="datetime-local" class="upper" id="horaSaida" />
+                        </div>
+                        <div class="idPessoa"">
+                            <p>ID da Pessoa</p>
+                            <input type="number" id="IdPessoa" class="upper" />
+                        </div>
+                        <div>
+                            <p>ID do veiculo</p>
+
+                            <input tye="number" id="veiculoId" class="upper">
+                        </div>
+                        <div>
+                            <p>ID do local</p>
+                            <input type="number" id="localId" class="upper">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opcoes" id="opcoes">
+                    <div class="opcoes">
+                        <div class="opcoes-left">
+                            <button id="atualizar" class="atualizar">Atualizar</button>
+                        </div>
+                        <div class="opcao-right">
+                            <button id="sair">Sair</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <h2>Todos os direitos Reservados</h2>
+        </div>
+    </footer>
+    <script src="../JS/config.js" type="module"></script>
+    <script src="../JS/utilidades.js" type="module"></script>
+    <script src="../JS/alterarAcesso.js" type="module"></script>
+</body>
+
+</html>
