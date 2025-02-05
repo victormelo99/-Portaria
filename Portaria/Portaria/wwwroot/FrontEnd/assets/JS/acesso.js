@@ -143,7 +143,6 @@ async function deletarAcesso() {
     }
 }
 
-// Eventos ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
 

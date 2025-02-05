@@ -17,7 +17,6 @@ namespace Portaria.Models
         public int LocalId { get; set; }
         public Local Local { get; set; }
 
-
         public string? Autorizacao { get; set; }
 
         [ForeignKey("Veiculo")]

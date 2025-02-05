@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5iqlry9f8f</Fingerprint>
-      <Integrity>k3MxXTzrejD2rwej0MQFKhnzxTXMpnFkJ+w+igOZdtM=</Integrity>
+      <Fingerprint>7cmwyze0e9</Fingerprint>
+      <Integrity>F+dnDs6IaD07bFvtuQK4jeE78cRTWh5Z/7ycoYZKS+M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\acesso.css'))</OriginalItemSpec>
@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yd3l1le3an</Fingerprint>
-      <Integrity>Zrkr/Ifz2blPEZsRDvwk8N634zwZFtSG/G7mtftVAHw=</Integrity>
+      <Fingerprint>p6uakxhdwx</Fingerprint>
+      <Integrity>Ub809nKoC/A72ze5Sl9dt6UDQDwPZthQE7TtN0jgPuE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\CSS\alterarAcesso.css'))</OriginalItemSpec>
@@ -894,8 +894,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mt8mwv9wv2</Fingerprint>
-      <Integrity>KmL0nw/f+A9Y3Nmh8F35Wlkudz5Ps/Bc/kEIoghkuw8=</Integrity>
+      <Fingerprint>pt4wm13uin</Fingerprint>
+      <Integrity>bQpsQUXNXtIEZeK5IW1RlV5lKROiBeDC+4kMgTYHdUg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\acesso.js'))</OriginalItemSpec>
@@ -912,8 +912,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lmj6r0d4pf</Fingerprint>
-      <Integrity>I4xFBngebEnOcgNXtBrOF1Vy+uBG9MKeB7NH39fJZDI=</Integrity>
+      <Fingerprint>06qb4h7hza</Fingerprint>
+      <Integrity>yI4lBx9ZnsSJiFZ1n+n5KQgMWWzutjNZi4lCi2gXIIk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarAcesso.js'))</OriginalItemSpec>

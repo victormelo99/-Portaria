@@ -5,14 +5,17 @@
     text-decoration: none;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+}
 
 header {
     display: flex;
-    height: 5vh;
     background-color: #e84d14dc;
-
+    padding: 5px 0 5px 0;
 }
-
 
 .container {
     display: flex;
@@ -21,38 +24,24 @@ header {
     width: 70%;
 }
 
-
 header h1 {
     text-align: center;
     color: #ffffffec;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
 main {
-    height: 90vh;
     display: flex;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 main .container {
     display: flex;
     align-items: start;
-    justify-content: space-between;
     margin: 20px auto 20px auto;
     background-color: #858585d5;
     border-radius: 10px;
-    width: 60%;
-    height: auto;
 }
-
-
 
 .areaCadastro {
     display: flex;
@@ -76,7 +65,6 @@ main .container {
     gap: 20px;
     flex-direction: column;
 }
-
 
 .esquerdo {
     display: flex;
@@ -109,17 +97,12 @@ select {
     width: 30%;
 }
 
-
-
 input:focus,
 select:focus {
     border: none;
     outline: none;
     padding-left: 5px;
 }
-
-
-
 
 .pesquisar {
     background-color: #fff;
@@ -148,6 +131,10 @@ select:focus {
     text-transform: uppercase;
 }
 
+.oculto {
+    display: none;
+}
+
 .opcoes {
     width: 100%;
     padding: 20px 20px 0 20px;
@@ -155,11 +142,6 @@ select:focus {
     align-content: end;
     justify-content: space-between;
 }
-
-.opcoes-left button {
-    padding-right: 30px;
-}
-
 
 #atualizar,
 #sair {
@@ -176,15 +158,11 @@ select:focus {
 }
 
 footer {
-    display: flex;
-    height: 5vh;
     background-color: #e84d14dc;
 }
 
 footer .container {
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    padding: 10px 0;
 }
 
 footer h2 {

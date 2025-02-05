@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using Portaria.Data;
 using Portaria.Models;
 using System.Linq;
+
 
 namespace Portaria.Controllers
 {
@@ -96,8 +96,6 @@ namespace Portaria.Controllers
                 var cadastro = await _context.Acesso.AddAsync(acesso);
                 var resultado = await _context.SaveChangesAsync();
 
-                Console.WriteLine("Acesso cadastrado com sucesso.");
-
                 return Ok("Acesso cadastrado com sucesso.");
             }
             catch (Exception e)
@@ -107,23 +105,42 @@ namespace Portaria.Controllers
         }
 
 
-
         [HttpPut]
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutAcesso([FromBody] Acesso acesso)
         {
             try
             {
-                var atualizar = _context.Update(acesso);
-                var resultado = await _context.SaveChangesAsync();
-                return Ok("Dado (s) de acesso  atualizado (s)");
+                var acessoExistente = await _context.Acesso
+                    .Include(a => a.Pessoa)
+                    .Include(a => a.Local)
+                    .Include(a => a.Veiculo)
+                    .FirstOrDefaultAsync(a => a.Id == acesso.Id);
+
+                if (acessoExistente == null)
+                {
+                    return BadRequest("Acesso não encontrado.");
+                }
+
+                acessoExistente.HoraEntrada = acesso.HoraEntrada;
+                acessoExistente.HoraSaida = acesso.HoraSaida;
+                acessoExistente.Autorizacao = acesso.Autorizacao;
+                acessoExistente.PessoaId = acesso.PessoaId;
+                acessoExistente.LocalId = acesso.LocalId;
+                acessoExistente.VeiculoId = acesso.VeiculoId;
+
+                await _context.SaveChangesAsync();
+
+                return Ok("Acesso atualizado com sucesso.");
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro na hora de atualizar o/os dado (s) de (dos) acesso (s). Exceção{e.Message}");
-
+                return BadRequest($"Erro na atualização: {e.Message}");
             }
         }
+
+
+
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "TI")]
