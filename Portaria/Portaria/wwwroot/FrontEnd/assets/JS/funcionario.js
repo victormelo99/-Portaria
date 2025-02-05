@@ -1,6 +1,6 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js';
 
 function status(status) {
     switch (status) {
@@ -78,10 +78,6 @@ async function preencherTabela(pesquisa = "") {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    preencherTabela(); 
-});
-
 export function abrirlinks(pagina) {
     const token = Token();  
     if (token) {
@@ -131,6 +127,11 @@ async function deletarFuncionario() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const usuarioId = localStorage.getItem('usuarioId'); 
+    ocultar(usuarioId);
+
+    preencherTabela(); 
+
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);

@@ -1,6 +1,6 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js';
 
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
@@ -62,11 +62,6 @@ async function preencherTabela(pesquisa = "") {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    preencherTabela(); 
-});
-
-
 export function abrirlinks(pagina) {
     const token = Token();  
     if (token) {
@@ -79,20 +74,20 @@ export function abrirlinks(pagina) {
 async function deletarVisitante() {
     const idUsuario = localStorage.getItem('idUsuarioSelecionado');
 
-    if (confirm('Tem certeza que deseja excluir este funcionário?')) {
+    if (confirm('Tem certeza que deseja excluir este Visitante?')) {
         try {
-            const token = Token();
+
             const url = `${API_URLS.Funcionario}/${idUsuario}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,  
+                    'Authorization': 'Bearer ' + Token(),  
                     'Content-Type': 'application/json'
                 }
             });
 
             if (!response.ok) {
-                throw new Error(`Erro ao excluir funcionário`);
+                throw new Error(`Erro ao excluir visitante`);
             }
 
             const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
@@ -100,7 +95,7 @@ async function deletarVisitante() {
                 linhaSelecionada.remove();
             }
 
-            alert('Funcionário excluído com sucesso!');
+            alert('Visitante excluído com sucesso!');
 
             localStorage.removeItem('idUsuarioSelecionado');
 
@@ -109,29 +104,30 @@ async function deletarVisitante() {
             });
 
         } catch (error) {
-            console.error('Erro:', error);
             alert('Erro ao excluir o funcionário. Por favor, tente novamente.');
         }
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const usuarioId = localStorage.getItem('usuarioId'); 
+    ocultar(usuarioId);
+
+    preencherTabela(); 
+
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);
     });
 
-    // Evento clique botão deletar
     document.getElementById('deletar').addEventListener('click', function () {
         deletarVisitante();
     });
 
-    // Evento clique botão cadastrar
     document.getElementById('cadastrar').addEventListener('click', function () {
         abrirlinks('CadastroVisitante.html');
     });
 
-    // Evento clique botão alterar
     document.getElementById('alterar').addEventListener('click', function () {
         abrirlinks('alterarVisitante.html');
     });

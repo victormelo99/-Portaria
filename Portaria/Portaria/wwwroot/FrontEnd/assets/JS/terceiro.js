@@ -1,6 +1,6 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js';
 
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
@@ -13,13 +13,11 @@ async function preencherTabela(pesquisa = "") {
     }
 
     try {
-        const token = Token();
-        console.log('token' + token)
 
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -27,7 +25,7 @@ async function preencherTabela(pesquisa = "") {
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
-        console.log('response' + response)
+
         const terceiro = await response.json();
 
         terceiro.forEach((terceiro) => {
@@ -66,11 +64,6 @@ async function preencherTabela(pesquisa = "") {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    preencherTabela();
-});
-
-
 export function abrirlinks(pagina) {
     const token = Token();
     if (token) {
@@ -85,12 +78,12 @@ async function deletarTerceiro() {
 
     if (confirm('Tem certeza que deseja excluir este terceiro?')) {
         try {
-            const token = Token();
+ 
             const url = `${API_URLS.Terceiro}/${idUsuario}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': 'Bearer ' + Token(),
                     'Content-Type': 'application/json'
                 }
             });
@@ -113,13 +106,19 @@ async function deletarTerceiro() {
             });
 
         } catch (error) {
-            console.error('Erro:', error);
             alert('Erro ao excluir o Terceiro. Por favor, tente novamente.');
         }
     }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    const usuarioId = localStorage.getItem('usuarioId'); 
+    ocultar(usuarioId);
+
+    preencherTabela();
+    console.log("Tabela preenchida, agora verificando o botão..." + preencherTabela());
+
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);

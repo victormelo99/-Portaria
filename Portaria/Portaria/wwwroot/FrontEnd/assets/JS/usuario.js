@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
     preencherTabela(); 
 });
 
-// Função para abrir links de usuário
 export function abrirlinksUsuario(pagina) {
     const token = Token();  
     if (token) {
@@ -122,17 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
         preencherTabela(pesquisa);
     });
 
-    // Evento clique botão deletar
     document.getElementById('deletar').addEventListener('click', function () {
         deletarUsuario();
     });
 
-    // Evento clique botão cadastrar
     document.getElementById('cadastrar').addEventListener('click', function () {
         abrirlinksUsuario('CadastroUsuario.html');
     });
 
-    // Evento clique botão alterar
     document.getElementById('alterar').addEventListener('click', function () {
         abrirlinksUsuario('AlterarUsuario.html');
     });

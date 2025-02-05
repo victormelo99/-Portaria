@@ -1,4 +1,4 @@
-import { Token } from './config.js';  // Importa a função Token
+import { Token } from './config.js'; 
 
 export function abrirPagina(pagina) {
     const token = Token();
@@ -45,6 +45,16 @@ export function selecionarLinha(linha) {
             botaoDeletar.disabled = true;
             document.removeEventListener('click', fora);
         }
+    });
+}
+
+export function ocultar(usuarioId) {
+    if (usuarioId !== 'PORTARIA') return;
+
+    const botoes = ['deletar', 'acUsuario', 'acLocal'];
+    botoes.forEach(id => {
+        const botao = document.getElementById(id);
+        if (botao) botao.style.display = 'none';
     });
 }
 

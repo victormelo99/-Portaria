@@ -39,10 +39,11 @@ body {
 }
 
 main{
-  flex: 1;
+  padding: 1px 0 10px 0;
 }
+
 main .container {
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: #858585d5;
   border-radius: 10px;
 }
@@ -103,14 +104,12 @@ input:focus {
 }
 
 footer {
-  height: 50px;
   background-color: #e84d14dc;
+  height: 50px;
 }
 
 footer .container {
   justify-content: center;
-  align-content: center;
-  align-items: center;
 }
 
 footer h2 {

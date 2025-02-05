@@ -26,7 +26,7 @@ async function preencherTabela(pesquisa = "") {
 
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
-          }
+        }
 
         const locais = await response.json();
 
@@ -56,14 +56,14 @@ async function preencherTabela(pesquisa = "") {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    preencherTabela(); 
+document.addEventListener('DOMContentLoaded', function () {
+    preencherTabela();
 });
 
 //AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DO LOCAL
 
 export function abrirlinks(pagina) {
-    const token = Token();  
+    const token = Token();
     if (token) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
@@ -81,7 +81,7 @@ async function deletarLocal() {
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,  
+                    'Authorization': 'Bearer ' + token,
                     'Content-Type': 'application/json'
                 }
             });
@@ -109,23 +109,21 @@ async function deletarLocal() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);
     });
 
-    // Evento clique botão deletar
     document.getElementById('deletar').addEventListener('click', function () {
         deletarLocal();
     });
 
-    // Evento clique botão cadastrar
     document.getElementById('cadastrar').addEventListener('click', function () {
         abrirlinks('CadastroLocal.html');
     });
 
-    // Evento clique botão alterar
     document.getElementById('alterar').addEventListener('click', function () {
         abrirlinks('alterarLocal.html');
     });
