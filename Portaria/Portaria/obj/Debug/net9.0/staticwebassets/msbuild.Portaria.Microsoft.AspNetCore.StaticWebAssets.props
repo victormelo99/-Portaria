@@ -570,8 +570,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>630wve77vt</Fingerprint>
-      <Integrity>cm+W6jRFFmNkx//PAIHAow461iEH8fuoNhfJ1DRDHKE=</Integrity>
+      <Fingerprint>orbhaxp2nw</Fingerprint>
+      <Integrity>1NOHk0fxbXJH+EdKycCrDJ5QR1xU/6ow3CY2u3CoVLk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\areaCadastro.html'))</OriginalItemSpec>
@@ -894,8 +894,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>pt4wm13uin</Fingerprint>
-      <Integrity>bQpsQUXNXtIEZeK5IW1RlV5lKROiBeDC+4kMgTYHdUg=</Integrity>
+      <Fingerprint>rkon2yesq6</Fingerprint>
+      <Integrity>K8bxbfD0IYJbF4MIiQIhMr/hNcP9BLAwa98gRjzg5+s=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\acesso.js'))</OriginalItemSpec>
@@ -1026,23 +1026,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarVisitante.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\areaCadastro.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\areaInicial.js'))">
       <SourceType>Package</SourceType>
       <SourceId>Portaria</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Portaria</BasePath>
-      <RelativePath>FrontEnd/assets/JS/areaCadastro.js</RelativePath>
+      <RelativePath>FrontEnd/assets/JS/areaInicial.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hk7xv3u5dy</Fingerprint>
-      <Integrity>b9CtkzU3z0CRnSwFtIh7sSWZkM9py/VT2zGBW7mpn8c=</Integrity>
+      <Fingerprint>8t2kx5lne5</Fingerprint>
+      <Integrity>PFDHtlkw4sV5kRkFctaDEDzs7u7+Ml/U34lFvfBkO9U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\areaCadastro.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\areaInicial.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\autenticacao.js'))">
       <SourceType>Package</SourceType>
@@ -1218,8 +1218,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hg37q0ghku</Fingerprint>
-      <Integrity>v1ixnFKU+M77jDGce/OEqjm6HuR41gWz7k0InZrevzA=</Integrity>
+      <Fingerprint>6i1lyqm14y</Fingerprint>
+      <Integrity>Ilu/GBYCdOWZVa7FLtl2tntDSWssKRuM+7Iw4XYJ0xk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</OriginalItemSpec>
@@ -1272,8 +1272,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bkaxm4crwh</Fingerprint>
-      <Integrity>RWYwPaXQ2tra3CWccE0hUxJ3YN4tZAb/6ZEobHvM51A=</Integrity>
+      <Fingerprint>y0mzgitjp5</Fingerprint>
+      <Integrity>QoITumAVgjkrILvefDrE/fcKnHS6YMbZ7hXBbBcJxMU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\terceiro.js'))</OriginalItemSpec>
@@ -1308,8 +1308,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>24hp0l9n2q</Fingerprint>
-      <Integrity>4uZ67IIQqH9hK3KL5bKXfR0jPq/uNkCXxrRs2/G6G0c=</Integrity>
+      <Fingerprint>6eixip2l95</Fingerprint>
+      <Integrity>XpFFXbtbUORgVOVbLIHsk2FD3Drz2gbuEjlK6NENznw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\utilidades.js'))</OriginalItemSpec>

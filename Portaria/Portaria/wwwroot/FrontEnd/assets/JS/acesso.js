@@ -1,6 +1,6 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas,ocultar } from './utilidades.js';
 
 function normalizarDados(acesso) {
     return {
@@ -144,6 +144,9 @@ async function deletarAcesso() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    const usuarioId = localStorage.getItem('usuarioId'); 
+    ocultar(usuarioId);
+    
     preencherTabela();
 
     document.getElementById('Pesquisar').addEventListener('click', function () {
