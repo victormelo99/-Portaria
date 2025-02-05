@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  color: #000;
 }
 
 body {
@@ -88,6 +89,10 @@ body {
   transition: 0.5s, transform 0.3s ease;
   color: #000;
   background-color: #e4e3e3;
+}
+
+#resetSenha:hover{
+  color: #e84e14;
 }
 
 .form button:hover {

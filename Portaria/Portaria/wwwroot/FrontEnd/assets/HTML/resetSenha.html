@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/resetSenha.css">
+    <title>Resetar Senha</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Globo Pharma</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="areaCadastro">
+                <div>
+                    <p>Id:</p>
+                    <input type="text" readonly required class="upper" id="id" />
+                </div>
+                <div>
+                    <p>CPF:</p>
+                    <input type="text" required class="upper" id="cpf" maxlength="11" />
+                </div>
+
+                <div>
+                    <p>Usuario:</p>
+                    <input type="text" required class="upper" id="usuario" />
+                </div>
+
+                <div>
+                    <p>Senha:</p>
+                    <input type="password" class="upper" id="password"/>
+                </div>
+                <div>
+                    <p>Confirmar Senha</p>
+                    <input type="password" required class="upper" id="ConfirmarSenha" />
+                </div>
+
+                <div class="opcoes">
+                    <div class="opcoes-left">
+                        <button id="Atualizar" class="atualizar">Atualizar</button>
+                    </div>
+                    <div class="opcao-right">
+                        <button id="sair">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>Todos os direitos Reservados</h2>
+        </div>
+    </footer>
+    <script src="../JS/resetSenha.js" type="module" defer></script>
+    <script src="../JS/utilidades.js" type="module" defer></script>
+</body>
+
+</html>
