@@ -27,30 +27,52 @@ namespace Portaria.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] UsuarioLogin usuarioLogin)
         {
-            var usuario = await _context.Usuario.Where(x => x.Login == usuarioLogin.Login).FirstOrDefaultAsync();
-            
-            if (usuario == null)
+            try
             {
-                return NotFound("Usuario ou inválido");
+                var usuario = await _context.Usuario
+                    .Where(x => x.Login == usuarioLogin.Login)
+                    .FirstOrDefaultAsync();
+
+                if (usuario == null)
+                {
+                    return NotFound("Usuário ou senha inválidos.");
+                }
+
+                if (!_service.VerificarSenha(usuarioLogin.Senha, usuario.Senha))
+                {
+                    return BadRequest(new { message = "Senha inválida." });
+                }
+
+                var resposta = new
+                {
+                    RedefinirSenha = usuario.SenhaResetada,
+                    usuario.Id
+                };
+
+                if (usuario.SenhaResetada)
+                {
+                    return Ok(resposta);
+                }
+
+                var token = _service.GerarToken(usuario);
+                usuario.Senha = "";
+
+                var resultado = new UsuarioResponse()
+                {
+                    usuario = usuario,
+                    Token = token
+                };
+
+                return Ok(new { RedefinirSenha = false, resultado });
             }
-
-            if (!_service.VerificarSenha(usuarioLogin.Senha, usuario.Senha))
+            catch (Exception ex)
             {
-                return BadRequest(new { message = "Senha inválida." });
+                Console.WriteLine($"Erro no servidor: {ex.Message}");
+                return StatusCode(500, new { message = "Erro interno no servidor. Tente novamente mais tarde." });
             }
-
-            var token = _service.GerarToken(usuario);
-
-            usuario.Senha = "";
-
-            var resultado = new UsuarioResponse()
-            {
-                usuario = usuario,
-                Token = token
-            };
-
-            return Ok(resultado);
         }
+
+
 
 
         [HttpGet]
@@ -103,33 +125,32 @@ namespace Portaria.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "TI")]
+        [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutUsuario([FromBody] Usuario usuario)
         {
             try
             {
-                var usuarioExistente = await _context.Usuario
-                    .Where(x => x.Login == usuario.Login && x.Id != usuario.Id)
-                    .FirstOrDefaultAsync();
-
-                if (usuarioExistente != null)
-                {
-                    return BadRequest("Erro: O Login já está em uso por outro usuário.");
-                }
-
                 var usuarioAtual = await _context.Usuario.FindAsync(usuario.Id);
                 if (usuarioAtual == null)
                 {
                     return NotFound("Usuário não encontrado.");
                 }
 
-                usuarioAtual.Nome = usuario.Nome;
-                usuarioAtual.Cargo = usuario.Cargo;
-                usuarioAtual.Login = usuario.Login;
+                // Verifica quem está alterando os dados
+                var usuarioAlterando = await _context.Usuario
+                    .Where(u => u.Login == User.Identity.Name)
+                    .FirstOrDefaultAsync();
 
-                if (!string.IsNullOrEmpty(usuario.Senha))
+                if (usuarioAlterando.Cargo == "PORTARIA")
                 {
-                    if (usuario.Senha != usuarioAtual.Senha)
+                    // Permite que o usuário PORTARIA altere apenas a própria senha
+                    if (usuario.Id != usuarioAlterando.Id)
+                    {
+                        return BadRequest("Usuários com cargo de PORTARIA não podem atualizar os dados de outros usuários.");
+                    }
+
+                    // Altera a senha do usuário e marca como 'resetada'
+                    if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha != usuarioAtual.Senha)
                     {
                         if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
                         {
@@ -137,11 +158,41 @@ namespace Portaria.Controllers
                         }
 
                         usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
+
+                        // Verifica se a alteração foi feita pelo próprio usuário
+                        if (usuario.Id == usuarioAlterando.Id)
+                        {
+                            usuarioAtual.SenhaResetada = false;  // Se for o próprio usuário, marca como 'false'
+                        }
+                        else
+                        {
+                            usuarioAtual.SenhaResetada = true;   // Se for outro usuário, marca como 'true'
+                        }
                     }
                 }
                 else
                 {
-                    usuario.Senha = usuarioAtual.Senha;
+                    // Caso o cargo seja "TI", permite alteração dos dados do usuário
+                    usuarioAtual.Nome = usuario.Nome;
+                    usuarioAtual.Cargo = usuario.Cargo;
+                    usuarioAtual.Login = usuario.Login;
+
+                    // Altera a senha do usuário e marca como 'resetada'
+                    if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha != usuarioAtual.Senha)
+                    {
+                        if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
+                        {
+                            return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                        }
+
+                        usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
+
+                        // Se o usuário for o próprio dono, marca 'SenhaResetada' como 'false'
+                        if (usuario.Id == usuarioAlterando.Id)
+                        {
+                            usuarioAtual.SenhaResetada = false;
+                        }
+                    }
                 }
 
                 _context.Update(usuarioAtual);
@@ -151,7 +202,7 @@ namespace Portaria.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest($"Erro ao atualizar os dados do usuário. Exceção: {e.Message}");
+                return BadRequest($"Erro ao atualizar os dados do usuário: {e.Message}");
             }
         }
 

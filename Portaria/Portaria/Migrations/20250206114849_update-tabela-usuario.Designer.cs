@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portaria.Data;
 
@@ -11,9 +12,11 @@ using Portaria.Data;
 namespace Portaria.Migrations
 {
     [DbContext(typeof(PortariaDbContext))]
-    partial class PortariaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250206114849_update-tabela-usuario")]
+    partial class updatetabelausuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,25 +39,25 @@ namespace Portaria.Migrations
                     b.Property<DateTime>("HoraEntrada")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("HoraSaida")
+                    b.Property<DateTime?>("HoraSaida")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("LocalId")
                         .HasColumnType("int");
 
-                    b.Property<int>("pessoaId")
+                    b.Property<int>("PessoaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("veiculoId")
+                    b.Property<int?>("VeiculoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("LocalId");
 
-                    b.HasIndex("pessoaId");
+                    b.HasIndex("PessoaId");
 
-                    b.HasIndex("veiculoId");
+                    b.HasIndex("VeiculoId");
 
                     b.ToTable("Acesso");
                 });
@@ -131,6 +134,9 @@ namespace Portaria.Migrations
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("SenhaResetada")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 
@@ -233,29 +239,27 @@ namespace Portaria.Migrations
 
             modelBuilder.Entity("Portaria.Models.Acesso", b =>
                 {
-                    b.HasOne("Portaria.Models.Local", "local")
+                    b.HasOne("Portaria.Models.Local", "Local")
                         .WithMany()
                         .HasForeignKey("LocalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Portaria.Models.Pessoa", "pessoa")
+                    b.HasOne("Portaria.Models.Pessoa", "Pessoa")
                         .WithMany()
-                        .HasForeignKey("pessoaId")
+                        .HasForeignKey("PessoaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Portaria.Models.Veiculo", "Veiculo")
                         .WithMany()
-                        .HasForeignKey("veiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VeiculoId");
+
+                    b.Navigation("Local");
+
+                    b.Navigation("Pessoa");
 
                     b.Navigation("Veiculo");
-
-                    b.Navigation("local");
-
-                    b.Navigation("pessoa");
                 });
 
             modelBuilder.Entity("Portaria.Models.Veiculo", b =>

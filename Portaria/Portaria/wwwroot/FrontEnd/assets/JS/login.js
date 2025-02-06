@@ -17,24 +17,32 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     body: JSON.stringify({ login: usuario, senha: senha }),
                 });
-
-                const body = await response.text();
-
-                if (response.ok) {
+                
+                if (!response.ok) {
+                    // Exibe o status de erro se a resposta não for 2xx
+                    const errorText = await response.text();
+                    console.error("Erro na API:", errorText);
+                    document.getElementById('mensagem').innerText = `Erro: ${response.status} - ${errorText}`;
+                } else {
+                    const body = await response.text();
+                    console.log("Resposta da API:", body);
+                
                     const data = JSON.parse(body);
-                    
-                    if (data.token && data.usuario && data.usuario.cargo) {
-                        localStorage.setItem('token', data.token);
-                        localStorage.setItem('usuarioId', data.usuario.cargo);
-
-                        document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
-                        window.location.href = '/frontend/assets/HTML/areaCadastro.html';
+                    console.log('resultado do data:', JSON.stringify(data, null, 2));
+                
+                    if (data.redefinirSenha !== undefined) {
+                        console.log('RedefinirSenha:', data.redefinirSenha);
+                
+                        if (data.redefinirSenha) {
+                            window.location.href = '/frontend/assets/HTML/resetSenha.html';
+                        } else if (data.resultado && data.resultado.token) {
+                            localStorage.setItem('token', data.resultado.token);
+                            localStorage.setItem('usuarioId', data.resultado.usuario.id);
+                            window.location.href = '/frontend/assets/HTML/areaCadastro.html';
+                        }
                     } else {
                         document.getElementById('mensagem').innerText = 'Erro ao processar login. Tente novamente.';
-                    }
-                } else {
-                    document.getElementById('mensagem').innerText = 'Usuário ou senha incorreto. Tente novamente.';
-                }
+                    }}
             } catch (error) {
                 const mensagemEl = document.getElementById('mensagem');
                 mensagemEl.innerText = 'Erro ao conectar ao servidor. Tente novamente.';

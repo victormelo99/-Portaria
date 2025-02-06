@@ -4,10 +4,8 @@
 
 namespace Portaria.Migrations
 {
-    /// <inheritdoc />
     public partial class updatetabelaveiculo : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
@@ -20,15 +18,6 @@ namespace Portaria.Migrations
                 table: "Acesso",
                 newName: "pessoaId");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "veiculoId",
-                table: "Acesso",
-                type: "int",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(int),
-                oldType: "int",
-                oldNullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acesso_pessoaId",
@@ -57,7 +46,6 @@ namespace Portaria.Migrations
                 onDelete: ReferentialAction.Cascade);
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
