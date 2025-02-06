@@ -768,8 +768,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>23jleh9457</Fingerprint>
-      <Integrity>3pV8VdWBt/8BRruyFQMaXigD51VCj7AKuUX/10Ns7tk=</Integrity>
+      <Fingerprint>9vx48q0co8</Fingerprint>
+      <Integrity>dTQoaclX7t51gdGGd+g7E0B5ovSuvTTR7EKr2jldTwU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\HTML\resetSenha.html'))</OriginalItemSpec>
@@ -1020,8 +1020,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9z02q4yz7p</Fingerprint>
-      <Integrity>i8Sr8+7xsnnH2YW2gC4Pt0CXU+o1IfLPQB2dkWj/lAs=</Integrity>
+      <Fingerprint>1vvn7h1pg4</Fingerprint>
+      <Integrity>DZwM0gfVri0CWyKv8AVkjkHX/0uaHIPpRJLeINQ8D84=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\alterarUsuario.js'))</OriginalItemSpec>
@@ -1308,8 +1308,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ijevan0fq5</Fingerprint>
-      <Integrity>XiFPHu6mBsQ90M9aaiu86f8NHcQ0trkkK9YBpGIpomQ=</Integrity>
+      <Fingerprint>h1aosteo8c</Fingerprint>
+      <Integrity>1ViUGEJHbtxkySk6ZYnno0H9q2segloDOV59FHo9dLU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\resetSenha.js'))</OriginalItemSpec>

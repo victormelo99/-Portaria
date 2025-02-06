@@ -387,22 +387,6 @@
   },
   {
     "ContainingType": "Portaria.Controllers.UsuarioController",
-    "Method": "PutUsuario",
-    "RelativePath": "api/Usuario",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "usuario",
-        "Type": "Portaria.Models.Usuario",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Portaria.Controllers.UsuarioController",
     "Method": "DeleteUsuario",
     "RelativePath": "api/Usuario/{id}",
     "HttpMethod": "DELETE",
@@ -428,6 +412,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.UsuarioController",
+    "Method": "AlterarDadosUsuario",
+    "RelativePath": "api/Usuario/alterar-dados",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "Portaria.Models.Usuario",
         "IsRequired": true
       }
     ],
@@ -461,6 +461,22 @@
         "Name": "valor",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.UsuarioController",
+    "Method": "ResetarSenha",
+    "RelativePath": "api/Usuario/resetar-senha",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "Portaria.Models.Usuario",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

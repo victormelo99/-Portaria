@@ -2,21 +2,15 @@ import { Token } from './config.js';
 import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
+
     const id = localStorage.getItem('idUsuarioSelecionado');
-
-    if (!id) {
-        alert('Nenhum usuário selecionado!');
-        return;
-    }
-
-    const token = Token();
     const url = `${API_URLS.Usuario}/${id}`;
 
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -57,17 +51,17 @@ async function atualizarUsuario() {
         nome: nome,
         cargo: cargo,
         login: login,
-        senha: senha
+        senha: senha,
+        senhaResetada: true 
     };
 
-    const token = Token();
-    const url = `${API_URLS.Usuario}`;
+    const url = `${API_URLS.Usuario}/alterar-dados`;
 
     try {
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(usuarioAtualizado),
@@ -84,6 +78,7 @@ async function atualizarUsuario() {
         console.error('Erro ao atualizar o usuário:', error);
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     preencherFormulario();

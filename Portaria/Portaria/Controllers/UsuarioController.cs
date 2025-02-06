@@ -124,75 +124,26 @@ namespace Portaria.Controllers
             }
         }
 
-        [HttpPut]
-        [Authorize(Roles = "TI,PORTARIA")]
-        public async Task<ActionResult> PutUsuario([FromBody] Usuario usuario)
+        [HttpPut("alterar-dados")]
+        [Authorize(Roles = "TI")]
+        public async Task<ActionResult> AlterarDadosUsuario([FromBody] Usuario usuario)
         {
             try
             {
                 var usuarioAtual = await _context.Usuario.FindAsync(usuario.Id);
-                if (usuarioAtual == null)
+
+                usuarioAtual.Nome = usuario.Nome;
+                usuarioAtual.Cargo = usuario.Cargo;
+                usuarioAtual.Login = usuario.Login;
+
+                if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha != usuarioAtual.Senha)
                 {
-                    return NotFound("Usuário não encontrado.");
-                }
-
-                // Verifica quem está alterando os dados
-                var usuarioAlterando = await _context.Usuario
-                    .Where(u => u.Login == User.Identity.Name)
-                    .FirstOrDefaultAsync();
-
-                if (usuarioAlterando.Cargo == "PORTARIA")
-                {
-                    // Permite que o usuário PORTARIA altere apenas a própria senha
-                    if (usuario.Id != usuarioAlterando.Id)
+                    if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
                     {
-                        return BadRequest("Usuários com cargo de PORTARIA não podem atualizar os dados de outros usuários.");
+                        return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
                     }
-
-                    // Altera a senha do usuário e marca como 'resetada'
-                    if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha != usuarioAtual.Senha)
-                    {
-                        if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
-                        {
-                            return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
-                        }
-
-                        usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
-
-                        // Verifica se a alteração foi feita pelo próprio usuário
-                        if (usuario.Id == usuarioAlterando.Id)
-                        {
-                            usuarioAtual.SenhaResetada = false;  // Se for o próprio usuário, marca como 'false'
-                        }
-                        else
-                        {
-                            usuarioAtual.SenhaResetada = true;   // Se for outro usuário, marca como 'true'
-                        }
-                    }
-                }
-                else
-                {
-                    // Caso o cargo seja "TI", permite alteração dos dados do usuário
-                    usuarioAtual.Nome = usuario.Nome;
-                    usuarioAtual.Cargo = usuario.Cargo;
-                    usuarioAtual.Login = usuario.Login;
-
-                    // Altera a senha do usuário e marca como 'resetada'
-                    if (!string.IsNullOrEmpty(usuario.Senha) && usuario.Senha != usuarioAtual.Senha)
-                    {
-                        if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
-                        {
-                            return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
-                        }
-
-                        usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
-
-                        // Se o usuário for o próprio dono, marca 'SenhaResetada' como 'false'
-                        if (usuario.Id == usuarioAlterando.Id)
-                        {
-                            usuarioAtual.SenhaResetada = false;
-                        }
-                    }
+                    usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
+                    usuarioAtual.SenhaResetada = true;
                 }
 
                 _context.Update(usuarioAtual);
@@ -203,6 +154,39 @@ namespace Portaria.Controllers
             catch (Exception e)
             {
                 return BadRequest($"Erro ao atualizar os dados do usuário: {e.Message}");
+            }
+        }
+
+        [HttpPut("resetar-senha")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> ResetarSenha([FromBody] Usuario usuario)
+        {
+            try
+            {
+                var usuarioAtual = await _context.Usuario.FindAsync(usuario.Id);
+                if (usuarioAtual == null)
+                {
+                    return NotFound("Usuário não encontrado.");
+                }
+
+                if (!string.IsNullOrEmpty(usuario.Senha))
+                {
+                    if (usuario.Senha.Length < 8 || usuario.Senha.Length > 16)
+                    {
+                        return BadRequest("A senha deve ter entre 8 e 16 caracteres.");
+                    }
+                    usuarioAtual.Senha = _service.Criptografar(usuario.Senha);
+                    usuarioAtual.SenhaResetada = false;
+                }
+
+                _context.Update(usuarioAtual);
+                await _context.SaveChangesAsync();
+
+                return Ok("Senha resetada com sucesso.");
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao resetar a senha: {e.Message}");
             }
         }
 

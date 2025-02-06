@@ -88,7 +88,9 @@
     padding-right: 30px;
   }
   
-  
+  #areaCargo,#areaNome,#areaId{
+    display: none;
+  }
   #Atualizar,#sair {
     background-color: transparent;
     border: none;
