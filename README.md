@@ -1,8 +1,8 @@
-Portaria
+#PORTARIA
 
 Descrição: O projeto "Portaria" é uma aplicação desenvolvida para gerenciar as entradas e saídas de visitantes e funcionários, visando otimizar o controle de acesso em ambientes corporativos ou residenciais.
 
-Índice
+ÍNDICE
 
 Recursos
 
@@ -10,7 +10,9 @@ Tecnologias Utilizadas
 
 Contato
 
-Recursos
+
+
+RECURSOS
 
 Registro de entrada e saída de visitantes.
 
@@ -47,10 +49,8 @@ Criptografia de senhas com BCrypt
 Autenticação com JWT
 
 
-Contato
+CONTATO
 
 Desenvolvedor: Victor Melo
-
-GitHub: victormelo99
 
 Email: victorsoaresmelo01@gmail.com
