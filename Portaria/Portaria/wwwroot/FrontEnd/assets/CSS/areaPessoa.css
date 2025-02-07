@@ -3,32 +3,33 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-  }
-  .container {
+}
+
+.container {
     display: flex;
     margin: auto;
     width: 90%;
     height: 100%;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
-
 
 /*CABEÇALHO*/
 
-header{
+header {
     height: 50px;
     background-color: #e84d14dc;
 }
 
-header .container{
-justify-content: space-between;
+header .container {
+    justify-content: space-between;
 }
 
-nav{
+nav {
     display: flex;
     width: 50%;
     height: 100%;
@@ -36,7 +37,9 @@ nav{
     align-items: center;
 }
 
-.container nav button, #sair, #deletar{
+.container nav button,
+#sair,
+#deletar {
     height: 100%;
     text-align: center;
     border: none;
@@ -47,11 +50,13 @@ nav{
     cursor: pointer;
 }
 
-nav button:hover, #sair:hover, #deletar:hover {
+nav button:hover,
+#sair:hover,
+#deletar:hover {
     color: #777777;
 }
 
-.container nav input{
+.container nav input {
     width: 50%;
     height: 100%;
     border: 1px solid #e84d14dc;
@@ -59,41 +64,45 @@ nav button:hover, #sair:hover, #deletar:hover {
     padding-left: 10px;
     background-color: #fff;
     border-radius: 5px;
-    line-height: 10; 
+    line-height: 10;
     font-size: 17px;
     transition: 0.2s, transform 0.3s ease;
 }
 
 .container nav input:focus {
-    outline: none; 
+    outline: none;
     background-color: #f1f1f1;
 }
 
 /*AREA RESULTADOS*/
 
-main{
+main {
     flex: 1;
 }
 
-main .container{
+main .container {
     margin-top: 80px;
 }
 
 .resultado {
     width: 100%;
+    overflow-x: auto;
 }
-table{
+
+table {
     width: 100%;
     border-collapse: collapse;
 }
-table th, table td {
+
+table th,
+table td {
     padding: 10px 0 10px 0;
     text-align: center;
     border: 1px solid black;
 }
 
 table th {
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
 }
 
 table td {
@@ -119,17 +128,17 @@ td {
 
 /*footer*/
 
-footer{
+footer {
     display: flex;
     height: 50px;
     background-color: #e84d14dc;
 }
 
-footer .container{
+footer .container {
     justify-content: space-between;
 }
 
-.navFooter{
+.navFooter {
     width: 38%;
 }
 

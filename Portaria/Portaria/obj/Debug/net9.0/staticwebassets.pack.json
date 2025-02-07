@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AlterarFuncionario.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarFuncionario.css"
-    },
-    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AlterarUsuario.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarUsuario.css"
     },
@@ -13,20 +9,12 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarVeiculo.css"
     },
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AlterarVisitante.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AlterarVisitante.css"
-    },
-    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\AreaCAdastro.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\AreaCAdastro.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroAcesso.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroAcesso.css"
-    },
-    {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroFuncionario.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroFuncionario.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroLocal.css",
@@ -39,10 +27,6 @@
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroVeiculo.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroVeiculo.css"
-    },
-    {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\CadastroVisitante.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroVisitante.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\Local.css",
@@ -69,16 +53,12 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\alterarLocal.css"
     },
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\alterarTerceiro.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\alterarTerceiro.css"
-    },
-    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\atualizarPessoa.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\atualizarPessoa.css"
     },
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\cadastroTerceiro.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\cadastroTerceiro.css"
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\cadastrarPessoas.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\cadastrarPessoas.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\funcionario.css",
