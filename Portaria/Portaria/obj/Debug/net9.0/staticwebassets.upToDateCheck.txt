@@ -10,6 +10,7 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\cadastrarPessoas.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\resetSenha.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\Veiculo.html
+C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\areaPessoa.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\enviarVisitante.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\alterarVisitante.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\img\LogoFullGLobo.svg
@@ -21,7 +22,6 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroTerceiro.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\resetSenha.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\AlterarUsuario.css
-C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\Terceiro.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\veiculo.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroUsuario.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroLocal.html
@@ -30,7 +30,6 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\acesso.js
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\Funcionario.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\AlterarTerceiro.html
-C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\visitante.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroAcesso.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\alterarAcesso.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\AlterarVeiculo.html
@@ -55,7 +54,6 @@ C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\asse
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\CadastroUsuario.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\Local.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\CadastroVeiculo.html
-C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\funcionario.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\HTML\areaCadastro.html
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\CSS\AlterarVeiculo.css
 C:\Users\victor.melo\Documents\-Portaria\Portaria\Portaria\wwwroot\FrontEnd\assets\JS\alterarUsuario.js
@@ -78,20 +76,18 @@ wwwroot\FrontEnd\assets\CSS\alterarLocal.css
 wwwroot\FrontEnd\assets\CSS\AlterarUsuario.css
 wwwroot\FrontEnd\assets\CSS\AlterarVeiculo.css
 wwwroot\FrontEnd\assets\CSS\AreaCAdastro.css
+wwwroot\FrontEnd\assets\CSS\areaPessoa.css
 wwwroot\FrontEnd\assets\CSS\atualizarPessoa.css
 wwwroot\FrontEnd\assets\CSS\cadastrarPessoas.css
 wwwroot\FrontEnd\assets\CSS\CadastroAcesso.css
 wwwroot\FrontEnd\assets\CSS\CadastroLocal.css
 wwwroot\FrontEnd\assets\CSS\CadastroUsuario.css
 wwwroot\FrontEnd\assets\CSS\CadastroVeiculo.css
-wwwroot\FrontEnd\assets\CSS\funcionario.css
 wwwroot\FrontEnd\assets\CSS\Local.css
 wwwroot\FrontEnd\assets\CSS\resetSenha.css
 wwwroot\FrontEnd\assets\CSS\style.css
-wwwroot\FrontEnd\assets\CSS\Terceiro.css
 wwwroot\FrontEnd\assets\CSS\Usuario.css
 wwwroot\FrontEnd\assets\CSS\veiculo.css
-wwwroot\FrontEnd\assets\CSS\visitante.css
 wwwroot\FrontEnd\assets\HTML\Acesso.html
 wwwroot\FrontEnd\assets\HTML\alterarAcesso.html
 wwwroot\FrontEnd\assets\HTML\alterarFuncionario.html
