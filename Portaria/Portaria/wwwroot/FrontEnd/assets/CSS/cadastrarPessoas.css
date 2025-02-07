@@ -3,117 +3,130 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-  }
-  
-  html,body{
+}
+
+html,
+body {
     height: 100%;
     margin: 0;
-  }
-  
-  
-  .container {
-    display: flex;
-    margin: auto;
-    width: 90%;
-  }
-  
-  header {
-    height: 50px;
-    background-color: #e84d14dc;
-  }
-  
-  header .container {
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  
-  header h1 {
-    padding-top: 5px;
-    color: #ffffffec;
-  }
-  
-  body {
     display: flex;
     flex-direction: column;
-  }
-  
-  main{
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    width: 90%;
+}
+
+header {
+    height: 50px;
+    background-color: #e84d14dc;
+    padding-bottom: 10px;
+}
+
+header .container {
+    justify-content: center;
+
+}
+
+header h1 {
+    padding-top: 5px;
+    color: #ffffffec;
+}
+
+main {
     flex: 1;
-  }
-  main .container {
-    margin-top: 50px;
+    padding: 10px;
+}
+
+main .container {
     background-color: #858585d5;
     border-radius: 10px;
-  }
-  
-  .areaCadastro {
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.areaCadastro {
     display: flex;
+    align-content: center;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
     gap: 20px;
-    padding: 25px 20px 30px 20px;
-  }
-  
-  p {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+p {
     font-size: 18px;
     padding-bottom: 10px;
     color: #fff;
-  }
-  
-  input {
+}
+
+input,
+select {
     width: 20%;
     height: 35px;
     padding-left: 5px;
     border: none;
-  }
-  
-  input:focus {
+}
+
+input:focus,
+select:focus {
     border: none;
     outline: none;
-  }
-  
-  .upper {
+    padding-left: 5px;
+
+}
+
+.upper {
     text-transform: uppercase;
-  }
-  
-  
-  .opcoes {
+}
+
+.opcoes {
     width: 100%;
-    padding-top: 20px;
+    padding: 10px 0 5px 0;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .opcoes-left button {
+}
+
+.opcoes-left button {
     padding-right: 30px;
-  }
-  
-  
-  #atualizar,#sair {
+}
+
+
+.salvar,
+.salvarS,
+.sair {
     background-color: transparent;
     border: none;
     font-size: 20px;
     color: #fff;
     cursor: pointer;
-  }
-  
-  #atualizar:hover,#sair:hover {
+}
+
+.salvar:hover,
+.salvarS:hover,
+.sair:hover  {
     color: #ff7300;
-  }
-  
-  footer {
+}
+
+footer {
     height: 50px;
     background-color: #e84d14dc;
-  }
-  
-  footer .container {
-    justify-content: center;
-    align-content: center;
     align-items: center;
-  }
-  
-  footer h2 {
+    padding-bottom: 10px;
+}
+
+footer .container {
+    justify-content: center;
+}
+
+footer h2 {
     padding-top: 10px;
     color: #ffffffec;
-  }
+}
