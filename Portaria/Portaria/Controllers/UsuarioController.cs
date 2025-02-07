@@ -67,7 +67,6 @@ namespace Portaria.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro no servidor: {ex.Message}");
                 return StatusCode(500, new { message = "Erro interno no servidor. Tente novamente mais tarde." });
             }
         }

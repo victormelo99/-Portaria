@@ -11,8 +11,6 @@ export async function enviarDados(botaoTipo) {
         let tipoServico = document.getElementById('tipoServico').value.toUpperCase();
         let responsavel = document.getElementById('responsavel').value.toUpperCase();
 
-        const token = Token();
-
         if (!nome || nome.length < 2 || nome.length > 50) return alert('Nome deve ter entre 2 e 50 caracteres.');
         if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
         if (!empresa) return alert('Empresa é obrigatória.');
@@ -30,7 +28,7 @@ export async function enviarDados(botaoTipo) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(dados),

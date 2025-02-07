@@ -38,16 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Verifica se os dados essenciais estão presentes
+
                 if (data.resultado && data.resultado.token && data.resultado.usuario && data.resultado.usuario.cargo) {
                     localStorage.setItem('token', data.resultado.token);
                     localStorage.setItem('usuarioId', data.resultado.usuario.cargo);
 
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
-                    
+
                     window.location.href = '/frontend/assets/HTML/areaCadastro.html';
                 } else {
                     document.getElementById('mensagem').innerText = 'Erro ao processar login. Tente novamente.';
                 }
+
             } catch (error) {
                 console.error("Erro de conexão:", error);
                 const mensagemEl = document.getElementById('mensagem');

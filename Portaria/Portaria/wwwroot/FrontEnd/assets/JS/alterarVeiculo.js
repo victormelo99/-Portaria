@@ -25,7 +25,6 @@ async function carregarPessoas() {
         }
 
         pessoas = todasAsPessoas;
-        console.log("Pessoas carregadas:", pessoas);
 
     } catch (error) {
         console.error("Erro ao carregar as pessoas:", error);

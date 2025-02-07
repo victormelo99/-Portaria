@@ -14,12 +14,11 @@ async function preencherTabela(pesquisa = "") {
     }
 
     try {
-        const token = Token();
 
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -68,8 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 export function abrirlinksUsuario(pagina) {
-    const token = Token();  
-    if (token) {
+    if (Token()) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
         alert('Você precisa estar autenticado para acessar esta página!');
@@ -81,12 +79,11 @@ async function deletarUsuario() {
 
     if (confirm('Tem certeza que deseja excluir este usuário?')) {
         try {
-            const token = Token();
             const url = `${API_URLS.Usuario}/${idUsuario}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,  
+                    'Authorization': 'Bearer ' + Token(),  
                     'Content-Type': 'application/json'
                 }
             });

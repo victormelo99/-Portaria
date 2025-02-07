@@ -3,14 +3,13 @@ import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-    const token = Token();
     const url = `${API_URLS.Terceiro}/${id}`;
 
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -51,14 +50,13 @@ async function atualizarTerceiro() {
         responsavel: responsavel
     };
 
-    const token = Token();
     const url = `${API_URLS.Terceiro}`;
 
     try {
         const response = await fetch(url, {
             method: 'PATCH',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(terceiroAtualizado),

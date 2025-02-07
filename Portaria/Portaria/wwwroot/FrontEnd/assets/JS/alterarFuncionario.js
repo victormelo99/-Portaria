@@ -3,14 +3,13 @@ import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-    const token = Token();
     const url = `${API_URLS.Funcionario}/${id}`;
 
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -43,7 +42,6 @@ async function preencherFormulario() {
 
 async function atualizarFuncionario() {
     const url = `${API_URLS.Funcionario}`;
-    const token = Token();
 
     try {
         const id = document.getElementById('id').value;
@@ -65,13 +63,13 @@ async function atualizarFuncionario() {
             if (!data) return null; 
             const date = new Date(data);
             if (isNaN(date.getTime())) return null; 
-            // Falta retornar a data formatada
-            return date.toISOString().split('T')[0]; // Adicione esta linha
+
+            return date.toISOString().split('T')[0];
         };
         const responseFuncionario = await fetch(`${API_URLS.Funcionario}/${id}`, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });

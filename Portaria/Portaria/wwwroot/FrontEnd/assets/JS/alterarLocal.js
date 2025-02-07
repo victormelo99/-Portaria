@@ -4,19 +4,13 @@ import { API_URLS } from './config.js';
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
 
-    if (!id) {
-        alert('Nenhum local selecionado!');
-        return;
-    }
-
-    const token = Token();
     const url = `${API_URLS.Local}/${id}`;
 
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });

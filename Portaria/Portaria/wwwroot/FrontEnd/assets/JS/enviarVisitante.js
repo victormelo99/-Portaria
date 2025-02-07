@@ -5,12 +5,11 @@ async function enviarDados(nome, cpf, motivoVisita, pessoaVisitada, botaoId) {
     const url = `${API_URLS.Visitante}`;
 
     try {
-        const token = Token();
 
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ nome, cpf, motivoVisita,pessoaVisitada}),

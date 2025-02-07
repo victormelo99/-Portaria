@@ -89,8 +89,7 @@ async function preencherTabela(pesquisa = "") {
 }
 
 export function abrirlinks(pagina) {
-    const token = Token();
-    if (token) {
+    if (Token()) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
         alert('Você precisa estar autenticado para acessar esta página!');
@@ -102,13 +101,12 @@ async function deletarVeiculo() {
 
     if (confirm('Tem certeza que deseja excluir este veículo?')) {
         try {
-            const token = Token();
             const url = `${API_URLS.Veiculo}/${idUsuario}`;
 
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': 'Bearer ' + Token(),
                     'Content-Type': 'application/json'
                 }
             });

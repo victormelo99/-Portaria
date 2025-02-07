@@ -5,12 +5,11 @@ export async function enviarDados(nome, login, cargo, senha, botaoId) {
     const url = `${API_URLS.Usuario}`;
 
     try {
-        const token = Token();
 
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ nome, login, cargo, senha }),

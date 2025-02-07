@@ -4,7 +4,6 @@ import { API_URLS } from './config.js';
 let pessoas = [];
 
 async function carregarPessoas() {
-    const token = Token();
     const rotas = [API_URLS.Funcionario, API_URLS.Visitante, API_URLS.Terceiro];
 
     try {
@@ -14,7 +13,7 @@ async function carregarPessoas() {
             const response = await fetch(rota, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': 'Bearer ' +  Token(),
                     'Content-Type': 'application/json',
                 },
             });

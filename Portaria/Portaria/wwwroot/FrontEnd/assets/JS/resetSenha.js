@@ -1,25 +1,15 @@
 import { Token, API_URLS } from './config.js';
 
 async function verificarSenhaResetada() {
-    const token = Token();
     const usuarioId = localStorage.getItem('idUsuarioSelecionado');
 
-    console.log('ID do usuário armazenado:', usuarioId); 
-
-    if (!usuarioId) {
-        console.error('Nenhum ID de usuário encontrado.');
-        alert('Erro: ID de usuário não encontrado. Verifique o login.');
-        return;
-    }
-
     const url = `${API_URLS.Usuario}/${usuarioId}`;
-    console.log('Buscando usuário na API:', url);
 
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -29,7 +19,6 @@ async function verificarSenhaResetada() {
         }
 
         const usuario = await response.json();
-        console.log('Dados do usuário:', usuario);
 
         document.getElementById('id').value = usuario.id;
         document.getElementById('nome').value = usuario.nome;
@@ -47,7 +36,6 @@ async function verificarSenhaResetada() {
     }
 }
 
-// Função para atualizar a senha
 async function resetarSenha() {
     const id = document.getElementById('id').value;
     const senha = document.getElementById('senha').value;
@@ -70,14 +58,13 @@ async function resetarSenha() {
         senhaResetada: false
     };
 
-    const token = Token();
     const url = `${API_URLS.Usuario}/resetar-senha`;
 
     try {
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(usuarioAtualizado),

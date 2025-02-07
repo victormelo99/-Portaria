@@ -4,18 +4,12 @@ import { API_URLS } from './config.js';
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
     
-    if (!id) {
-        console.error("ID do usuário não encontrado no localStorage.");
-        return;
-    }
-
-    const token = Token();
     const url = `${API_URLS.Visitante}/${id}`;
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });

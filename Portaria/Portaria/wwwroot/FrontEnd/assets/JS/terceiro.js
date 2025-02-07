@@ -65,8 +65,7 @@ async function preencherTabela(pesquisa = "") {
 }
 
 export function abrirlinks(pagina) {
-    const token = Token();
-    if (token) {
+    if (Token()) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
         alert('Você precisa estar autenticado para acessar esta página!');
@@ -93,6 +92,7 @@ async function deletarTerceiro() {
             }
 
             const linhaSelecionada = document.querySelector('#tbody tr.selecionado');
+
             if (linhaSelecionada) {
                 linhaSelecionada.remove();
             }
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
     ocultar(usuarioId);
 
     preencherTabela();
-    console.log("Tabela preenchida, agora verificando o botão..." + preencherTabela());
 
     document.getElementById('Pesquisar').addEventListener('click', function () {
         const pesquisa = document.getElementById('text').value;

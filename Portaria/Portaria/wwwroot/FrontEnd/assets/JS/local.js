@@ -14,12 +14,11 @@ async function preencherTabela(pesquisa = "") {
     }
 
     try {
-        const token = Token();
 
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
             },
         });
@@ -60,8 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     preencherTabela();
 });
 
-//AREA FUNÇÃO PARA ABRIR CAMINHOS DENTRO DO LOCAL
-
 export function abrirlinks(pagina) {
     const token = Token();
     if (token) {
@@ -76,12 +73,11 @@ async function deletarLocal() {
 
     if (confirm('Tem certeza que deseja excluir este usuário?')) {
         try {
-            const token = Token();
             const url = `${API_URLS.Local}/${idUsuario}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' + token,
+                    'Authorization': 'Bearer ' +  Token(),
                     'Content-Type': 'application/json'
                 }
             });
