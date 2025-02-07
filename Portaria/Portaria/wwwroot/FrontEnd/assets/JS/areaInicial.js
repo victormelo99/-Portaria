@@ -1,6 +1,4 @@
-console.log('areaCadastro.js carregado');
-
-import {ocultar,abrirPagina} from './utilidades.js';
+import {abrirPagina,ocultar} from './utilidades.js';
 
 export function inicializarAreaCadastro() {
     const botoes = document.querySelectorAll('.botaoAreaCadastro');
@@ -50,8 +48,8 @@ function mudarPagina(pagina) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    inicializarAreaCadastro();
     const usuarioId = localStorage.getItem('usuarioId');     
-        ocultar(usuarioId);
+    ocultar(usuarioId);
+    inicializarAreaCadastro();
 
 });

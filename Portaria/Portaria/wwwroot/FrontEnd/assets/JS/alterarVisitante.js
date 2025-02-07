@@ -3,7 +3,6 @@ import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-    console.log(id)
     
     if (!id) {
         console.error("ID do usuário não encontrado no localStorage.");
@@ -12,7 +11,6 @@ async function preencherFormulario() {
 
     const token = Token();
     const url = `${API_URLS.Visitante}/${id}`;
-    console.log(url)
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -25,8 +23,6 @@ async function preencherFormulario() {
         if (!response.ok) {
             throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
         }
-
-        console.log(response)
         const visitante = await response.json();
 
         document.getElementById('id').value = visitante.id;

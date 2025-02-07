@@ -48,7 +48,9 @@ export function selecionarLinha(linha) {
     });
 }
 
+
 export function ocultar(usuarioId) {
+    
     if (usuarioId !== 'PORTARIA') return;
 
     const botoes = ['deletar', 'acUsuario', 'acLocal'];

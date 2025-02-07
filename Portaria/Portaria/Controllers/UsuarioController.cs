@@ -40,7 +40,7 @@ namespace Portaria.Controllers
 
                 if (!_service.VerificarSenha(usuarioLogin.Senha, usuario.Senha))
                 {
-                    return BadRequest(new { message = "Senha inválida." });
+                    return BadRequest("Senha inválida");
                 }
 
                 var resposta = new
