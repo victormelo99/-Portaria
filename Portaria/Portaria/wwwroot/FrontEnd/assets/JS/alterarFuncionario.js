@@ -93,7 +93,7 @@ async function atualizarFuncionario() {
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(dados),

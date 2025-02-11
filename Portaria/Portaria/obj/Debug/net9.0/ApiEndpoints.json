@@ -165,6 +165,37 @@
   },
   {
     "ContainingType": "Portaria.Controllers.FuncionarioController",
+    "Method": "GetFuncionarioPaginacao",
+    "RelativePath": "api/Funcionario/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.FuncionarioController",
     "Method": "ProcurarFuncionario",
     "RelativePath": "api/Funcionario/Pesquisa",
     "HttpMethod": "GET",

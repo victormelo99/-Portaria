@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('salvar').addEventListener('click', function () {
         let nome = document.getElementById('nome').value.toUpperCase();
-        let descricao = document.getElementById('descricao').valu.toUpperCase();
+        let descricao = document.getElementById('descricao').value.toUpperCase();
 
         enviarDados(nome, descricao, 'salvar');
     });

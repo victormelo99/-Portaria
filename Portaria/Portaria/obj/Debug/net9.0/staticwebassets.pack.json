@@ -29,18 +29,6 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\CadastroVeiculo.css"
     },
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\Local.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Local.css"
-    },
-    {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\Usuario.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\Usuario.css"
-    },
-    {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\acesso.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\acesso.css"
-    },
-    {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\alterarAcesso.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\alterarAcesso.css"
     },
@@ -49,8 +37,8 @@
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\alterarLocal.css"
     },
     {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\areaPessoa.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\areaPessoa.css"
+      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\areaVisualizarDados.css",
+      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\areaVisualizarDados.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\atualizarPessoa.css",
@@ -67,10 +55,6 @@
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\style.css",
       "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\style.css"
-    },
-    {
-      "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\veiculo.css",
-      "PackagePath": "staticwebassets\\FrontEnd\\assets\\CSS\\veiculo.css"
     },
     {
       "Id": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\HTML\\Acesso.html",

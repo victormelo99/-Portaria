@@ -132,5 +132,45 @@ namespace Portaria.Controllers
             }
 
         }
+
+        [HttpGet("Paginacao")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> GetVisitantePaginacao([FromQuery] string? valor, int skip, int take, bool ordenDesc)
+        {
+            try
+            {
+                var lista = _context.Visitante.AsQueryable();
+
+                if (!String.IsNullOrEmpty(valor))
+                {
+                    lista = lista.Where(o => o.Nome.ToUpper().Contains(valor.ToUpper())
+                                || o.Cpf.Contains(valor));
+                }
+
+                if (ordenDesc)
+                {
+                    lista = lista.OrderByDescending(o => o.Nome);
+                }
+                else
+                {
+                    lista = lista.OrderBy(o => o.Nome);
+                }
+
+                var qtde = await lista.CountAsync();
+
+                lista = lista.Skip((skip - 1) * take)
+                            .Take(take);
+
+                var listaPaginada = await lista.ToListAsync();
+
+                var paginacaoResponse = new PaginacaoResponse<Visitante>(listaPaginada, qtde, skip, take);
+
+                return Ok(paginacaoResponse);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro na paginação de visitante. Exceção: {e.Message}");
+            }
+        }
     }
 }
