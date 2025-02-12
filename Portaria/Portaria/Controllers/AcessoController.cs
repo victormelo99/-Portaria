@@ -259,5 +259,52 @@ namespace Portaria.Controllers
             }
         }
 
+
+        [HttpGet("Paginacao")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> GetAcessoPaginacao([FromQuery] string? valor, int skip, int take, bool ordenDesc)
+        {
+            try
+            {
+                var lista = _context.Acesso.AsQueryable();
+
+                bool isData = DateTime.TryParse(valor, out DateTime dataBuscada);
+
+                if (!String.IsNullOrEmpty(valor))
+                {
+                    lista = lista.Where(o =>
+                        (isData && (o.HoraEntrada.Date == dataBuscada.Date ||
+                        (o.HoraSaida.HasValue && o.HoraSaida.Value.Date == dataBuscada.Date))) ||
+                        o.Local.Nome.ToUpper().Contains(valor.ToUpper()) ||
+                        o.Autorizacao.ToUpper().Contains(valor.ToUpper()) ||
+                        o.Pessoa.Nome.ToUpper().Contains(valor.ToUpper()) ||
+                        o.Pessoa.Cpf.Contains(valor));
+                }
+
+                if (ordenDesc)
+                {
+                    lista = lista.OrderByDescending(o => o.HoraEntrada);
+                }
+                else
+                {
+                    lista = lista.OrderBy(o => o.HoraEntrada);
+                }
+
+                var qtde = await lista.CountAsync();
+
+                lista = lista.Skip((skip - 1) * take)
+                    .Take(take);
+
+                var listaPaginada = await lista.ToListAsync();
+
+                var paginacaoResponse = new PaginacaoResponse<Acesso>(listaPaginada, qtde, skip, take);
+
+                return Ok(paginacaoResponse);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro na paginação dos acessos. Exceção: {e.Message}");
+            }
+        }
     }
 }

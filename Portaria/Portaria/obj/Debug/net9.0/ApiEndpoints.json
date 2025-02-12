@@ -75,6 +75,37 @@
   },
   {
     "ContainingType": "Portaria.Controllers.AcessoController",
+    "Method": "GetAcessoPaginacao",
+    "RelativePath": "api/Acesso/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.AcessoController",
     "Method": "ProcurarAcesso",
     "RelativePath": "api/Acesso/Pesquisa",
     "HttpMethod": "GET",
@@ -286,6 +317,37 @@
   },
   {
     "ContainingType": "Portaria.Controllers.LocalController",
+    "Method": "GetLocalPaginacao",
+    "RelativePath": "api/Local/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.LocalController",
     "Method": "ProcurarLocal",
     "RelativePath": "api/Local/Pesquisa",
     "HttpMethod": "GET",
@@ -370,6 +432,37 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.TerceiroController",
+    "Method": "GetTerceiroPaginacao",
+    "RelativePath": "api/Terceiro/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -482,6 +575,37 @@
   },
   {
     "ContainingType": "Portaria.Controllers.UsuarioController",
+    "Method": "GetUsuarioPaginacao",
+    "RelativePath": "api/Usuario/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.UsuarioController",
     "Method": "ProcurarUsuario",
     "RelativePath": "api/Usuario/Pesquisa",
     "HttpMethod": "GET",
@@ -588,6 +712,37 @@
   },
   {
     "ContainingType": "Portaria.Controllers.VeiculoController",
+    "Method": "GetVeiculoPaginacao",
+    "RelativePath": "api/Veiculo/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VeiculoController",
     "Method": "ProcurarVeiculo",
     "RelativePath": "api/Veiculo/Pesquisa",
     "HttpMethod": "GET",
@@ -672,6 +827,37 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portaria.Controllers.VisitanteController",
+    "Method": "GetVisitantePaginacao",
+    "RelativePath": "api/Visitante/Paginacao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "valor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ordenDesc",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

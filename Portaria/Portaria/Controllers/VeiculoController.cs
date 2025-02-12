@@ -160,5 +160,48 @@ namespace Portaria.Controllers
             }
         }
 
+        [HttpGet("Paginacao")]
+        [Authorize(Roles = "TI,PORTARIA")]
+        public async Task<ActionResult> GetVeiculoPaginacao([FromQuery] string? valor, int skip, int take, bool ordenDesc)
+        {
+            try
+            {
+                var lista = _context.Veiculo.AsQueryable();
+
+                if (!String.IsNullOrEmpty(valor))
+                {
+                    lista = lista.Where(o => o.Placa.ToUpper().Contains(valor.ToUpper())
+                                || o.Modelo.ToUpper().Contains(valor.ToUpper())
+                                || o.Cor.ToUpper().Contains(valor.ToUpper())
+                                || o.pessoa.Nome.ToUpper().Contains(valor.ToUpper())
+                                || o.pessoa.Cpf.Contains(valor));
+                }
+
+                if (ordenDesc)
+                {
+                    lista = lista.OrderByDescending(o => o.Modelo);
+                }
+                else
+                {
+                    lista = lista.OrderBy(o => o.Modelo);
+                }
+
+                var qtde = await lista.CountAsync();
+
+                lista = lista.Skip((skip - 1) * take)
+                            .Take(take);
+
+                var listaPaginada = await lista.ToListAsync();
+
+                var paginacaoResponse = new PaginacaoResponse<Veiculo>(listaPaginada, qtde, skip, take);
+
+                return Ok(paginacaoResponse);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro na paginação dos veiculos. Exceção: {e.Message}");
+            }
+        }
+
     }
 }
