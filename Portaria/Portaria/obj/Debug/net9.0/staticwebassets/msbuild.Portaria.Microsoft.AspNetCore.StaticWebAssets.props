@@ -1056,8 +1056,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dtgzyxvt1p</Fingerprint>
-      <Integrity>HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=</Integrity>
+      <Fingerprint>srbc1fftz6</Fingerprint>
+      <Integrity>aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</OriginalItemSpec>

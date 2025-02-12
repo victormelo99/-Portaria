@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Portaria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9466af30032baca3dc0539d1482b92d8248abb47")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b11487ad43b7bac417f7fe66c6d6bff0f9f2ecde")]
 [assembly: System.Reflection.AssemblyProductAttribute("Portaria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Portaria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

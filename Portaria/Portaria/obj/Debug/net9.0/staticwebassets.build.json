@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iNSgF5VD21BMeAZgYlH0w66ULeRUEu2jF7qO5f1/BLA=",
+  "Hash": "1Z8BAqAenm7srvyTv7zHTxHwnHxBpiqMFhBqbCQYplQ=",
   "Source": "Portaria",
   "BasePath": "_content/Portaria",
   "Mode": "Default",
@@ -1382,12 +1382,12 @@
       "OriginalItemSpec": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\CSS\\alterarLocal.css"
     },
     {
-      "Identity": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-dtgzyxvt1p.gz",
+      "Identity": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-srbc1fftz6.gz",
       "SourceId": "Portaria",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Portaria",
-      "RelativePath": "FrontEnd/assets/JS/funcionario#[.{fingerprint=dtgzyxvt1p}]?.js.gz",
+      "RelativePath": "FrontEnd/assets/JS/funcionario#[.{fingerprint=srbc1fftz6}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1396,8 +1396,8 @@
       "RelatedAsset": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\funcionario.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "2g5cgrmx8q",
-      "Integrity": "bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g=",
+      "Fingerprint": "mazgkxpgh5",
+      "Integrity": "rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\funcionario.js"
@@ -2677,8 +2677,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dtgzyxvt1p",
-      "Integrity": "HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=",
+      "Fingerprint": "srbc1fftz6",
+      "Integrity": "aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\FrontEnd\\assets\\JS\\funcionario.js"
@@ -20159,13 +20159,13 @@
       ]
     },
     {
-      "Route": "FrontEnd/assets/JS/funcionario.dtgzyxvt1p.js",
-      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-dtgzyxvt1p.gz",
+      "Route": "FrontEnd/assets/JS/funcionario.js",
+      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-srbc1fftz6.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000688231246"
+          "Quality": "0.000847457627"
         }
       ],
       "ResponseHeaders": [
@@ -20175,19 +20175,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1452"
+          "Value": "1179"
         },
         {
           "Name": "ETag",
-          "Value": "\"bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g=\""
+          "Value": "\"rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -20203,26 +20203,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\""
+          "Value": "W/\"aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "dtgzyxvt1p"
-        },
-        {
-          "Name": "label",
-          "Value": "FrontEnd/assets/JS/funcionario.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="
+          "Value": "sha256-aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE="
         }
       ]
     },
     {
-      "Route": "FrontEnd/assets/JS/funcionario.dtgzyxvt1p.js",
+      "Route": "FrontEnd/assets/JS/funcionario.js",
       "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\funcionario.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -20232,7 +20224,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5039"
+          "Value": "3884"
         },
         {
           "Name": "Content-Type",
@@ -20240,11 +20232,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\""
+          "Value": "\"aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE="
+        }
+      ]
+    },
+    {
+      "Route": "FrontEnd/assets/JS/funcionario.js.gz",
+      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-srbc1fftz6.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1179"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA="
+        }
+      ]
+    },
+    {
+      "Route": "FrontEnd/assets/JS/funcionario.srbc1fftz6.js",
+      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-srbc1fftz6.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000847457627"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1179"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "srbc1fftz6"
+        },
+        {
+          "Name": "label",
+          "Value": "FrontEnd/assets/JS/funcionario.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE="
+        }
+      ]
+    },
+    {
+      "Route": "FrontEnd/assets/JS/funcionario.srbc1fftz6.js",
+      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\funcionario.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3884"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20254,7 +20391,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dtgzyxvt1p"
+          "Value": "srbc1fftz6"
         },
         {
           "Name": "label",
@@ -20262,13 +20399,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="
+          "Value": "sha256-aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE="
         }
       ]
     },
     {
-      "Route": "FrontEnd/assets/JS/funcionario.dtgzyxvt1p.js.gz",
-      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-dtgzyxvt1p.gz",
+      "Route": "FrontEnd/assets/JS/funcionario.srbc1fftz6.js.gz",
+      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-srbc1fftz6.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20277,7 +20414,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1452"
+          "Value": "1179"
         },
         {
           "Name": "Content-Type",
@@ -20285,11 +20422,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g=\""
+          "Value": "\"rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
+          "Value": "Wed, 12 Feb 2025 16:15:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20307,7 +20444,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dtgzyxvt1p"
+          "Value": "srbc1fftz6"
         },
         {
           "Name": "label",
@@ -20315,144 +20452,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g="
-        }
-      ]
-    },
-    {
-      "Route": "FrontEnd/assets/JS/funcionario.js",
-      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-dtgzyxvt1p.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000688231246"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1452"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="
-        }
-      ]
-    },
-    {
-      "Route": "FrontEnd/assets/JS/funcionario.js",
-      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\wwwroot\\FrontEnd\\assets\\JS\\funcionario.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5039"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="
-        }
-      ]
-    },
-    {
-      "Route": "FrontEnd/assets/JS/funcionario.js.gz",
-      "AssetFile": "C:\\Users\\victor.melo\\Documents\\-Portaria\\Portaria\\Portaria\\obj\\Debug\\net9.0\\compressed\\yd5t0jcmzh-dtgzyxvt1p.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1452"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 11 Feb 2025 11:29:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-bl2s4b/E8fueMsBNlrPqrsJ5UezS3WkTLVZZHsuKh1g="
+          "Value": "sha256-rl7dtuBQnAFgjXE6Uoot8nTw1hNMieG9U3s8kT7r6yA="
         }
       ]
     },

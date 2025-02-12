@@ -696,17 +696,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-L31hp92mk0fu5Z5z69y0DSU2JVOSZYs21nhlLsQDcu8="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2088"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022L31hp92mk0fu5Z5z69y0DSU2JVOSZYs21nhlLsQDcu8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Feb 2025 11:29:49 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/funcionario.dtgzyxvt1p.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dtgzyxvt1p"},{"Name":"integrity","Value":"sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/funcionario.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5039"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Feb 2025 11:29:49 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/funcionario.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5039"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022HwrLFpy0zgi6AFyUbyetWz1DL71/4czx52KTsRojvu0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Feb 2025 11:29:49 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-aMxz053kpeCnMaYivnPiFFus1qqQW\u002BmABN5II4CdPSE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3884"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022aMxz053kpeCnMaYivnPiFFus1qqQW\u002BmABN5II4CdPSE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Feb 2025 16:15:54 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/funcionario.srbc1fftz6.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"srbc1fftz6"},{"Name":"integrity","Value":"sha256-aMxz053kpeCnMaYivnPiFFus1qqQW\u002BmABN5II4CdPSE="},{"Name":"label","Value":"_content/Portaria/FrontEnd/assets/JS/funcionario.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3884"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022aMxz053kpeCnMaYivnPiFFus1qqQW\u002BmABN5II4CdPSE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 12 Feb 2025 16:15:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Portaria/FrontEnd/assets/JS/local.4u34nczagw.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\local.js'))</AssetFile>

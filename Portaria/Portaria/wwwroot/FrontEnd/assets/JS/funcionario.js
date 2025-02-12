@@ -2,6 +2,15 @@ import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js';
 
+let currentState = {
+    skip: 1,
+    take: 5,
+    ordenDesc: false,
+    totalItems: 0,
+    dadosCompletos: [], 
+    termoPesquisa: "" 
+};
+
 function status(status) {
     switch (status) {
         case 1:
@@ -13,33 +22,60 @@ function status(status) {
     }
 }
 
-async function preencherTabela(pesquisa = "") {
-    const tbody = document.getElementById('tbody');
-    tbody.innerHTML = '';
-
-    let url = `${API_URLS.Funcionario}`;
-
-    if (pesquisa.trim() !== "") {
-        url = `${API_URLS.Funcionario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
-    }
-
+async function buscarDados(pesquisa = "") {
     try {
+        const url = pesquisa.trim() !== "" 
+            ? `${API_URLS.Funcionario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`
+            : `${API_URLS.Funcionario}`;
 
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ' +  Token(),
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
         });
 
         if (!response.ok) {
-            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
+            throw new Error(`Erro na resposta da API: ${response.status}`);
         }
 
-        const funcionarios = await response.json();
+        const data = await response.json();
+        currentState.dadosCompletos = data;
+        currentState.totalItems = data.length;
+        currentState.termoPesquisa = pesquisa;
+
+        return data;
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        throw error;
+    }
+}
+
+function paginarDados(dados) {
+    const inicio = (currentState.skip - 1) * currentState.take;
+    const fim = inicio + currentState.take;
+    return dados.slice(inicio, fim);
+}
+
+async function preencherTabela(pesquisa = "") {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+
+    try {
+        if (pesquisa !== currentState.termoPesquisa || currentState.dadosCompletos.length === 0) {
+            await buscarDados(pesquisa);
+        }
+
+        if (currentState.ordenDesc) {
+            currentState.dadosCompletos.sort((a, b) => b.nome.localeCompare(a.nome));
+        } else {
+            currentState.dadosCompletos.sort((a, b) => a.nome.localeCompare(b.nome));
+        }
+
+        const dadosPaginados = paginarDados(currentState.dadosCompletos);
         
-        funcionarios.forEach((funcionario) => {
+        dadosPaginados.forEach((funcionario) => {
             const tr = document.createElement('tr');
 
             const tdId = document.createElement('td');
@@ -71,14 +107,52 @@ async function preencherTabela(pesquisa = "") {
         });
 
         vincularEventosLinhas();
+        updatePaginationButtons();
 
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
 }
 
+function updatePaginationButtons() {
+    const totalPages = Math.ceil(currentState.totalItems / currentState.take);
+    const currentPage = currentState.skip;
+
+    document.getElementById('anterior').disabled = currentPage <= 1;
+    document.getElementById('proximo').disabled = currentPage >= totalPages;
+    document.getElementById('ultimaPaginaBefore').disabled = currentPage <= 1;
+    document.getElementById('ultimaPaginaNext').disabled = currentPage >= totalPages;
+}
+
+function setupPaginationHandlers() {
+    document.getElementById('anterior').addEventListener('click', () => {
+        if (currentState.skip > 1) {
+            currentState.skip--;
+            preencherTabela(currentState.termoPesquisa);
+        }
+    });
+
+    document.getElementById('proximo').addEventListener('click', () => {
+        const totalPages = Math.ceil(currentState.totalItems / currentState.take);
+        if (currentState.skip < totalPages) {
+            currentState.skip++;
+            preencherTabela(currentState.termoPesquisa);
+        }
+    });
+
+    document.getElementById('ultimaPaginaBefore').addEventListener('click', () => {
+        currentState.skip = 1;
+        preencherTabela(currentState.termoPesquisa);
+    });
+
+    document.getElementById('ultimaPaginaNext').addEventListener('click', () => {
+        currentState.skip = Math.ceil(currentState.totalItems / currentState.take);
+        preencherTabela(currentState.termoPesquisa);
+    });
+}
+
 export function abrirlinks(pagina) {
-    if ( Token()) {
+    if (Token()) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
         alert('Você precisa estar autenticado para acessar esta página!');
@@ -94,7 +168,7 @@ async function deletarFuncionario() {
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': 'Bearer ' +  Token(),  
+                    'Authorization': 'Bearer ' + Token(),
                     'Content-Type': 'application/json'
                 }
             });
@@ -109,12 +183,11 @@ async function deletarFuncionario() {
             }
 
             alert('Funcionário excluído com sucesso!');
-
             localStorage.removeItem('idUsuarioSelecionado');
-
-            document.querySelectorAll('#tbody tr').forEach(tr => {
-                tr.classList.remove('selecionado');
-            });
+            
+            currentState.skip = 1;
+            currentState.dadosCompletos = []; // Força uma nova busca
+            preencherTabela(currentState.termoPesquisa);
 
         } catch (error) {
             console.error('Erro:', error);
@@ -124,12 +197,14 @@ async function deletarFuncionario() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const usuarioId = localStorage.getItem('usuarioId'); 
+    const usuarioId = localStorage.getItem('usuarioId');
     ocultar(usuarioId);
 
-    preencherTabela(); 
+    preencherTabela();
+    setupPaginationHandlers();
 
     document.getElementById('Pesquisar').addEventListener('click', function () {
+        currentState.skip = 1;
         const pesquisa = document.getElementById('text').value;
         preencherTabela(pesquisa);
     });
@@ -146,4 +221,3 @@ document.addEventListener('DOMContentLoaded', function() {
         abrirlinks('alterarFuncionario.html');
     });
 });
-
