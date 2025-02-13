@@ -1056,8 +1056,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>srbc1fftz6</Fingerprint>
-      <Integrity>aMxz053kpeCnMaYivnPiFFus1qqQW+mABN5II4CdPSE=</Integrity>
+      <Fingerprint>tk03zkjwoo</Fingerprint>
+      <Integrity>rSgWpLO17PBgUxpRIxIe2fr50lpKJWLLhWa4+KLeNAU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\funcionario.js'))</OriginalItemSpec>
@@ -1200,8 +1200,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>w1jb71cugd</Fingerprint>
-      <Integrity>NIAaY9S8ovZ6PhztStWTlvhall5hWag/gC4XWLN6HyA=</Integrity>
+      <Fingerprint>fzh0x2k9ju</Fingerprint>
+      <Integrity>9RukNzFDI2TbphhS962MF2lVZJAUwZsXb+MQ0KLpWKc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\visitante.js'))</OriginalItemSpec>
