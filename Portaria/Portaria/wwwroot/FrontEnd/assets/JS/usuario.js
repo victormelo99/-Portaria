@@ -1,19 +1,22 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas,ocultar } from './utilidades.js';
+
+let estadoAtual = {
+    skip: 1,
+    take: 10,
+    ordenDesc: false,
+    totalItems: 0,
+    dadosCompletos: [], 
+    termoPesquisa: "" 
+};
 
 
-async function preencherTabela(pesquisa = "") {
-    const tbody = document.getElementById('tbody');
-    tbody.innerHTML = '';
-
-    let url = `${API_URLS.Usuario}`;
-
-    if (pesquisa.trim() !== "") {
-        url = `${API_URLS.Usuario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
-    }
-
+async function buscarDados(pesquisa = "") {
     try {
+        const url = pesquisa.trim() !== "" 
+            ? `${API_URLS.Usuario}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`
+            : `${API_URLS.Usuario}`;
 
         const response = await fetch(url, {
             method: 'GET',
@@ -24,10 +27,46 @@ async function preencherTabela(pesquisa = "") {
         });
 
         if (!response.ok) {
-            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
+            throw new Error(`Erro na resposta da API: ${response.status}`);
         }
 
-        const usuarios = await response.json();
+        const data = await response.json();
+
+        estadoAtual.dadosCompletos = data;
+        estadoAtual.totalItems = data.length;
+        estadoAtual.termoPesquisa = pesquisa;
+
+        return data;
+        
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
+}
+
+function paginarDados(dados) {
+    const inicio = (estadoAtual.skip - 1) * estadoAtual.take;
+    const fim = inicio + estadoAtual.take;
+    return dados.slice(inicio, fim);
+}
+
+
+async function preencherTabela(pesquisa = "") {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+
+    try {
+
+        if (pesquisa !== estadoAtual.termoPesquisa || estadoAtual.dadosCompletos.length === 0) {
+            await buscarDados(pesquisa);
+        }
+
+        if (estadoAtual.ordenDesc) {
+            estadoAtual.dadosCompletos.sort((a, b) => b.nome.localeCompare(a.nome));
+        } else {
+            estadoAtual.dadosCompletos.sort((a, b) => a.nome.localeCompare(b.nome));
+        }
+
+        const usuarios = paginarDados(estadoAtual.dadosCompletos);
         
         usuarios.forEach((usuario) => {
             const tr = document.createElement('tr');
@@ -56,17 +95,42 @@ async function preencherTabela(pesquisa = "") {
         });
 
         vincularEventosLinhas();
+        atualizarTabelaPorBotao();
 
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    preencherTabela(); 
-});
 
-export function abrirlinksUsuario(pagina) {
+function atualizarTabelaPorBotao() {
+    const totalPaginas = Math.ceil(estadoAtual.totalItems / estadoAtual.take);
+    const paginaAtual = estadoAtual.skip;
+
+    document.getElementById('anterior').disabled = paginaAtual <= 1;
+    document.getElementById('proximo').disabled = paginaAtual >= totalPaginas;
+    document.getElementById('ultimaPaginaBefore').disabled = paginaAtual <= 1;
+    document.getElementById('ultimaPaginaNext').disabled = paginaAtual >= totalPaginas;
+}
+
+function configuracoesPaginacao() {
+    const acoes = {
+        anterior: () => estadoAtual.skip > 1 && estadoAtual.skip--,
+        proximo: () => estadoAtual.skip < Math.ceil(estadoAtual.totalItems / estadoAtual.take) && estadoAtual.skip++,
+        ultimaPaginaBefore: () => estadoAtual.skip = 1,
+        ultimaPaginaNext: () => estadoAtual.skip = Math.ceil(estadoAtual.totalItems / estadoAtual.take),
+    };
+
+    Object.keys(acoes).forEach(id => 
+        document.getElementById(id).addEventListener('click', () => {
+            acoes[id]();
+            preencherTabela(estadoAtual.termoPesquisa);
+        })
+    );
+}
+
+
+export function abrirlinks(pagina) {
     if (Token()) {
         window.open(`/frontend/assets/HTML/${pagina}`, '_blank');
     } else {
@@ -112,22 +176,23 @@ async function deletarUsuario() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('Pesquisar').addEventListener('click', function () {
-        const pesquisa = document.getElementById('text').value;
-        preencherTabela(pesquisa);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    ocultar(localStorage.getItem('usuarioId'));
+    preencherTabela();
+    configuracoesPaginacao();
 
-    document.getElementById('deletar').addEventListener('click', function () {
-        deletarUsuario();
-    });
+    const acoes = {
+        Pesquisar: () => {
+            estadoAtual.skip = 1;
+            preencherTabela(document.getElementById('text').value);
+        },
+        deletar: deletarUsuario,
+        cadastrar: () => abrirlinks('CadastroUsuario.html'),
+        alterar: () => abrirlinks('AlterarUsuario.html')
+    };
 
-    document.getElementById('cadastrar').addEventListener('click', function () {
-        abrirlinksUsuario('CadastroUsuario.html');
-    });
-
-    document.getElementById('alterar').addEventListener('click', function () {
-        abrirlinksUsuario('AlterarUsuario.html');
-    });
+    Object.keys(acoes).forEach(id => 
+        document.getElementById(id).addEventListener('click', acoes[id])
+    );
 });
 

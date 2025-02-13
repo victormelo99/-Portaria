@@ -1,33 +1,75 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
-import { selecionarLinha, vincularEventosLinhas } from './utilidades.js';
+import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js';
+
+
+let estadoAtual = {
+    skip: 1,
+    take: 2,
+    ordenDesc: false,
+    totalItems: 0,
+    dadosCompletos: [], 
+    termoPesquisa: "" 
+};
+
+
+async function buscarDados(pesquisa = "") {
+    try {
+        const url = pesquisa.trim() !== "" 
+            ? `${API_URLS.Local}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`
+            : `${API_URLS.Local}`;
+
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + Token(),
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro na resposta da API: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        estadoAtual.dadosCompletos = data;
+        estadoAtual.totalItems = data.length;
+        estadoAtual.termoPesquisa = pesquisa;
+
+        return data;
+        
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
+}
+
+function paginarDados(dados) {
+    const inicio = (estadoAtual.skip - 1) * estadoAtual.take;
+    const fim = inicio + estadoAtual.take;
+    return dados.slice(inicio, fim);
+}
+
 
 
 async function preencherTabela(pesquisa = "") {
     const tbody = document.getElementById('tbody');
     tbody.innerHTML = '';
 
-    let url = `${API_URLS.Local}`;
-
-    if (pesquisa.trim() !== "") {
-        url = `${API_URLS.Local}/Pesquisa?valor=${encodeURIComponent(pesquisa)}`;
-    }
 
     try {
 
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer ' +  Token(),
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`Erro na resposta da API: ${response.status}, mensagem: ${await response.text()}`);
+        if (pesquisa !== estadoAtual.termoPesquisa || estadoAtual.dadosCompletos.length === 0) {
+            await buscarDados(pesquisa);
         }
 
-        const locais = await response.json();
+        if (estadoAtual.ordenDesc) {
+            estadoAtual.dadosCompletos.sort((a, b) => b.nome.localeCompare(a.nome));
+        } else {
+            estadoAtual.dadosCompletos.sort((a, b) => a.nome.localeCompare(b.nome));
+        }
+
+        const locais = paginarDados(estadoAtual.dadosCompletos);
 
         locais.forEach((local) => {
             const tr = document.createElement('tr');
@@ -49,15 +91,39 @@ async function preencherTabela(pesquisa = "") {
         });
 
         vincularEventosLinhas();
+        atualizarTabelaPorBotao();
+
 
     } catch (error) {
         console.error('Erro ao preencher a tabela:', error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    preencherTabela();
-});
+function atualizarTabelaPorBotao() {
+    const totalPaginas = Math.ceil(estadoAtual.totalItems / estadoAtual.take);
+    const paginaAtual = estadoAtual.skip;
+
+    document.getElementById('anterior').disabled = paginaAtual <= 1;
+    document.getElementById('proximo').disabled = paginaAtual >= totalPaginas;
+    document.getElementById('ultimaPaginaBefore').disabled = paginaAtual <= 1;
+    document.getElementById('ultimaPaginaNext').disabled = paginaAtual >= totalPaginas;
+}
+
+function configuracoesPaginacao() {
+    const acoes = {
+        anterior: () => estadoAtual.skip > 1 && estadoAtual.skip--,
+        proximo: () => estadoAtual.skip < Math.ceil(estadoAtual.totalItems / estadoAtual.take) && estadoAtual.skip++,
+        ultimaPaginaBefore: () => estadoAtual.skip = 1,
+        ultimaPaginaNext: () => estadoAtual.skip = Math.ceil(estadoAtual.totalItems / estadoAtual.take),
+    };
+
+    Object.keys(acoes).forEach(id => 
+        document.getElementById(id).addEventListener('click', () => {
+            acoes[id]();
+            preencherTabela(estadoAtual.termoPesquisa);
+        })
+    );
+}
 
 export function abrirlinks(pagina) {
     const token = Token();
@@ -105,22 +171,22 @@ async function deletarLocal() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+    ocultar(localStorage.getItem('usuarioId'));
+    preencherTabela();
+    configuracoesPaginacao();
 
-    document.getElementById('Pesquisar').addEventListener('click', function () {
-        const pesquisa = document.getElementById('text').value;
-        preencherTabela(pesquisa);
-    });
+    const acoes = {
+        Pesquisar: () => {
+            estadoAtual.skip = 1;
+            preencherTabela(document.getElementById('text').value);
+        },
+        deletar: deletarLocal,
+        cadastrar: () => abrirlinks('CadastroLocal.html'),
+        alterar: () => abrirlinks('alterarLocal.html')
+    };
 
-    document.getElementById('deletar').addEventListener('click', function () {
-        deletarLocal();
-    });
-
-    document.getElementById('cadastrar').addEventListener('click', function () {
-        abrirlinks('CadastroLocal.html');
-    });
-
-    document.getElementById('alterar').addEventListener('click', function () {
-        abrirlinks('alterarLocal.html');
-    });
+    Object.keys(acoes).forEach(id => 
+        document.getElementById(id).addEventListener('click', acoes[id])
+    );
 });
