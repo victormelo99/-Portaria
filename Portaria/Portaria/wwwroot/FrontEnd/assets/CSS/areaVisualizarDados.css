@@ -110,6 +110,11 @@ table td {
     font-size: 16px;
 }
 
+table th:nth-child(1),
+table td:nth-child(1) {
+    display: none;
+}
+
 tbody {
     background-color: #f9f9f9;
 }

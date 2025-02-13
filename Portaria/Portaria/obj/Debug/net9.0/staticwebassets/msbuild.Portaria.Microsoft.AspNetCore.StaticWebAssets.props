@@ -1074,8 +1074,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4u34nczagw</Fingerprint>
-      <Integrity>lDxymBm1bO3ZmgS1YrVaZrFSyCzhecJ83iDcNImdDho=</Integrity>
+      <Fingerprint>y4nvx3a00o</Fingerprint>
+      <Integrity>4tNaE45JHIsAw5LOo8p4kzmWgsD/5Ja40IVZJscck3s=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\local.js'))</OriginalItemSpec>
@@ -1146,8 +1146,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>b60n29qkev</Fingerprint>
-      <Integrity>XfkNZUZFLy+NNrb3LrQsDSv5TWn8CZS3Urk68Us4y2w=</Integrity>
+      <Fingerprint>e47sj3rmc1</Fingerprint>
+      <Integrity>DiKbTT9RnBIim8KDvCc8TJkneR32KJAPJSvE9UpuUbM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\FrontEnd\assets\JS\usuario.js'))</OriginalItemSpec>
