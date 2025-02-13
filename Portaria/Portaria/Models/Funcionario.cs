@@ -4,7 +4,6 @@ namespace Portaria.Models
 {
     public class Funcionario : Pessoa
     {
-        [Range(1, 99999999999999, ErrorMessage = "O campo deve estar entre 1 e 14 dígitos")]
         public int Matricula { get; set; }
 
         [Required(ErrorMessage = "O campo DataAdmissao é obrigatório")]

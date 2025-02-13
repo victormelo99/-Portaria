@@ -10,7 +10,6 @@ async function carregarDados() {
     const rotaLocais = API_URLS.Local;
 
     try {
-
         let todasPessoas = [];
         for (let rota of rotasPessoas) {
             const response = await fetch(rota, {
@@ -134,18 +133,29 @@ async function carregarVeiculos(veiculoId, placaSelecionada) {
         veiculoSelect.innerHTML = '<option value="">Selecione um veículo</option>';
 
         let veiculoSelecionado = null;
+        const pessoaId = document.getElementById('IdPessoa').value;
+        
+        // Filtra os veículos para exibir apenas os da pessoa associada
+        const veiculosDaPessoa = veiculos.filter(veiculo => veiculo.pessoaId === parseInt(pessoaId));
 
-        veiculos.forEach(veiculo => {
-            const option = document.createElement('option');
-            option.value = veiculo.id;
-            option.text = `${veiculo.modelo}`;
-            veiculoSelect.add(option);
+        if (veiculosDaPessoa.length === 0) {
+            // Caso a pessoa não tenha veículos, exibe a opção "Nenhum veículo"
+            veiculoSelect.add(new Option('Nenhum veículo', 'nenhum'));
+        } else {
+            veiculosDaPessoa.forEach(veiculo => {
+                const option = document.createElement('option');
+                option.value = veiculo.id;
+                option.text = `${veiculo.modelo} - ${veiculo.placa}`;
+                veiculoSelect.add(option);
 
-            if (veiculo.id === veiculoId || veiculo.placa === placaSelecionada) {
-                veiculoSelecionado = veiculo;
-            }
-        });
+                // Se o veículo corresponde ao que foi associado ao acesso, seleciona ele
+                if (veiculo.id === veiculoId || veiculo.placa === placaSelecionada) {
+                    veiculoSelecionado = veiculo;
+                }
+            });
+        }
 
+        // Caso um veículo tenha sido selecionado, preenche os campos de dados do veículo
         if (veiculoSelecionado) {
             document.getElementById('veiculoId').value = veiculoSelecionado.id;
             document.getElementById('placa').value = veiculoSelecionado.placa;
@@ -186,7 +196,6 @@ function preencherCamposPessoa(pessoa) {
     placaField.value = '';
 
     if (veiculosDaPessoa.length === 1) {
-
         const veiculo = veiculosDaPessoa[0];
         const option = new Option(veiculo.modelo, veiculo.id);
         veiculoSelect.add(option);
@@ -194,7 +203,6 @@ function preencherCamposPessoa(pessoa) {
         veiculoIdField.value = veiculo.id;
         placaField.value = veiculo.placa;
     } else if (veiculosDaPessoa.length > 1) {
-
         veiculosDaPessoa.forEach(veiculo => {
             const option = new Option(veiculo.modelo, veiculo.id);
             veiculoSelect.add(option);
@@ -202,7 +210,7 @@ function preencherCamposPessoa(pessoa) {
         veiculoIdField.value = '';
         placaField.value = '';
     } else {
-
+        veiculoSelect.add(new Option('Nenhum veículo', 'nenhum'));
         veiculoIdField.value = '';
         placaField.value = '';
     }
@@ -242,7 +250,6 @@ async function pesquisar(campo, tipo) {
     }
 }
 
-
 async function atualizarAcesso() {
     const id = document.getElementById('id').value;
     const pessoaId = parseInt(document.getElementById('IdPessoa').value);  
@@ -279,7 +286,6 @@ async function atualizarAcesso() {
             },
             body: JSON.stringify(acessoAtualizado),
         });
-
 
         alert('Acesso atualizado com sucesso!');
         window.close();

@@ -77,7 +77,6 @@ function formatarDataHora(data) {
     return isNaN(data) ? '' : data.toISOString().slice(0, 19);
 }
 
-
 function preencherPessoa(pessoa) {
     const ids = ['cpf', 'nome', 'IdPessoa', 'placa', 'veiculo', 'horaEntrada', 'horaSaída'];
     const [cpfInput, nomeInput, idPessoaInput, placaInput, veiculoSelect, horaEntradaInput, horaSaidaInput] =
@@ -91,6 +90,8 @@ function preencherPessoa(pessoa) {
     veiculoSelect.innerHTML = '<option value="">Selecione um veículo</option>';
     placaInput.value = '';
 
+    veiculoSelect.appendChild(new Option('Nenhum veículo', 'nenhum'));
+
     if (veiculosPessoa.length) {
         veiculosPessoa.forEach(v => {
             veiculoSelect.appendChild(new Option(v.modelo, v.placa));
@@ -98,27 +99,25 @@ function preencherPessoa(pessoa) {
         if (veiculosPessoa.length === 1) {
             veiculoSelect.value = placaInput.value = veiculosPessoa[0].placa;
         }
-    } else {
-        veiculoSelect.appendChild(new Option('----', '----'));
-        veiculoSelect.value = placaInput.value = '----';
     }
 
     if (horaEntradaInput) horaEntradaInput.value = pessoa.horaEntrada ? formatarDataHora(new Date(pessoa.horaEntrada)) : '';
     if (horaSaidaInput) horaSaidaInput.value = pessoa.horaSaida ? formatarDataHora(new Date(pessoa.horaSaida)) : '';
 }
 
-
 document.getElementById('veiculo').addEventListener('change', function () {
     const placaInput = document.getElementById('placa');
     const veiculoSelecionado = this.value;
 
-    if (veiculoSelecionado) {
-        const veiculoEncontrado = veiculos.find(v => v.placa.toUpperCase().trim() === veiculoSelecionado.toUpperCase().trim());
-        if (veiculoEncontrado) {
-            placaInput.value = veiculoEncontrado.placa;
-        }
+    if (veiculoSelecionado === 'nenhum') {
+        placaInput.value = '';
     } else {
-        placaInput.value = null;
+        if (veiculoSelecionado) {
+            const veiculoEncontrado = veiculos.find(v => v.placa.toUpperCase().trim() === veiculoSelecionado.toUpperCase().trim());
+            if (veiculoEncontrado) {
+                placaInput.value = veiculoEncontrado.placa;
+            }
+        }
     }
 });
 
@@ -163,7 +162,6 @@ function buscarDados(campo) {
     }
 }
 
-
 export async function enviarDados(botaoId) {
     try {
         const url = `${API_URLS.Acesso}`;
@@ -173,7 +171,7 @@ export async function enviarDados(botaoId) {
         const [nomeInput, cpfInput, localInput, placaInput, idPessoaInput, horaEntradaInput, horaSaidaInput, autorizacaoInput] = inputs;
         const localId = parseInt(localInput.value);
         const pessoaId = parseInt(idPessoaInput.value);
-        const placa = placaInput.value === '----' ? null : placaInput.value;
+        const placa = placaInput.value === 'nenhum' ? null : placaInput.value;
 
         const dados = {
             nome: nomeInput.value.toUpperCase(),
@@ -189,7 +187,6 @@ export async function enviarDados(botaoId) {
             placa,
             veiculo: placa ? veiculos.find(v => v.placa === placa) : null
         };
-
 
         const response = await fetch(url, {
             method: 'POST',
