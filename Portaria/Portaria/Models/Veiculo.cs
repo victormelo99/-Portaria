@@ -9,15 +9,15 @@ namespace Portaria.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo Placa é obrigatório")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "O campo deve ter entre 2 e 50 caracteres")]
         public string Placa { get; set; }
 
         [Required(ErrorMessage = "O campo modelo é obrigatório")]
-        [StringLength(30, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
+        [StringLength(30, MinimumLength = 2, ErrorMessage = "O campo deve ter entre 2 e 30 caracteres")]
         public string Modelo { get; set; }
 
-        [Required(ErrorMessage = "O campo nome é obrigatório")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "O campo deve ter mais do que 2 caracteres")]
+        [Required(ErrorMessage = "O campo cor é obrigatório")]
+        [StringLength(20, MinimumLength = 2, ErrorMessage = "O campo deve ter entre 2 e 20 caracteres")]
         public string Cor { get; set; }
 
         public TipoVeiculo TipoVeiculo { get; set; }

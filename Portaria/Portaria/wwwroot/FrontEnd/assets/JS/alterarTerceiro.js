@@ -40,6 +40,11 @@ async function atualizarTerceiro() {
     const tipoServico = document.getElementById('tipoServico').value.toUpperCase();
     const responsavel = document.getElementById('responsavel').value.toUpperCase();
 
+    if (!nome || nome.length < 2 || nome.length > 50) return alert('Nome deve ter entre 2 e 50 caracteres.');
+    if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
+    if (!empresa) return alert('Empresa é obrigatória.');
+    if (!tipoServico) return alert('Tipo de serviço é obrigatório.');
+    if (!responsavel) return alert('Responsável é obrigatório.');
 
     const terceiroAtualizado = {
         id: id,
@@ -54,7 +59,7 @@ async function atualizarTerceiro() {
 
     try {
         const response = await fetch(url, {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
                 'Authorization': 'Bearer ' +  Token(),
                 'Content-Type': 'application/json',
@@ -77,9 +82,9 @@ async function atualizarTerceiro() {
 document.addEventListener('DOMContentLoaded', function() {
     preencherFormulario();
 
+    document.getElementById('atualizar').addEventListener('click', atualizarTerceiro);
+
     document.getElementById('sair').addEventListener('click', function() {
         window.close();
     });
 });
-
-document.getElementById('atualizar').addEventListener('click', atualizarTerceiro);

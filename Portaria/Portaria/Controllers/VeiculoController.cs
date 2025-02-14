@@ -43,7 +43,7 @@ namespace Portaria.Controllers
                 if (pessoaExistente == null)
                 {
                     return BadRequest("Pessoa não encontrada.");
-                }
+                } 
 
                 _context.Pessoa.Attach(pessoaExistente);
 

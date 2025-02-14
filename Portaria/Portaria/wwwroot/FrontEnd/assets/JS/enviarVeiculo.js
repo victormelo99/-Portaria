@@ -1,5 +1,4 @@
-import { Token } from './config.js';
-import { API_URLS } from './config.js';
+import { API_URLS, Token } from './config.js';
 
 let pessoas = [];
 
@@ -13,7 +12,7 @@ async function carregarPessoas() {
             const response = await fetch(rota, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' +  Token(),
+                    'Authorization': 'Bearer ' + Token(),
                     'Content-Type': 'application/json',
                 },
             });
@@ -60,6 +59,7 @@ function preencherPessoaPorCPF() {
         idPessoaInput.value = '';
     }
 }
+
 export async function enviarDados(botaoId) {
     const url = `${API_URLS.Veiculo}`;
 
@@ -68,9 +68,15 @@ export async function enviarDados(botaoId) {
         const modelo = document.getElementById('modelo').value.toUpperCase();
         const cor = document.getElementById('cor').value.toUpperCase();
         const tipoVeiculo = parseInt(document.getElementById('tipoVeiculo').value);
-        const dataRegistro = new Date().toISOString();
         const pessoaId = parseInt(document.getElementById('pessoa').value);
+        const dataRegistro = new Date().toISOString();
         const pessoaSelecionada = pessoas.find(pessoa => pessoa.id === pessoaId);
+
+        if (!placa || placa.length < 2 || placa.length > 50) return alert('O campo Placa é obrigatório e deve ter entre 2 e 50 caracteres.');
+        if (!modelo || modelo.length < 2 || modelo.length > 30) return alert('O campo Modelo é obrigatório e deve ter entre 2 e 30 caracteres.');
+        if (!cor || cor.length < 2 || cor.length > 20) return alert('O campo Cor é obrigatório e deve ter entre 2 e 20 caracteres.');
+        if (isNaN(tipoVeiculo)) return alert('O campo Tipo de Veículo é obrigatório.');
+        if (isNaN(pessoaId)) return alert('É necessário selecionar uma Pessoa.');
 
         const dados = {
             placa: placa,
@@ -96,14 +102,16 @@ export async function enviarDados(botaoId) {
             document.getElementById('pessoa').value = '';
             alert('Veículo cadastrado com sucesso!');
 
-            if (botaoId === 'salvarS') { window.close(); }
+            if (botaoId === 'salvarS') {
+                window.close();
+            }
+        } else {
+            throw new Error('Erro ao cadastrar o veículo.');
         }
     } catch (error) {
         alert(`Erro ao processar a requisição: ${error.message}`);
     }
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     carregarPessoas();

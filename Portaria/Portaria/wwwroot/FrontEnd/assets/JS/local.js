@@ -5,7 +5,7 @@ import { selecionarLinha, vincularEventosLinhas, ocultar } from './utilidades.js
 
 let estadoAtual = {
     skip: 1,
-    take: 2,
+    take: 10,
     ordenDesc: false,
     totalItems: 0,
     dadosCompletos: [], 

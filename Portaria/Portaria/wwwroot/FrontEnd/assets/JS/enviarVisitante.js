@@ -1,59 +1,49 @@
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
 
-async function enviarDados(nome, cpf, motivoVisita, pessoaVisitada, botaoId) {
+export async function enviarDados(botaoId) {
     const url = `${API_URLS.Visitante}`;
 
     try {
+        let nome = document.getElementById('nome').value.toUpperCase();
+        let cpf = document.getElementById('cpf').value.trim();
+        let motivoVisita = document.getElementById('motivoVisita').value.toUpperCase();
+        let pessoaVisitada = document.getElementById('pessoaVisitada').value.toUpperCase();
+
+        if (!nome || nome.length < 2 || nome.length > 50) return alert('Campo Nome é obrigatório e deve ter entre 2 e 50 caracteres.');
+        if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
+        
+        const dados = { nome, cpf, motivoVisita, pessoaVisitada };
 
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' +  Token(),
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nome, cpf, motivoVisita,pessoaVisitada}),
+            body: JSON.stringify(dados),
         });
 
         if (response.ok) {
-
             document.querySelectorAll('input').forEach(input => input.value = '');
             alert('Visitante incluído com sucesso!');
 
             if (botaoId === 'salvarS') {
-                fecharAba();
+                window.close();
             }
+        } else {
+            throw new Error('Erro ao cadastrar o visitante');
         }
     } catch (error) {
-        console.error('Erro ao enviar dados para a API:', error);
+        alert('Erro ao processar a requisição: ' + error.message);
     }
-};
-
-function fecharAba() {
-    window.close();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
-    document.getElementById('salvar').addEventListener('click', function () {
-        let nome = document.getElementById('nome').value.toUpperCase();
-        let cpf = document.getElementById('cpf').value;
-        let motivoVisita = document.getElementById('motivoVisita').value.toUpperCase();
-        let pessoaVisitada = document.getElementById('pessoaVisitada').value.toUpperCase();
+    ['salvar', 'salvarS'].forEach(id => 
+        document.getElementById(id)?.addEventListener('click', () => enviarDados(id))
+    );
 
-        enviarDados(nome, cpf, motivoVisita, pessoaVisitada, 'salvar');
-    });
-
-    document.getElementById('salvarS').addEventListener('click', function () {
-        let nome = document.getElementById('nome').value.toUpperCase();
-        let cpf = document.getElementById('cpf').value;
-        let motivoVisita = document.getElementById('motivoVisita').value.toUpperCase();
-        let pessoaVisitada = document.getElementById('pessoaVisitada').value.toUpperCase();
-
-        enviarDados(nome, cpf,motivoVisita,pessoaVisitada, 'salvarS');
-    });
-
-    document.getElementById('sair').addEventListener('click', function () {
-        window.close();
-    });
+    document.getElementById('sair')?.addEventListener('click', () => window.close());
 });

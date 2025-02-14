@@ -1,12 +1,10 @@
-import { Token } from './config.js';
-import { API_URLS } from './config.js';
+import { API_URLS, Token } from './config.js';
 
 let pessoas = [];
 
 async function carregarPessoas() {
     if (pessoas.length > 0) return;
 
-    const token = Token();
     const rotas = [API_URLS.Funcionario, API_URLS.Visitante, API_URLS.Terceiro];
 
     try {
@@ -15,7 +13,7 @@ async function carregarPessoas() {
         for (const rota of rotas) {
             const response = await fetch(rota, {
                 method: 'GET',
-                headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+                headers: { 'Authorization': 'Bearer ' + Token(), 'Content-Type': 'application/json' },
             });
 
             if (response.ok) {
@@ -36,13 +34,12 @@ async function preencherFormulario() {
 
     await carregarPessoas();
 
-    const token = Token();
     const url = `${API_URLS.Veiculo}/${id}`;
 
     try {
         const response = await fetch(url, {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+            headers: { 'Authorization': 'Bearer ' + Token(), 'Content-Type': 'application/json' },
         });
 
         const veiculo = await response.json();
@@ -54,7 +51,7 @@ async function preencherFormulario() {
         document.getElementById('tipoVeiculo').value = veiculo.tipoVeiculo;
         document.getElementById('dataRegistro').value = veiculo.dataRegistro;
         document.getElementById('IdPessoa').value = veiculo.pessoaId;
-
+        
         const pessoaSelecionada = document.getElementById('pessoa');
         pessoaSelecionada.innerHTML = '<option value="">Selecione uma pessoa</option>';
 
@@ -85,6 +82,10 @@ async function atualizarVeiculo() {
     const dataRegistro = new Date().toISOString();
     const pessoaId = parseInt(document.getElementById('pessoa').value);
     const pessoaSelecionada = pessoas.find(pessoa => pessoa.id === pessoaId);
+
+    if (!placa || placa.length < 2 || placa.length > 50) return alert('O campo Placa é obrigatório e deve ter entre 2 e 50 caracteres.');
+    if (!modelo || modelo.length < 2 || modelo.length > 30) return alert('O campo Modelo é obrigatório e deve ter entre 2 e 30 caracteres.');
+    if (!cor || cor.length < 2 || cor.length > 20) return alert('O campo Cor é obrigatório e deve ter entre 2 e 20 caracteres.');
 
     const veiculoAtualizado = {
         id,

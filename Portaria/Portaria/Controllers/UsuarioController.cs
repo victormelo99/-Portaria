@@ -65,14 +65,11 @@ namespace Portaria.Controllers
 
                 return Ok(new { RedefinirSenha = false, resultado });
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, new { message = "Erro interno no servidor. Tente novamente mais tarde." });
+                return BadRequest($"Erro na hora de realizar o login. Exceção{e.Message}");
             }
         }
-
-
-
 
         [HttpGet]
         [Authorize(Roles = "TI")]

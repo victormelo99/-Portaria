@@ -51,5 +51,4 @@ document.addEventListener('DOMContentLoaded', function () {
     const usuarioId = localStorage.getItem('usuarioId');     
     ocultar(usuarioId);
     inicializarAreaCadastro();
-
 });

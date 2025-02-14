@@ -50,7 +50,8 @@ namespace Portaria.Controllers
 
             }
         }
-        [HttpPatch]
+        
+        [HttpPut]
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PatchTerceiro([FromBody] Terceiro terceiro)
         {

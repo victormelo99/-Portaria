@@ -3,8 +3,8 @@ import { API_URLS } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-    
     const url = `${API_URLS.Visitante}/${id}`;
+
     try {
         const response = await fetch(url, {
             method: 'GET',
@@ -37,6 +37,9 @@ async function atualizarVisitante() {
     const motivoVisita = document.getElementById('motivoVisita').value.toUpperCase();
     const pessoaVisitada = document.getElementById('pessoaVisitada').value.toUpperCase();
 
+    if (!nome || nome.length < 2 || nome.length > 50) return alert('Campo Nome é obrigatório e deve ter entre 2 e 50 caracteres.');
+    if (!cpf || cpf.length !== 11) return alert('CPF inválido.');
+
     const localAtualizado = {
         id: id,
         nome: nome,
@@ -45,14 +48,13 @@ async function atualizarVisitante() {
         pessoaVisitada: pessoaVisitada
     };
 
-    const token = Token();
     const url = `${API_URLS.Visitante}`;
 
     try {
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(localAtualizado),
@@ -73,9 +75,10 @@ async function atualizarVisitante() {
 document.addEventListener('DOMContentLoaded', function() {
     preencherFormulario();
 
+    document.getElementById('atualizar').addEventListener('click', atualizarVisitante);
+
     document.getElementById('sair').addEventListener('click', function() {
         window.close();
     });
 });
 
-document.getElementById('atualizar').addEventListener('click', atualizarVisitante);

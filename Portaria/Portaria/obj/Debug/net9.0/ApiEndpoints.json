@@ -392,7 +392,7 @@
     "ContainingType": "Portaria.Controllers.TerceiroController",
     "Method": "PatchTerceiro",
     "RelativePath": "api/Terceiro",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

@@ -48,13 +48,14 @@ namespace Portaria.Controllers
             {
                 await _context.AddAsync(funcionario);
                 await _context.SaveChangesAsync();
-                return Ok(new { message = "Funcionário incluído" });
+                return Ok("Funcionário incluído" );
             }
             catch (Exception e)
             {
-                return BadRequest(new { error = $"Erro na hora de cadastrar funcionários. Exceção: {e.Message}" });
+                return BadRequest($"Erro na hora de cadastrar funcionários. Exceção: {e.Message}");
             }
         }
+
         [HttpPut]
         [Authorize(Roles = "TI,PORTARIA")]
         public async Task<ActionResult> PutFuncionario([FromBody] Funcionario funcionario)

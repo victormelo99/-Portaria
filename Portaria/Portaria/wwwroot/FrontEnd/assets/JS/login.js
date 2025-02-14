@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!response.ok) {
                     const errorText = await response.text();
                     console.error("Erro na API:", errorText);
-                    document.getElementById('mensagem').innerText = `Erro: ${response.status} - ${errorText}`;
+                    document.getElementById('mensagem').innerText = errorText;
                     return;
                 }
 
@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         return;
                     }
                 }
-
-                // Verifica se os dados essenciais estão presentes
 
                 if (data.resultado && data.resultado.token && data.resultado.usuario && data.resultado.usuario.cargo) {
                     localStorage.setItem('token', data.resultado.token);

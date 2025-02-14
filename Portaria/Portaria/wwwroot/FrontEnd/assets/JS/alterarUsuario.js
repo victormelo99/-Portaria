@@ -34,30 +34,31 @@ async function preencherFormulario() {
 }
 
 async function atualizarUsuario() {
-    const id = document.getElementById('id').value;
-    const nome = document.getElementById('nome').value.toUpperCase();
-    const cargo = document.getElementById('cargo').value.toUpperCase();
-    const login = document.getElementById('login').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
-
-    if (senha !== confirmarSenha) {
-        alert('As senhas não coincidem!');
-        return;
-    }
-
-    const usuarioAtualizado = {
-        id: id,
-        nome: nome,
-        cargo: cargo,
-        login: login,
-        senha: senha,
-        senhaResetada: true 
-    };
-
     const url = `${API_URLS.Usuario}/alterar-dados`;
 
     try {
+        const id = document.getElementById('id').value;
+        let nome = document.getElementById('nome').value.toUpperCase();
+        let cargo = document.getElementById('cargo').value.toUpperCase();
+        let login = document.getElementById('login').value;
+        let senha = document.getElementById('senha').value;
+        let confirmarSenha = document.getElementById('confirmarSenha').value;
+
+        if (!nome ||  nome.length > 30) return alert('Campo Nome é obrigatório e  não pode ter mais do que 30 caracteres.');
+        if (!login || login.length > 30) return alert('Campo Login é obrigatório e  não pode ter mais do que 30 caracteres.');
+        if (!cargo || cargo.length > 30) return alert('Campo Cargo é obrigatório');
+        if (senha !== confirmarSenha) return alert('As senhas não coincidem!');
+        if (!senha || senha.length < 8 || senha.length > 16) return alert('"O campo Senha não pode ter mais do que 16 e menos que 8 caracteres');
+
+        const usuarioAtualizado = {
+            id: id,
+            nome: nome,
+            login: login,
+            senha: senha,
+            cargo: cargo,
+            senhaResetada: true
+        };
+
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
@@ -75,17 +76,17 @@ async function atualizarUsuario() {
         window.close();
 
     } catch (error) {
-        console.error('Erro ao atualizar o usuário:', error);
+        alert('Erro ao atualizar o usuário: ' + error.message);
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
     preencherFormulario();
+
+    document.getElementById('Atualizar').addEventListener('click', atualizarUsuario);
 
     document.getElementById('sair').addEventListener('click', function() {
         window.close();
     });
 });
 
-document.getElementById('Atualizar').addEventListener('click', atualizarUsuario);

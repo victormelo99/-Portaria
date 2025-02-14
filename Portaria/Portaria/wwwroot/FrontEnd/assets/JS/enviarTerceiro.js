@@ -48,16 +48,10 @@ export async function enviarDados(botaoTipo) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('salvar').addEventListener('click', function () {
-        enviarDados('salvar');
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    ['salvar', 'salvarS'].forEach(id => 
+        document.getElementById(id)?.addEventListener('click', () => enviarDados(id))
+    );
 
-    document.getElementById('salvarS').addEventListener('click', function () {
-        enviarDados('salvarS');
-    });
-
-    document.getElementById('sair').addEventListener('click', function () {
-        window.close();
-    });
+    document.getElementById('sair')?.addEventListener('click', () => window.close());
 });

@@ -1,9 +1,7 @@
-import { Token } from './config.js';
-import { API_URLS } from './config.js';
+import { API_URLS, Token } from './config.js';
 
 async function preencherFormulario() {
     const id = localStorage.getItem('idUsuarioSelecionado');
-
     const url = `${API_URLS.Local}/${id}`;
 
     try {
@@ -35,20 +33,22 @@ async function atualizarLocal() {
     const nome = document.getElementById('nome').value.toUpperCase();
     const descricao = document.getElementById('descricao').value.toUpperCase();
 
+    if (!nome || nome.length < 2 || nome.length > 50) return alert('Campo Nome é obrigatório e deve ter entre 2 e 50 caracteres.');
+
+
     const localAtualizado = {
         id: id,
         nome: nome,
         descricao: descricao
     };
 
-    const token = Token();
     const url = `${API_URLS.Local}`;
 
     try {
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Authorization': 'Bearer ' + token,
+                'Authorization': 'Bearer ' + Token(),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(localAtualizado),
@@ -69,9 +69,10 @@ async function atualizarLocal() {
 document.addEventListener('DOMContentLoaded', function() {
     preencherFormulario();
 
+    document.getElementById('atualizar').addEventListener('click', atualizarLocal);
+
     document.getElementById('sair').addEventListener('click', function() {
         window.close();
     });
 });
 
-document.getElementById('atualizar').addEventListener('click', atualizarLocal);
