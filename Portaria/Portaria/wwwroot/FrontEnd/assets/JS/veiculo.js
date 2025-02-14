@@ -98,6 +98,8 @@ async function preencherTabela(pesquisa = "") {
             tdCpf.textContent = veiculo.pessoa?.cpf || 'N/A';
             const tdNome = document.createElement('td');
             tdNome.textContent = veiculo.pessoa?.nome || 'N/A';
+            const tdDataRegistro = document.createElement('td');
+            tdDataRegistro.textContent = new Date (veiculo.dataRegistro).toLocaleDateString() 
 
             tr.appendChild(tdId);
             tr.appendChild(tdModelo);
@@ -106,6 +108,7 @@ async function preencherTabela(pesquisa = "") {
             tr.appendChild(tdTipoVeiculo);
             tr.appendChild(tdCpf);
             tr.appendChild(tdNome);
+            tr.appendChild(tdDataRegistro);
 
             tr.addEventListener('click', function () {
                 selecionarLinha(this);

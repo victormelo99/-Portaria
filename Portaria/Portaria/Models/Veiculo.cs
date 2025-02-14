@@ -25,13 +25,14 @@ namespace Portaria.Models
         [ForeignKey("Pessoa")]
         public int PessoaId { get; set; }
         public Pessoa pessoa { get; set; }
+        public DateTime DataRegistro { get; set; }
 
 
         public Veiculo()
         {
         }
 
-        public Veiculo(int id, string placa, string modelo, string cor, TipoVeiculo tipoVeiculo, int pessoaId)
+        public Veiculo(int id, string placa, string modelo, string cor, TipoVeiculo tipoVeiculo,DateTime dataRegistro, int pessoaId)
         {
             Id = id;
             Placa = placa;
@@ -39,6 +40,7 @@ namespace Portaria.Models
             Cor = cor;
             TipoVeiculo = tipoVeiculo;
             PessoaId = pessoaId;
+            DataRegistro = dataRegistro;
         }
     }
 }

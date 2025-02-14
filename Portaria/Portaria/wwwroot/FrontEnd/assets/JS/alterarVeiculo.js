@@ -52,6 +52,7 @@ async function preencherFormulario() {
         document.getElementById('modelo').value = veiculo.modelo.toUpperCase();
         document.getElementById('cor').value = veiculo.cor;
         document.getElementById('tipoVeiculo').value = veiculo.tipoVeiculo;
+        document.getElementById('dataRegistro').value = veiculo.dataRegistro;
         document.getElementById('IdPessoa').value = veiculo.pessoaId;
 
         const pessoaSelecionada = document.getElementById('pessoa');
@@ -81,6 +82,7 @@ async function atualizarVeiculo() {
     const modelo = document.getElementById('modelo').value.toUpperCase();
     const cor = document.getElementById('cor').value.toUpperCase();
     const tipoVeiculo = parseInt(document.getElementById('tipoVeiculo').value);
+    const dataRegistro = new Date().toISOString();
     const pessoaId = parseInt(document.getElementById('pessoa').value);
     const pessoaSelecionada = pessoas.find(pessoa => pessoa.id === pessoaId);
 
@@ -90,6 +92,7 @@ async function atualizarVeiculo() {
         modelo,
         cor,
         tipoVeiculo,
+        dataRegistro,
         pessoaId,
         pessoa: pessoaSelecionada
     };

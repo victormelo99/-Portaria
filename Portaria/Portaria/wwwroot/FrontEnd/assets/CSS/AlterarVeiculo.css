@@ -121,7 +121,7 @@ select:focus {
     text-transform: uppercase;
 }
 
-.idPessoa{
+.idPessoa,.dataRegistro{
     display: none;
 }
 

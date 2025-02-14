@@ -60,7 +60,6 @@ function preencherPessoaPorCPF() {
         idPessoaInput.value = '';
     }
 }
-
 export async function enviarDados(botaoId) {
     const url = `${API_URLS.Veiculo}`;
 
@@ -69,6 +68,7 @@ export async function enviarDados(botaoId) {
         const modelo = document.getElementById('modelo').value.toUpperCase();
         const cor = document.getElementById('cor').value.toUpperCase();
         const tipoVeiculo = parseInt(document.getElementById('tipoVeiculo').value);
+        const dataRegistro = new Date().toISOString();
         const pessoaId = parseInt(document.getElementById('pessoa').value);
         const pessoaSelecionada = pessoas.find(pessoa => pessoa.id === pessoaId);
 
@@ -77,6 +77,7 @@ export async function enviarDados(botaoId) {
             modelo: modelo,
             cor: cor,
             tipoVeiculo: tipoVeiculo,
+            dataRegistro: dataRegistro,
             pessoaId: pessoaId,
             pessoa: pessoaSelecionada
         };
@@ -95,12 +96,14 @@ export async function enviarDados(botaoId) {
             document.getElementById('pessoa').value = '';
             alert('Veículo cadastrado com sucesso!');
 
-            if (botaoId === 'salvarS') {window.close();}
+            if (botaoId === 'salvarS') { window.close(); }
         }
     } catch (error) {
         alert(`Erro ao processar a requisição: ${error.message}`);
     }
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     carregarPessoas();

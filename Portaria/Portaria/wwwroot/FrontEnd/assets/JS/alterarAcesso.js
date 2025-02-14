@@ -135,11 +135,9 @@ async function carregarVeiculos(veiculoId, placaSelecionada) {
         let veiculoSelecionado = null;
         const pessoaId = document.getElementById('IdPessoa').value;
         
-        // Filtra os veículos para exibir apenas os da pessoa associada
         const veiculosDaPessoa = veiculos.filter(veiculo => veiculo.pessoaId === parseInt(pessoaId));
 
         if (veiculosDaPessoa.length === 0) {
-            // Caso a pessoa não tenha veículos, exibe a opção "Nenhum veículo"
             veiculoSelect.add(new Option('Nenhum veículo', 'nenhum'));
         } else {
             veiculosDaPessoa.forEach(veiculo => {
@@ -148,14 +146,12 @@ async function carregarVeiculos(veiculoId, placaSelecionada) {
                 option.text = `${veiculo.modelo} - ${veiculo.placa}`;
                 veiculoSelect.add(option);
 
-                // Se o veículo corresponde ao que foi associado ao acesso, seleciona ele
                 if (veiculo.id === veiculoId || veiculo.placa === placaSelecionada) {
                     veiculoSelecionado = veiculo;
                 }
             });
         }
 
-        // Caso um veículo tenha sido selecionado, preenche os campos de dados do veículo
         if (veiculoSelecionado) {
             document.getElementById('veiculoId').value = veiculoSelecionado.id;
             document.getElementById('placa').value = veiculoSelecionado.placa;
