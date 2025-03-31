@@ -175,7 +175,7 @@ export function abrirlinks(pagina) {
 }
 
 async function deletarAcesso() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    const idUsuario = localStorage.getItem('usuarioId');
 
     if (confirm('Tem certeza que deseja excluir este acesso?')) {
         try {
@@ -213,7 +213,7 @@ async function deletarAcesso() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ocultar(localStorage.getItem('usuarioId'));
+    ocultar(localStorage.getItem('usuarioCargo'));
     preencherTabela();
     configuracoesPaginacao();
 

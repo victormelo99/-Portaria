@@ -29,7 +29,7 @@ export function selecionarLinha(linha) {
     linha.classList.add('selecionado');
 
     const id = linha.cells[0].textContent.trim();
-    localStorage.setItem('idUsuarioSelecionado', id);
+    localStorage.setItem('usuarioId', id);
 
     botaoAlterar.disabled = false;
     botaoDeletar.disabled = false;

@@ -141,7 +141,7 @@ export function abrirlinks(pagina) {
 }
 
 async function deletarTerceiro() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    const idUsuario = localStorage.getItem('usuarioId');
 
     if (confirm('Tem certeza que deseja excluir este terceiro?')) {
         try {
@@ -180,7 +180,7 @@ async function deletarTerceiro() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ocultar(localStorage.getItem('usuarioId'));
+    ocultar(localStorage.getItem('usuarioCargo'));
     preencherTabela();
     configuracoesPaginacao();
 

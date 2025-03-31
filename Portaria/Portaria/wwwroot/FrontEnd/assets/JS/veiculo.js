@@ -1,4 +1,3 @@
-// veiculo.js
 import { Token } from './config.js';
 import { API_URLS } from './config.js';
 import { selecionarLinha, vincularEventosLinhas, ocultar} from './utilidades.js';
@@ -161,7 +160,7 @@ export function abrirlinks(pagina) {
 }
 
 async function deletarVeiculo() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    const idUsuario = localStorage.getItem('usuarioId');
 
     if (confirm('Tem certeza que deseja excluir este veículo?')) {
         try {
@@ -199,7 +198,7 @@ async function deletarVeiculo() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ocultar(localStorage.getItem('usuarioId'));
+    ocultar(localStorage.getItem('usuarioCargo'));
     preencherTabela();
     configuracoesPaginacao();
 

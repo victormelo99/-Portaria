@@ -48,14 +48,15 @@ builder.Services.AddScoped<UsuarioLoginService>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "AllowAll", 
+    options.AddPolicy(name: "AllowAll",
         policy =>
         {
-            policy.WithOrigins("https://localhost:7063","http://localhost:5118","https://localhost:7063/swagger/index.html")
+            policy.AllowAnyOrigin()
                   .AllowAnyMethod()
                   .AllowAnyHeader();
         });
 });
+
 
 var app = builder.Build();
 

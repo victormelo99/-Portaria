@@ -139,7 +139,7 @@ export function abrirlinks(pagina) {
 }
 
 async function deletarUsuario() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    const idUsuario = localStorage.getItem('usuarioId');
 
     if (confirm('Tem certeza que deseja excluir este usuário?')) {
         try {

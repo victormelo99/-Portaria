@@ -1,7 +1,7 @@
 import { Token, API_URLS } from './config.js';
 
 async function verificarSenhaResetada() {
-    const usuarioId = localStorage.getItem('idUsuarioSelecionado');
+    const usuarioId = localStorage.getItem('usuarioId');
 
     const url = `${API_URLS.Usuario}/${usuarioId}`;
 
@@ -82,6 +82,7 @@ async function resetarSenha() {
     }
 }
 
-
-document.addEventListener('DOMContentLoaded', verificarSenhaResetada);
-document.getElementById('Atualizar').addEventListener('click', resetarSenha);
+document.addEventListener('DOMContentLoaded', function() {
+    verificarSenhaResetada();
+    document.getElementById('Atualizar').addEventListener('click', resetarSenha);
+});

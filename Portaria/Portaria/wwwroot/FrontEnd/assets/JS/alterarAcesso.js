@@ -57,7 +57,7 @@ async function carregarDados() {
 }
 
 async function preencherFormulario() {
-    const id = localStorage.getItem('idUsuarioSelecionado');
+    const id = localStorage.getItem('usuarioId');
     const url = `${API_URLS.Acesso}/${id}`;
 
     try {

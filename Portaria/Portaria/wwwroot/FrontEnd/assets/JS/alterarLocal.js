@@ -1,7 +1,7 @@
 import { API_URLS, Token } from './config.js';
 
 async function preencherFormulario() {
-    const id = localStorage.getItem('idUsuarioSelecionado');
+    const id = localStorage.getItem('usuarioId');
     const url = `${API_URLS.Local}/${id}`;
 
     try {

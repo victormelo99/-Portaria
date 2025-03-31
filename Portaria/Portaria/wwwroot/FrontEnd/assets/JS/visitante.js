@@ -134,7 +134,7 @@ export function abrirlinks(pagina) {
 }
 
 async function deletarVisitante() {
-    const idUsuario = localStorage.getItem('idUsuarioSelecionado');
+    const idUsuario = localStorage.getItem('usuarioId');
 
     if (confirm('Tem certeza que deseja excluir este Visitante?')) {
         try {
@@ -172,7 +172,7 @@ async function deletarVisitante() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ocultar(localStorage.getItem('usuarioId'));
+    ocultar(localStorage.getItem('usuarioCargo'));
     preencherTabela();
     configuracoesPaginacao();
 

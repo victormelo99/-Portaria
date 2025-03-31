@@ -74,7 +74,12 @@ function preencherLocaisSelecionados() {
 
 function formatarDataHora(data) {
     data = new Date(data);
-    return isNaN(data) ? '' : data.toISOString().slice(0, 19);
+    if (isNaN(data)) return '';
+    
+    // Adiciona o ajuste de fuso horário para manter a hora local
+    const tzOffset = data.getTimezoneOffset() * 60000; // offset em milissegundos
+    const localISOTime = (new Date(data - tzOffset)).toISOString().slice(0, 19);
+    return localISOTime;
 }
 
 function preencherPessoa(pessoa) {

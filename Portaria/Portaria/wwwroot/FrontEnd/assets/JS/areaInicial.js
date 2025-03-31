@@ -48,7 +48,7 @@ function mudarPagina(pagina) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const usuarioId = localStorage.getItem('usuarioId');     
-    ocultar(usuarioId);
+    const usuarioCargo = localStorage.getItem('usuarioCargo');     
+    ocultar(usuarioCargo);
     inicializarAreaCadastro();
 });

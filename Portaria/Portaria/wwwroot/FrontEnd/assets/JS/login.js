@@ -31,15 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = JSON.parse(body);
 
                 if (data.redefinirSenha !== undefined) {
-                    if (data.redefinirSenha) {
-                        window.location.href = '/frontend/assets/HTML/resetSenha.html';
-                        return;
-                    }
-                }
+    			if (data.redefinirSenha) {
+        			localStorage.setItem('token', data.token); 
+        			localStorage.setItem('usuarioId', data.id);
+        			window.location.href = '/frontend/assets/HTML/resetSenha.html';
+        		return;
+    			}
+		}
+
 
                 if (data.resultado && data.resultado.token && data.resultado.usuario && data.resultado.usuario.cargo) {
                     localStorage.setItem('token', data.resultado.token);
-                    localStorage.setItem('usuarioId', data.resultado.usuario.cargo);
+                    localStorage.setItem('usuarioId', data.resultado.usuario.usuario);
+                    localStorage.setItem('usuarioCargo', data.resultado.usuario.cargo);
 
                     document.getElementById('mensagem').innerText = 'Login realizado com sucesso!';
 
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
             } catch (error) {
-                console.error("Erro de conexão:", error);
+                console.error("Erro de conexÃ£o:", error);
                 const mensagemEl = document.getElementById('mensagem');
                 mensagemEl.innerText = 'Erro ao conectar ao servidor. Tente novamente.';
                 mensagemEl.style.color = 'red';

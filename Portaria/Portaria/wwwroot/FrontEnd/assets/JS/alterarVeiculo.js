@@ -30,7 +30,7 @@ async function carregarPessoas() {
 }
 
 async function preencherFormulario() {
-    const id = localStorage.getItem('idUsuarioSelecionado');
+    const id = localStorage.getItem('usuarioId');
 
     await carregarPessoas();
 
